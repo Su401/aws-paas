@@ -1,0 +1,33 @@
+@mixin bg () {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    background-image: url("../../Images/pyramid.png");
+    background-repeat: repeat-y;
+    background-position: top right;
+    background-size: 360px;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin nav () {
+    background: #EAEAEA;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    max-height: 6rem;
+
+}
+
+
+.body{
+    @include bg();
+}
+
+
+.nav{
+    @include nav();
+}

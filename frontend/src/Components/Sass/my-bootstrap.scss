@@ -1,0 +1,13 @@
+@import './btn.scss';
+@import './templatePrimario.scss';
+@import './templateSecundario.scss';
+
+
+$font-family-base: Poppins;
+
+
+$primary: #76C9E2;
+$danger: #FF5A5A;
+$body-bg:  #C9C9C9;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
