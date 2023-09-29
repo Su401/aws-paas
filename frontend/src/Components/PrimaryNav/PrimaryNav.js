@@ -1,9 +1,9 @@
 import React from 'react';
 import './PrimaryNav.css';
-import logo from '../Images/logo.png';
+import logo from '../../Images/logo.png';
 export default function PrimaryNav() {
 	return (
-		<div className='PrimaryNav'>
+		<div className='PrimaryNav '>
 			<nav className='navbar navbar-expand-md bg-body py-3 shadow nav'>
 				<div className='container-fluid me-5'>
 					<div className='navbar-brand d-flex align-items-center logo'>
