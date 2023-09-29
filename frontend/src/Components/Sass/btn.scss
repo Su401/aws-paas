@@ -1,0 +1,41 @@
+
+@mixin btn-theme($btn-color) {
+    background-color: $btn-color;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10);
+    width: 100%;
+    height: 3rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-width: 0;
+    &:hover {
+        color:#FFF;
+        background-color: lighten($btn-color, 2%);
+    }
+}
+
+.btn{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 7px;
+    color: #FFF;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.blueBtn {
+    @include btn-theme(#76C9E2);
+}
+
+.redBtn {
+    @include btn-theme(#FF5A5A);
+}
