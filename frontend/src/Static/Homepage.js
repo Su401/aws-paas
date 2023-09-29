@@ -1,7 +1,8 @@
 import "../css/TemplatePrimario.css"
+import "bootstrap/dist/css/bootstrap.css"
 
-export default function Homepage (){
-    return(
+export default function Homepage() {
+    return (
         <div className="Homepage">
             <div class="body">
                 <h1>Bem-Vindo</h1>
