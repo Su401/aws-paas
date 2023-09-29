@@ -2,7 +2,7 @@ import "../css/TemplatePrimario.css"
 
 export default function PoliticaPrivacidade() {
     return (
-        
+
         <div class="body">
                 <h1>Política de Privacidade</h1>
                 <section class="boas-vindas">
@@ -77,7 +77,7 @@ export default function PoliticaPrivacidade() {
                             Cookies.
                         </p>
                     </article>
-                    <h2>6. Alterações na Política de Privacidade <br> e Cookies</h2>
+                    <h2>6. Alterações na Política de Privacidade <br /> e Cookies</h2>
                     <article>
                         <p class="texto">Reservamo-nos o direito de fazer alterações nesta Política de Privacidade e
                             Cookies a qualquer momento. A versão mais recente será sempre disponibilizada em nosso site.
