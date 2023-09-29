@@ -1,13 +1,13 @@
 import "../css/TemplatePrimario.css"
 
-export default function Homepage (){
+export default function Homepage(){
     return(
         <div className="Homepage">
-            <div class="body">
+            <div className="body">
                 <h1>Bem-Vindo</h1>
-                <section class="boas-vindas">
+                <section className="boas-vindas">
                     <h2>Liderando a Digitalização em HSE e HACCP</h2>
-                    <article class="primeiro">
+                    <article className="primeiro">
                         <p> Na PAAS, estamos empenhados em simplificar e revolucionar a gestão de Segurança, Saúde e
                             Ambiente (HSE) e Análise de Perigos e Pontos Críticos de Controlo (HACCP) para empresas em
                             todo o mundo. Somos pioneiros na digitalização desses serviços essenciais, oferecendo uma
@@ -18,30 +18,30 @@ export default function Homepage (){
                 <section>
                     <h2>O Nosso Compromisso com a Digitalização</h2>
                     <article>
-                        <p class="texto">Na era digital, a eficiência e a precisão são fundamentais. Compreendemos a
+                        <p className="texto">Na era digital, a eficiência e a precisão são fundamentais. Compreendemos a
                             importância de substituir processos manuais demorados e propensos a erros por soluções
                             tecnológicas inteligentes. É por isso que desenvolvemos ferramentas de ponta que capacitam
                             as empresas a digitalizar e automatizar processos de HSE e HACCP de ponta a ponta.</p>
                     </article>
                     <article>
-                        <p class="subcapitulo">Benefícios da Nossa Abordagem Digital</p>
-                        <p class="texto">Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de
+                        <p className="subcapitulo">Benefícios da Nossa Abordagem Digital</p>
+                        <p className="texto">Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de
                             documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os
                             dados necessários, economizando tempo e recursos preciosos.
                         </p>
-                        <p class="texto">Conformidade Simplificada: Cumprir regulamentos e normas nunca foi tão fácil.
+                        <p className="texto">Conformidade Simplificada: Cumprir regulamentos e normas nunca foi tão fácil.
                             As nossas ferramentas garantem que você esteja sempre em conformidade com os requisitos
                             legais em constante evolução.
 
                         </p>
-                        <p class="texto">Rastreabilidade Total: Tenha um controle completo sobre a sua operação. A
+                        <p className="texto">Rastreabilidade Total: Tenha um controle completo sobre a sua operação. A
                             digitalização permite rastrear e monitorizar cada etapa do processo de HSE e HACCP,
                             garantindo que nada passe despercebido.</p>
                     </article>
                     <article>
-                        <p class="subcapitulo">Atendendo a Diversos Setores</p>
+                        <p className="subcapitulo">Atendendo a Diversos Setores</p>
 
-                        <p class="texto">Embora tenhamos começado com um foco na indústria de restauração, as nossas
+                        <p className="texto">Embora tenhamos começado com um foco na indústria de restauração, as nossas
                             soluções são altamente adaptáveis e aplicáveis a uma variedade de setores. Esteja você
                             gerindo um restaurante, uma fábrica, uma instalação de saúde ou qualquer outro tipo de
                             negócio, estamos aqui para ajudar a aprimorar a sua gestão de segurança e conformidade.
@@ -49,9 +49,9 @@ export default function Homepage (){
                     </article>
                 </section>
                 <section>
-                    <p class="subcapitulo">A Sua Parceria de Confiança</p>
+                    <p className="subcapitulo">A Sua Parceria de Confiança</p>
 
-                    <p class="texto">Na PAAS, a nossa missão é tornar a conformidade com normas de segurança e qualidade
+                    <p className="texto">Na PAAS, a nossa missão é tornar a conformidade com normas de segurança e qualidade
                         alimentar mais acessível, economizando tempo e recursos valiosos. Explore o nosso site para
                         descobrir como podemos ser o seu parceiro de confiança na jornada de garantir a qualidade e a
                         segurança dos produtos e operações da sua empresa.
