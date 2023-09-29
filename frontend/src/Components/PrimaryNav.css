@@ -1,0 +1,90 @@
+.PrimaryNav .Typograph_active {
+    color: #000;
+    font-family: Poppins;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.PrimaryNav .Typograph {
+    color: #000;
+    font-family: Poppins;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: light;
+}
+
+.PrimaryNav .active {
+    border-bottom: 1px solid black;
+}
+
+
+.PrimaryNav .shadow {
+    position: relative;
+    background-color: #e2e2e2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.PrimaryNav li {
+    list-style: none;
+    margin-right: 2rem;
+}
+
+
+.PrimaryNav nav {
+    max-height: 6rem;
+}
+
+
+@media (min-width: 576px) {
+    img {
+        width: 10rem;
+        height: 7rem;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    .use-links ul {
+        flex-direction: column;
+        /* coloca os itens verticalmente em dispositivos pequenos */
+        align-items: center;
+        /* Centra os itens na vertical */
+    }
+
+    .use-links ul li {
+        margin: 5px 0;
+        /* Adiciona espaço entre os itens */
+    }
+
+    .social-icons {
+        justify-content: center;
+        /* Centra os ícones na horizontal */
+    }
+
+    body {
+        background-image: none;
+        /* Remove a imagem de fundo para o texto ter leitura */
+    }
+
+    .navbar-nav {
+        text-align: center;
+        /* Centrar os itens do menu */
+    }
+
+    .nav-item {
+        margin-right: 0;
+        /* Remove a margem direita para itens do menu */
+        margin-bottom: 10px;
+        /* Adiciona espaço entre os itens do menu */
+    }
+
+    img {
+        width: 7rem;
+        height: 5rem;
+    }
+
+}
