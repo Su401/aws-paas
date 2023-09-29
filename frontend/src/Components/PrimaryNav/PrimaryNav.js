@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 import './PrimaryNav.css';
 import logo from '../../Images/logo.png';
 export default function PrimaryNav() {
+	const [homeActive, setHomeActive] = useState(false);
+	const [loginActive, setLoginActive] = useState(false);
+	const [aboutActive, setAboutActive] = useState(false);
+
 	return (
 		<div className='PrimaryNav '>
 			<nav className='navbar navbar-expand-md bg-body py-3 shadow nav'>
@@ -23,28 +28,61 @@ export default function PrimaryNav() {
 					</button>
 					<div id='navcol-2' className='collapse navbar-collapse'>
 						<ul className='navbar-nav ms-auto'>
-							<li className='nav-item'>
+							<li
+								className={`nav-item ${
+									homeActive ? 'active' : ''
+								}`}
+							>
 								<a
-									className='nav-link Typograph'
+									className={`nav-link Typograph ${
+										homeActive ? 'active' : ''
+									}`}
 									href='./homepage.html'
+									onClick={() => {
+										setHomeActive(true);
+										setLoginActive(false);
+										setAboutActive(false);
+									}}
 								>
 									Home
 								</a>
 							</li>
-							<li className='nav-item'>
+							<li
+								className={`nav-item ${
+									loginActive ? 'active' : ''
+								}`}
+							>
 								<a
-									href='#myModal'
+									className={`nav-link Typograph ${
+										loginActive ? 'active' : ''
+									}`}
+									href='/'
 									data-bs-toggle='modal'
 									data-bs-target='#exampleModal'
-									className='nav-link Typograph'
+									onClick={() => {
+										setHomeActive(false);
+										setLoginActive(true);
+										setAboutActive(false);
+									}}
 								>
 									Login
 								</a>
 							</li>
-							<li className='nav-item'>
+							<li
+								className={`nav-item ${
+									aboutActive ? 'active' : ''
+								}`}
+							>
 								<a
-									className='nav-link active Typograph_active'
+									className={`nav-link Typograph ${
+										aboutActive ? 'active' : ''
+									}`}
 									href='/'
+									onClick={() => {
+										setHomeActive(false);
+										setLoginActive(false);
+										setAboutActive(true);
+									}}
 								>
 									About Us
 								</a>
