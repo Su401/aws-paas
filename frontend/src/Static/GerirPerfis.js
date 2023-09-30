@@ -83,13 +83,13 @@ export default function GerirPerfis() {
                             <div class="row align-items-center" id="perfisBtn">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#">
+                                        <a href="/">
                                             <button class="blueBtn m-1" type="button" id="btnAdd">Adicionar
                                                 Perfil</button>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a href="#">
+                                        <a href="/">
                                             <button class="redBtn m-1" type="button" id="btnDelete">Excluir
                                                 Perfil</button>
                                         </a>
@@ -97,7 +97,7 @@ export default function GerirPerfis() {
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#">
+                                        <a href="/">
                                             <button class="blueBtn m-1" type="button" id="btnEdit">Editar
                                                 registos</button>
                                         </a>
