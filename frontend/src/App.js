@@ -7,6 +7,7 @@ import Contactos from './Static/Contactos';
 import PoliticaPrivacidade from './Static/PoliticaPrivacidade';
 import GerirRegistos from './Static/GerirRegistos';
 import GerirProdutos from './Static/GerirProdutos';
+import GerirPerfis from './Static/GerirPerfis';
 
 export default function App() {
 	return (

@@ -4,7 +4,7 @@ import "../css/GerirRegistos.css"
 export default function GerirRegistos() {
     return (
         <div className="GerirRegistos">
-            <div className="container-fluid">
+            <div className="container-fluid backgroundSec">
                 <div className="row">
                     <span className="headerText">Consultar Registos</span>
                     <hr className="custom-hr-top"></hr>

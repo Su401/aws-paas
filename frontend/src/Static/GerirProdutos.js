@@ -3,7 +3,7 @@ import "../css/GerirProdutos.css"
 
 export default function GerirProdutos() {
     return (
-        <div className="GerirProdutos">
+        <div className="GerirProdutos backgroundSec">
             <div class="titulo">
                 <h1>Gestão de produtos</h1>
             </div>
