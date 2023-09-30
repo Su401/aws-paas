@@ -29,14 +29,12 @@ export default function PrimaryNav() {
 					<div id='navcol-2' className='collapse navbar-collapse'>
 						<ul className='navbar-nav ms-auto'>
 							<li
-								className={`nav-item ${
-									homeActive ? 'active' : ''
-								}`}
+								className={`nav-item ${homeActive ? 'active' : ''
+									}`}
 							>
 								<a
-									className={`nav-link Typograph ${
-										homeActive ? 'active' : ''
-									}`}
+									className={`nav-link Typograph ${homeActive ? 'active' : ''
+										}`}
 									href='./homepage.html'
 									onClick={() => {
 										setHomeActive(true);
@@ -48,14 +46,12 @@ export default function PrimaryNav() {
 								</a>
 							</li>
 							<li
-								className={`nav-item ${
-									loginActive ? 'active' : ''
-								}`}
+								className={`nav-item ${loginActive ? 'active' : ''
+									}`}
 							>
 								<a
-									className={`nav-link Typograph ${
-										loginActive ? 'active' : ''
-									}`}
+									className={`nav-link Typograph ${loginActive ? 'active' : ''
+										}`}
 									href='/'
 									data-bs-toggle='modal'
 									data-bs-target='#exampleModal'
@@ -69,14 +65,12 @@ export default function PrimaryNav() {
 								</a>
 							</li>
 							<li
-								className={`nav-item ${
-									aboutActive ? 'active' : ''
-								}`}
+								className={`nav-item ${aboutActive ? 'active' : ''
+									}`}
 							>
 								<a
-									className={`nav-link Typograph ${
-										aboutActive ? 'active' : ''
-									}`}
+									className={`nav-link Typograph ${aboutActive ? 'active' : ''
+										}`}
 									href='/'
 									onClick={() => {
 										setHomeActive(false);

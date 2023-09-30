@@ -5,6 +5,7 @@ import Homepage from './Static/Homepage';
 import AboutUs from './Static/AboutUs';
 import Contactos from './Static/Contactos';
 import PoliticaPrivacidade from './Static/PoliticaPrivacidade';
+import GerirRegistos from './Static/GerirRegistos';
 
 export default function App() {
 	return (
@@ -12,7 +13,9 @@ export default function App() {
 			<header className='sticky-top'>
 				<PrimaryNav />
 			</header>
-			<main></main>
+			<main>
+				<GerirRegistos />
+			</main>
 			<footer className='sticky-bottom'>
 				<Footer />
 			</footer>
