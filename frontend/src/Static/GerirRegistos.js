@@ -37,22 +37,31 @@ export default function GerirRegistos() {
                             <div className="pb-5">
 
                             </div>
-                            <div className="row ">
+                            <div className="row mb-5">
                                 <div className="editTex">
                                     Data:
                                 </div>
-                                <div className="col-lg ms-5">
+                                <div className="col-lg-6 ms-5">
                                     <div className=" d-flex mt-2">
                                         <label for="inicio" className="form-label me-2 personalizeTxt">Início:</label>
-                                        <input type="date" id="inicio" name="begin" placeholder="dd-mm-yyyy" value=""
-                                            min="1800-01-01" max="3000-12-31" className="form-control w-50 ms-4 text-center"></input>
+                                        <input
+                                            type="date"
+                                            id="inicio"
+                                            name="begin"
+                                            placeholder="dd-mm-yyyy"
+                                            pattern="\d{4}-\d{2}-\d{2}"
+                                            min="1800-01-01"
+                                            max="3000-12-31"
+                                            className="form-control w-50 ms-4 text-center"
+                                        ></input>
+
                                     </div>
                                 </div>
-                                <div className="col-lg">
+                                <div className="col-lg-3">
                                     <a href="/">
                                         <button id="btnAdicionarProdutosData"
                                             className="btn btn-primary shadow-sm"
-                                            type="button">V</button>
+                                            type="button">VALIDAR DATA</button>
                                     </a>
                                 </div>
                             </div>
@@ -76,6 +85,16 @@ export default function GerirRegistos() {
                                 </tr>
                             </tbody>
                         </table>
+                        <div className="d-flex justify-content-center">
+                            <a href="/">
+                                <button id="btnAdicionarProdutos" className="btn btn-primary shadow-sm btn-lg-custom mt-3"
+                                    type="button">REMOVER</button>
+                            </a>
+                            <a href="/">
+                                <button id="btnAdicionarProdutos" className="btn btn-primary shadow-sm btn-lg-custom mt-3"
+                                    type="button">IMPRIMIR</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

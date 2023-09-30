@@ -6,6 +6,7 @@ import AboutUs from './Static/AboutUs';
 import Contactos from './Static/Contactos';
 import PoliticaPrivacidade from './Static/PoliticaPrivacidade';
 import GerirRegistos from './Static/GerirRegistos';
+import GerirProdutos from './Static/GerirProdutos';
 
 export default function App() {
 	return (
@@ -14,7 +15,6 @@ export default function App() {
 				<PrimaryNav />
 			</header>
 			<main>
-				<GerirRegistos />
 			</main>
 			<footer className='sticky-bottom'>
 				<Footer />
