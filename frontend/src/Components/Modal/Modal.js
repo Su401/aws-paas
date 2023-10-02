@@ -1,22 +1,11 @@
-import React from 'react';
 import './Modal.css';
 
-export default function Modal({ isModalVisible, closeModal }) {
-	/*     const [isModalVisible, setModalVisible] = useState(false);
-
-	const openModal = () => {
-		setModalVisible(true);
-	};
-
-	const closeModal = () => {
-		setModalVisible(false);
-	};
-	const modalClass = isModalVisible ? 'modal fade show' : 'modal fade'; */
+export default function Modal({ showModal }) {
 	return (
-		<div className={`Modal ${isModalVisible ? 'show' : ''}`}>
+		<div className={`Modal ${showModal ? 'modal fade show' : ''}`}>
 			<div
-				/* 				className={modalClass}
-				 */ id='exampleModal'
+				className='modal fade'
+				id='exampleModal'
 				tabindex='-1'
 				aria-labelledby='exampleModalLabel'
 				aria-hidden='true'
@@ -71,14 +60,6 @@ export default function Modal({ isModalVisible, closeModal }) {
 								</div>
 							</div>
 						</div>
-						<button
-							type='button'
-							className='btn btn-secondary'
-							/* 							onClick={closeModal}
-							 */
-						>
-							Close
-						</button>
 						<div className='outputContainer'></div>
 					</div>
 				</div>

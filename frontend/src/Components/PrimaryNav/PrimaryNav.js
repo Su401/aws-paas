@@ -2,10 +2,20 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import './PrimaryNav.css';
 import logo from '../../Images/logo.png';
+
 export default function PrimaryNav() {
 	const [homeActive, setHomeActive] = useState(false);
 	const [loginActive, setLoginActive] = useState(false);
 	const [aboutActive, setAboutActive] = useState(false);
+	const [showModal, setShowModal] = useState(false);
+
+	// Function to handle the "Login" button click
+	const handleLoginClick = () => {
+		setHomeActive(false);
+		setLoginActive(true);
+		setAboutActive(false);
+		setShowModal(true); // Set showModal to true when Login is clicked
+	};
 
 	return (
 		<div className='PrimaryNav '>
@@ -56,14 +66,10 @@ export default function PrimaryNav() {
 									className={`nav-link Typograph ${
 										loginActive ? 'active' : ''
 									}`}
-									href='/'
+									href='/login'
 									data-bs-toggle='modal'
 									data-bs-target='#exampleModal'
-									onClick={() => {
-										setHomeActive(false);
-										setLoginActive(true);
-										setAboutActive(false);
-									}}
+									onClick={handleLoginClick} // Call the handleLoginClick function
 								>
 									Login
 								</a>
@@ -91,6 +97,9 @@ export default function PrimaryNav() {
 					</div>
 				</div>
 			</nav>
+
+			{/* Render the Modal component with the showModal prop */}
+			{showModal && <Modal showModal={showModal} />}
 		</div>
 	);
 }

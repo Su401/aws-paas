@@ -6,7 +6,7 @@ import Footer from './Components/Footer/Footer';
 import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import './App.css';
 import Homepage from './Static/Homepage';
-import AppRouter from './AppRouter';
+import PublicRouter from './Routes/PublicRouter';
 
 function Public() {
 	return (
@@ -63,7 +63,7 @@ export default function App() {
 					<PrimaryNav />
 				</header>
 				<main>
-					<AppRouter />
+					<PublicRouter />
 				</main>
 				<footer className='sticky-bottom'>
 					<Footer />
