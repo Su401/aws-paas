@@ -7,7 +7,7 @@ const Homepage = lazy(() => import('./Static/Homepage'));
 const AboutUs = lazy(() => import('./Static/AboutUs'));
 const ContactUs = lazy(() => import('./Static/Contactos'));
 const Policies = lazy(() => import('./Static/PoliticaPrivacidade'));
-//const Terms = lazy(() => import('./screens/Content/Policies/Terms'));
+const Terms = lazy(() => import('./Static/TermosCondicoes'));
 const NotFound = lazy(() => import('./Components/404'));
 
 export default function AppRouter() {
@@ -18,7 +18,7 @@ export default function AppRouter() {
 				<Route exact path='/about-us' element={<AboutUs />} />
 				<Route exact path='/contact-us' element={<ContactUs />} />
 				<Route exact path='/policies' element={<Policies />} />
-				{/* <Route exact path='/terms' element={<Terms />} /> */}
+				<Route exact path='/terms' element={<Terms />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</Router>
