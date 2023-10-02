@@ -14,24 +14,27 @@ export default function Footer() {
 										className='black-link'
 										href='./contactos.html'
 									>
-										Contactos |
+										Contactos
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
 									<a
 										className='black-link'
 										href='https://www.livroreclamacoes.pt/Inicio/'
 									>
-										Livro de Reclamações |
+										Livro de Reclamações
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
 									<a
 										className='black-link'
 										href='./politica_privacidade.html'
 									>
-										Política de Privacidade |
+										Política de Privacidade
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
 									<a
