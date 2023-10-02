@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
 import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import './App.css';
 import Homepage from './Static/Homepage';
+import AppRouter from './AppRouter';
 
 function Public() {
 	return (
@@ -31,5 +34,41 @@ function LogedBabes() {
 }
 
 export default function App() {
-	return <div className='App'></div>;
+	const [isLoged, setIsLoged] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(false);
+	if (isLoged) {
+		if (isAdmin) {
+			return (
+				<div className='Admin'>
+					<header className='sticky-top'>
+						<SecondaryNav />
+					</header>
+					<main></main>
+				</div>
+			);
+		} else {
+			return (
+				<div className='User'>
+					<header className='sticky-top'>
+						<SecondaryNav />
+					</header>
+					<main></main>
+				</div>
+			);
+		}
+	} else {
+		return (
+			<div className='Public'>
+				<header className='sticky-top'>
+					<PrimaryNav />
+				</header>
+				<main>
+					<AppRouter />
+				</main>
+				<footer className='sticky-bottom'>
+					<Footer />
+				</footer>
+			</div>
+		);
+	}
 }

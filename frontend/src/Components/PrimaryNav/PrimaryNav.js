@@ -37,7 +37,7 @@ export default function PrimaryNav() {
 									className={`nav-link Typograph ${
 										homeActive ? 'active' : ''
 									}`}
-									href='./homepage.html'
+									href='./'
 									onClick={() => {
 										setHomeActive(true);
 										setLoginActive(false);
@@ -77,7 +77,7 @@ export default function PrimaryNav() {
 									className={`nav-link Typograph ${
 										aboutActive ? 'active' : ''
 									}`}
-									href='/'
+									href='/about-us'
 									onClick={() => {
 										setHomeActive(false);
 										setLoginActive(false);
