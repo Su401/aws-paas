@@ -17,24 +17,24 @@ export default function Contactos() {
 
                 <section>
                     <h2>Formulário de Contacto</h2>
-                    <div class="col-3 contact">
+                    <div className="col-3 contact">
 
                         <form action="/enviar-mensagem" method="post">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome:</label>
-                                <input type="text" id="nome" name="nome" class="rounded-2 form-control" required></input>
+                            <div className="mb-3">
+                                <label for="nome" className="form-label">Nome:</label>
+                                <input type="text" id="nome" name="nome" className="rounded-2 form-control" required></input>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" id="email" name="email" class="rounded-2 form-control" required></input>
+                            <div className="mb-3">
+                                <label for="email" className="form-label">Email:</label>
+                                <input type="email" id="email" name="email" className="rounded-2 form-control" required></input>
                             </div>
-                            <div class="mb-3">
-                                <label for="mensagem" class="form-label">Mensagem:</label>
-                                <textarea id="mensagem" name="mensagem" class="rounded-2 form-control" rows="4"
+                            <div className="mb-3">
+                                <label for="mensagem" className="form-label">Mensagem:</label>
+                                <textarea id="mensagem" name="mensagem" className="rounded-2 form-control" rows="4"
                                     required></textarea>
                             </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary shadow-sm btn-lg-custom" type="submit">Enviar
+                            <div className="mb-3">
+                                <button className="btn btn-primary shadow-sm btn-lg-custom" type="submit">Enviar
                                     Mensagem</button>
 
                             </div>
