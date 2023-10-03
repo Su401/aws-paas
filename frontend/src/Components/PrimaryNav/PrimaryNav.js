@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../Modal/Modal';
+import LoginModal from '../LoginModal/LoginModal';
 import './PrimaryNav.css';
 import logo from '../../Images/logo.png';
 
@@ -7,14 +7,11 @@ export default function PrimaryNav() {
 	const [homeActive, setHomeActive] = useState(false);
 	const [loginActive, setLoginActive] = useState(false);
 	const [aboutActive, setAboutActive] = useState(false);
-	const [showModal, setShowModal] = useState(false);
+	const [show, setShow] = useState(false);
 
-	// Function to handle the "Login" button click
-	const handleLoginClick = () => {
-		setHomeActive(false);
-		setLoginActive(true);
-		setAboutActive(false);
-		setShowModal(true); // Set showModal to true when Login is clicked
+	const HandleLogin = (e) => {
+		e.preventDefault();
+		setShow(true);
 	};
 
 	return (
@@ -67,12 +64,11 @@ export default function PrimaryNav() {
 										loginActive ? 'active' : ''
 									}`}
 									href='/login'
-									data-bs-toggle='modal'
-									data-bs-target='#exampleModal'
-									onClick={handleLoginClick} // Call the handleLoginClick function
+									onClick={HandleLogin} // Open the login modal when the Login button is clicked
 								>
 									Login
 								</a>
+								<LoginModal show={show} setShow={setShow} />
 							</li>
 							<li
 								className={`nav-item ${
@@ -97,9 +93,6 @@ export default function PrimaryNav() {
 					</div>
 				</div>
 			</nav>
-
-			{/* Render the Modal component with the showModal prop */}
-			{showModal && <Modal showModal={showModal} />}
 		</div>
 	);
 }
