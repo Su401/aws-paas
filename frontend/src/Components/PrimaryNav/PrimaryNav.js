@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import Modal from '../Modal/Modal';
+import LoginModal from '../LoginModal/LoginModal';
 import './PrimaryNav.css';
 import logo from '../../Images/logo.png';
+
 export default function PrimaryNav() {
 	const [homeActive, setHomeActive] = useState(false);
 	const [loginActive, setLoginActive] = useState(false);
 	const [aboutActive, setAboutActive] = useState(false);
+	const [show, setShow] = useState(false);
+
+	const HandleLogin = (e) => {
+		e.preventDefault();
+		setShow(true);
+	};
 
 	return (
 		<div className='PrimaryNav '>
@@ -29,13 +36,15 @@ export default function PrimaryNav() {
 					<div id='navcol-2' className='collapse navbar-collapse'>
 						<ul className='navbar-nav ms-auto'>
 							<li
-								className={`nav-item ${homeActive ? 'active' : ''
-									}`}
+								className={`nav-item ${
+									homeActive ? 'active' : ''
+								}`}
 							>
 								<a
-									className={`nav-link Typograph ${homeActive ? 'active' : ''
-										}`}
-									href='./homepage.html'
+									className={`nav-link Typograph ${
+										homeActive ? 'active' : ''
+									}`}
+									href='./'
 									onClick={() => {
 										setHomeActive(true);
 										setLoginActive(false);
@@ -46,32 +55,31 @@ export default function PrimaryNav() {
 								</a>
 							</li>
 							<li
-								className={`nav-item ${loginActive ? 'active' : ''
-									}`}
+								className={`nav-item ${
+									loginActive ? 'active' : ''
+								}`}
 							>
 								<a
-									className={`nav-link Typograph ${loginActive ? 'active' : ''
-										}`}
-									href='/'
-									data-bs-toggle='modal'
-									data-bs-target='#exampleModal'
-									onClick={() => {
-										setHomeActive(false);
-										setLoginActive(true);
-										setAboutActive(false);
-									}}
+									className={`nav-link Typograph ${
+										loginActive ? 'active' : ''
+									}`}
+									href='/login'
+									onClick={HandleLogin} // Open the login modal when the Login button is clicked
 								>
 									Login
 								</a>
+								<LoginModal show={show} setShow={setShow} />
 							</li>
 							<li
-								className={`nav-item ${aboutActive ? 'active' : ''
-									}`}
+								className={`nav-item ${
+									aboutActive ? 'active' : ''
+								}`}
 							>
 								<a
-									className={`nav-link Typograph ${aboutActive ? 'active' : ''
-										}`}
-									href='/'
+									className={`nav-link Typograph ${
+										aboutActive ? 'active' : ''
+									}`}
+									href='/about-us'
 									onClick={() => {
 										setHomeActive(false);
 										setLoginActive(false);
