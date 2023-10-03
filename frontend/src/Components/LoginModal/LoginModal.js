@@ -5,6 +5,8 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
 
 export default function LoginModal({ show, setShow }) {
 	const [selectedImg, setSelectedImg] = useState(null);
@@ -30,9 +32,17 @@ export default function LoginModal({ show, setShow }) {
 
 	return (
 		<>
-			<Modal show={show} onHide={handleClose}>
+			<Modal
+				show={show}
+				onHide={handleClose}
+				size='lg'
+				aria-labelledby='contained-modal-title-vcenter'
+				centered
+			>
 				<Modal.Header closeButton>
-					<Modal.Title>Modal heading</Modal.Title>
+					<Modal.Title id='contained-modal-title-vcenter'>
+						Login
+					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<div className='row d-lg-flex'>
@@ -103,14 +113,14 @@ export default function LoginModal({ show, setShow }) {
 					</div>
 					{selectedImg && (
 						<div className='row flex-lg-wrap botaoPositioning '>
-							<form onSubmit={handleSubmit}>
+							<Form onSubmit={handleSubmit}>
 								<label
 									htmlFor='password'
 									className='password-edit'
 								>
 									PASSWORD:
 								</label>
-								<input
+								<Form.Control
 									type='password'
 									id='password'
 									name='password'
@@ -118,41 +128,46 @@ export default function LoginModal({ show, setShow }) {
 									onChange={(e) =>
 										setPassword(e.target.value)
 									}
+									placeholder='Insert Password...'
 								/>
 								<div className='d-flex bd-highlight mb-3'>
 									<div className='p-2 bd-highlight '>
 										<div>
-											<input
+											<Button
 												type='submit'
 												className='submitButton'
 												id='entradaConta'
 												name='entradaConta'
-												value='ENTRADA'
-											/>
+											>
+												{' '}
+												ENTRADA{' '}
+											</Button>
 										</div>
 									</div>
 									<div className='p-2 bd-highlight'>
 										<div>
-											<input
+											<Button
 												type='submit'
 												className='submitButton'
 												id='saidaConta'
 												name='saidaConta'
-												value='SAIDA'
-											/>
+											>
+												SAIDA{' '}
+											</Button>
 										</div>
 									</div>
 									<div className='ms-auto p-2 bd-highlight'>
 										<div>
-											<input
+											<Button
 												type='submit'
 												className='submit-button'
-												value='LOGIN'
-											/>
+											>
+												LOGIN{' '}
+											</Button>
 										</div>
 									</div>
 								</div>
-							</form>
+							</Form>
 						</div>
 					)}
 				</Modal.Body>
