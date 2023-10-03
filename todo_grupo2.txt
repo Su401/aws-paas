@@ -1,0 +1,12 @@
+To do do trabalho:
+
+Import dos html em falta que não são estáticos
+Juntar javascript
+Juntar css
+Fazer nova pasta para os html "backoffice"
+Importar Backend
+Implementar React-Bootstrap
+
+Segunda fase:
+Adicionar as routs do template secundário
+Autenticação
