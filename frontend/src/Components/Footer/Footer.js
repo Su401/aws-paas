@@ -12,32 +12,29 @@ export default function Footer() {
 								<li className='options_footer'>
 									<a
 										className='black-link'
-										href='./contactos.html'
+										href='./contact-us'
 									>
-										Contactos |
+										Contactos
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
 									<a
 										className='black-link'
 										href='https://www.livroreclamacoes.pt/Inicio/'
 									>
-										Livro de Reclamações |
+										Livro de Reclamações
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
-									<a
-										className='black-link'
-										href='./politica_privacidade.html'
-									>
-										Política de Privacidade |
+									<a className='black-link' href='./policies'>
+										Política de Privacidade
 									</a>
+									<span className='m-3'>|</span>
 								</li>
 								<li className='options_footer'>
-									<a
-										className='black-link'
-										href='./termos_condicoes.html'
-									>
+									<a className='black-link' href='./terms'>
 										Termos e Condições
 									</a>
 								</li>
