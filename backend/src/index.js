@@ -15,7 +15,6 @@ const {
 	deleteProductController,
 	updateProductController,
 	getProductTypeController,
-
 } = require('./controllers');
 
 const { findRecordsController } = require('./controllers/records');
@@ -32,7 +31,6 @@ const initRequest = (req, res, next) => {
 	next();
 };
 
-
 app.use(express.static('./frontend'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,7 +44,7 @@ app.use(initRequest);
 app.get('/', (req, res) => {
 	res.send("O servidor está funcionando")
 }) */
-app.use("/contatos", contactsRouter)
+app.use('/contatos', contactsRouter);
 
 // User router para enpoits acesseiveis para os usuários
 app.use(userRouter);
@@ -72,14 +70,14 @@ app.delete('/api/excluirProduto/:id', deleteProductController);
 //Definindo a rota GET para resgatar os dados do banco de dados para a tabela de produtos
 app.get('/api/criarTabela', getProductsDataController);
 
-//Definindo a rota UPDATE para editar produtos 
+//Definindo a rota UPDATE para editar produtos
 app.put('/api/editarProduto/:id', updateProductController);
 
 //Definido a rota get para consultar o registos pedidos
 app.post('/api/gerirRegistos', findRecordsController);
 
 // Definindo a rota GET para buscar os produtos para a impressão das etiquetas
-app.get('/api/registoDeProdutos/preencheProdutos', getProductTypeController)
+app.get('/api/registoDeProdutos/preencheProdutos', getProductTypeController);
 
 // every err object has "message" attribute and "code" attribute
 /* app.use(errorHandlerMiddleware); */

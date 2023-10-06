@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './Components/Sass/my-bootstrap.scss';
+import GerirPerfis from './Backoffice/GerirPerfis';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<App />
+		<GerirPerfis />
 	</React.StrictMode>
 );
 
