@@ -58,6 +58,9 @@ export default function GerirPerfis() {
 		fetchUsers();
 	}, []);
 
+	/**
+	 * Fetches all users data from the server.
+	 */
 	const fetchUsers = async () => {
 		try {
 			const response = await fetch(
@@ -82,6 +85,11 @@ export default function GerirPerfis() {
 		}
 	};
 
+	/**
+	 * Handles the creation of a new user by sending a POST request to the server with the form inputs.
+	 * If the request is successful, clears the form fields and fetches the updated list of users to display the new user.
+	 * If the request fails, displays an error message.
+	 */
 	const handleCreateUser = async () => {
 		try {
 			const response = await fetch(
@@ -119,6 +127,9 @@ export default function GerirPerfis() {
 		}
 	};
 
+	/**
+	 * Sets the selected user and form inputs when a table row is clicked.
+	 */
 	const handleTableRowClick = (user) => {
 		setSelectedUser(user);
 		setFormInputs({
@@ -134,6 +145,9 @@ export default function GerirPerfis() {
 		});
 	};
 
+	/**
+	 * Deletes a user with the given username from the server and updates the user list.
+	 */
 	const handleDeleteUser = async (usernameToDelete) => {
 		try {
 			const response = await fetch(
@@ -160,6 +174,9 @@ export default function GerirPerfis() {
 		}
 	};
 
+	/**
+	 * Handles editing a user by sending a PUT request to the server with the updated user data.
+	 */
 	const handleEditUser = async (usernameToEdit) => {
 		try {
 			const response = await fetch(
