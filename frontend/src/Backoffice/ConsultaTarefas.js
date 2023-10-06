@@ -1,4 +1,4 @@
-import "module";
+import "../css/ConsultarTarefas.css"
 
 export default function ConsultaTarefas() {
     return (
