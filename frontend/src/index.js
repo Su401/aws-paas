@@ -11,7 +11,7 @@ import GerirPerfis from './Backoffice/GerirPerfis';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<GerirPerfis />
+		<App />
 	</React.StrictMode>
 );
 

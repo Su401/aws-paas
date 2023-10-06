@@ -16,7 +16,8 @@ export default function GerirPerfis() {
 		phone: '',
 		username: '',
 	});
-	const [newUser, setNewUser] = useState({
+
+	const [formInputs, setFormInputs] = useState({
 		fullName: '',
 		birthday: '',
 		nif: '',
@@ -27,6 +28,27 @@ export default function GerirPerfis() {
 		phone: '',
 		username: '',
 	});
+
+	useEffect(() => {
+		if (selectedUser) {
+			setEditedUser({
+				fullName: selectedUser.fullName,
+				nif: selectedUser.nif,
+				userAddress: selectedUser.userAddress,
+				role: selectedUser.role,
+				insurance: {
+					name: selectedUser.insurance.name,
+					policy: selectedUser.insurance.policy,
+				},
+				phone: selectedUser.phone,
+				username: selectedUser.username,
+			});
+		}
+	}, [selectedUser]);
+
+	useEffect(() => {
+		fetchUsers();
+	}, []);
 
 	const fetchUsers = async () => {
 		try {
@@ -52,10 +74,6 @@ export default function GerirPerfis() {
 		}
 	};
 
-	useEffect(() => {
-		fetchUsers();
-	}, []);
-
 	const handleCreateUser = async () => {
 		try {
 			const response = await fetch(
@@ -65,13 +83,13 @@ export default function GerirPerfis() {
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify(newUser),
+					body: JSON.stringify(formInputs),
 				}
 			);
 
 			if (response.ok) {
 				// Clear the form fields after successful creation
-				setNewUser({
+				setFormInputs({
 					fullName: '',
 					birthday: '',
 					nif: '',
@@ -92,6 +110,22 @@ export default function GerirPerfis() {
 			console.error('Error in request', err);
 		}
 	};
+
+	const handleTableRowClick = (user) => {
+		setSelectedUser(user);
+		setFormInputs({
+			fullName: user.fullName,
+			birthday: user.birthday,
+			nif: user.nif,
+			userAddress: user.userAddress,
+			role: user.role,
+			insuranceName: user.insurance.name,
+			insurancePolicy: user.insurance.policy,
+			phone: user.phone,
+			username: user.username,
+		});
+	};
+
 	const handleDeleteUser = async (usernameToDelete) => {
 		try {
 			const response = await fetch(
@@ -118,9 +152,7 @@ export default function GerirPerfis() {
 		}
 	};
 
-	const handleEditUser = async () => {
-		const usernameToEdit = editedUser.username;
-
+	const handleEditUser = async (usernameToEdit) => {
 		try {
 			const response = await fetch(
 				`http://localhost:8080/user/updateUser?username=${usernameToEdit}`,
@@ -129,11 +161,25 @@ export default function GerirPerfis() {
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify(editedUser),
+					body: JSON.stringify(formInputs),
 				}
 			);
 			if (!response.ok) {
 				throw new Error('Failed to update user');
+			} else {
+				setFormInputs({
+					fullName: '',
+					birthday: '',
+					nif: '',
+					userAddress: '',
+					role: '',
+					insuranceName: '',
+					insurancePolicy: '',
+					phone: '',
+					username: '',
+				});
+				// Fetch and update the users list to display the edited user
+				fetchUsers();
 			}
 
 			// Update the edited user in the list
@@ -164,7 +210,7 @@ export default function GerirPerfis() {
 
 	return (
 		<div className='GerirPerfis'>
-			<div className='container'>
+			<div className='container backgroundSec'>
 				<h1>Gerir Perfis</h1>
 				<div className='row'>
 					<div className='col-12 col-lg-6 table-responsive'>
@@ -174,7 +220,7 @@ export default function GerirPerfis() {
 						>
 							<thead>
 								<th
-									colspan='8'
+									colSpan='8'
 									className='table-secondary table-title'
 								>
 									Lista de Perfis
@@ -187,7 +233,29 @@ export default function GerirPerfis() {
 									<th scope='col'>Apólice</th>
 								</tr>
 							</thead>
-							<tbody></tbody>
+							<tbody>
+								{users.map((user) => (
+									<tr
+										key={user.username}
+										onClick={() =>
+											handleTableRowClick(user)
+										} // Add this line to handle row click
+										className={
+											selectedUser &&
+											selectedUser.username ===
+												user.username
+												? 'selected-row'
+												: ''
+										}
+									>
+										<td>{user.username}</td>
+										<td>{user.fullName}</td>
+										<td>{user.nif}</td>
+										<td>{user.phone}</td>
+										<td>{user.insurance?.policy}</td>
+									</tr>
+								))}
+							</tbody>
 						</table>
 					</div>
 					<div className='col-12 col-lg-6'>
@@ -205,10 +273,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='fullName'
 										name='fullName'
-										value={newUser.fullName}
+										value={formInputs.fullName}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												fullName: e.target.value,
 											})
 										}
@@ -228,10 +296,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='birthday'
 										name='birthday'
-										value={newUser.birthday}
+										value={formInputs.birthday}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												birthday: e.target.value,
 											})
 										}
@@ -251,10 +319,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='nif'
 										name='nif'
-										value={newUser.nif}
+										value={formInputs.nif}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												nif: e.target.value,
 											})
 										}
@@ -274,10 +342,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='userAddress'
 										name='userAddress'
-										value={newUser.userAddress}
+										value={formInputs.userAddress}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												userAddress: e.target.value,
 											})
 										}
@@ -297,10 +365,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='role'
 										name='role'
-										value={newUser.role}
+										value={formInputs.role}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												role: e.target.value,
 											})
 										}
@@ -320,10 +388,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='insuranceName'
 										name='insuranceName'
-										value={newUser.insuranceName}
+										value={formInputs.insuranceName}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												insuranceName: e.target.value,
 											})
 										}
@@ -343,10 +411,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='insurancePolicy'
 										name='insurancePolicy'
-										value={newUser.insurancePolicy}
+										value={formInputs.insurancePolicy}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												insurancePolicy: e.target.value,
 											})
 										}
@@ -366,10 +434,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='phone'
 										name='phone'
-										value={newUser.phone}
+										value={formInputs.phone}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												phone: e.target.value,
 											})
 										}
@@ -389,10 +457,10 @@ export default function GerirPerfis() {
 										className='form-control filled'
 										id='username'
 										name='username'
-										value={newUser.username}
+										value={formInputs.username}
 										onChange={(e) =>
-											setNewUser({
-												...newUser,
+											setFormInputs({
+												...formInputs,
 												username: e.target.value,
 											})
 										}
@@ -419,7 +487,11 @@ export default function GerirPerfis() {
 											className='redBtn m-1'
 											type='button'
 											id='btnDelete'
-											onClick={handleDeleteUser}
+											onClick={() =>
+												handleDeleteUser(
+													formInputs.username
+												)
+											}
 										>
 											Excluir Perfil
 										</button>
@@ -431,7 +503,11 @@ export default function GerirPerfis() {
 											className='blueBtn m-1'
 											type='button'
 											id='btnEdit'
-											onClick={handleEditUser}
+											onClick={() =>
+												handleEditUser(
+													formInputs.username
+												)
+											}
 										>
 											Editar registos
 										</button>
