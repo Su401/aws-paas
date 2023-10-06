@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../css/GerirPerfis.css';
+import '../Components/Sass/my-bootstrap.scss';
+
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/esm/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Table from 'react-bootstrap/Table';
 
 export default function GerirPerfis() {
 	const [users, setUsers] = useState([]);
@@ -209,326 +217,289 @@ export default function GerirPerfis() {
 	};
 
 	return (
-		<div className='GerirPerfis'>
-			<div className='container backgroundSec'>
-				<h1>Gerir Perfis</h1>
-				<div className='row'>
-					<div className='col-12 col-lg-6 table-responsive'>
-						<table
-							id='usersTable'
-							className='table table-hover table-light table-sm align-middle'
-						>
-							<thead>
-								<th
-									colSpan='8'
-									className='table-secondary table-title'
+		<Container className='GerirPerfis backgroundSec'>
+			<h1>Gerir Perfis</h1>
+			<Row>
+				<Col xs={12} lg={6}>
+					<Table
+						responsive
+						id='usersTable'
+						className='table table-hover table-light table-sm align-middle'
+					>
+						<thead>
+							<th
+								colSpan='8'
+								className='table-secondary table-title'
+							>
+								Lista de Perfis
+							</th>
+							<tr className='information'>
+								<th scope='col'>Username</th>
+								<th scope='col'>Nome</th>
+								<th scope='col'>NIF</th>
+								<th scope='col'>Contacto</th>
+								<th scope='col'>Apólice</th>
+							</tr>
+						</thead>
+						<tbody>
+							{users.map((user) => (
+								<tr
+									key={user.username}
+									onClick={() => handleTableRowClick(user)} // Add this line to handle row click
+									className={
+										selectedUser &&
+										selectedUser.username === user.username
+											? 'selected-row'
+											: ''
+									}
 								>
-									Lista de Perfis
-								</th>
-								<tr className='information'>
-									<th scope='col'>Username</th>
-									<th scope='col'>Nome</th>
-									<th scope='col'>NIF</th>
-									<th scope='col'>Contacto</th>
-									<th scope='col'>Apólice</th>
+									<td>{user.username}</td>
+									<td>{user.fullName}</td>
+									<td>{user.nif}</td>
+									<td>{user.phone}</td>
+									<td>{user.insurance?.policy}</td>
 								</tr>
-							</thead>
-							<tbody>
-								{users.map((user) => (
-									<tr
-										key={user.username}
+							))}
+						</tbody>
+					</Table>
+				</Col>
+				<Col xs={12} lg={6}>
+					<Form className='form' action=''>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='name' column sm='6'>
+								Nome do Funcionário:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='fullName'
+									name='fullName'
+									value={formInputs.fullName}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											fullName: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='birthday' column sm='6'>
+								Data de Nascimento:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='date'
+									className='filled'
+									id='birthday'
+									name='birthday'
+									value={formInputs.birthday}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											birthday: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='nif' column sm='6'>
+								NIF
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='number'
+									className='filled'
+									id='nif'
+									name='nif'
+									value={formInputs.nif}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											nif: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='adress' column sm='6'>
+								Morada:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='userAddress'
+									name='userAddress'
+									value={formInputs.userAddress}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											userAddress: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='role' column sm='6'>
+								Cargo:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='role'
+									name='role'
+									value={formInputs.role}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											role: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='insuranceName' column sm='6'>
+								Seguradora:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='insuranceName'
+									name='insuranceName'
+									value={formInputs.insuranceName}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											insuranceName: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='insurancePolicy' column sm='6'>
+								Apólice:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='insurancePolicy'
+									name='insurancePolicy'
+									value={formInputs.insurancePolicy}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											insurancePolicy: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='phone' column sm='6'>
+								Contacto
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='phone'
+									name='phone'
+									value={formInputs.phone}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											phone: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row} className='mb-3'>
+							<Form.Label htmlFor='username' column sm='6'>
+								Username:
+							</Form.Label>
+							<Col sm='6' /* className='col-12 col-sm-6' */>
+								<Form.Control
+									type='text'
+									className='filled'
+									id='username'
+									name='username'
+									value={formInputs.username}
+									onChange={(e) =>
+										setFormInputs({
+											...formInputs,
+											username: e.target.value,
+										})
+									}
+								/>
+							</Col>
+						</Form.Group>
+						<Row className='align-items-center' id='perfisBtn'>
+							<Row>
+								<Col>
+									<Button
+										className='blueBtn m-1'
+										type='button'
+										id='btnAdd'
+										onClick={handleCreateUser}
+									>
+										Adicionar Perfil
+									</Button>
+								</Col>
+								<Col>
+									<Button
+										className='redBtn m-1'
+										type='button'
+										id='btnDelete'
 										onClick={() =>
-											handleTableRowClick(user)
-										} // Add this line to handle row click
-										className={
-											selectedUser &&
-											selectedUser.username ===
-												user.username
-												? 'selected-row'
-												: ''
+											handleDeleteUser(
+												formInputs.username
+											)
 										}
 									>
-										<td>{user.username}</td>
-										<td>{user.fullName}</td>
-										<td>{user.nif}</td>
-										<td>{user.phone}</td>
-										<td>{user.insurance?.policy}</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-					<div className='col-12 col-lg-6'>
-						<form className='products-form' action=''>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='name'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Nome do Funcionário:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='fullName'
-										name='fullName'
-										value={formInputs.fullName}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												fullName: e.target.value,
-											})
+										Excluir Perfil
+									</Button>
+								</Col>
+							</Row>
+							<Row>
+								<Col>
+									<Button
+										className='blueBtn m-1'
+										type='button'
+										id='btnEdit'
+										onClick={() =>
+											handleEditUser(formInputs.username)
 										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='birthday'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Data de Nascimento:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='date'
-										className='form-control filled'
-										id='birthday'
-										name='birthday'
-										value={formInputs.birthday}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												birthday: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='nif'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									NIF
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='number'
-										className='form-control filled'
-										id='nif'
-										name='nif'
-										value={formInputs.nif}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												nif: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='adress'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Morada:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='userAddress'
-										name='userAddress'
-										value={formInputs.userAddress}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												userAddress: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='role'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Cargo:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='role'
-										name='role'
-										value={formInputs.role}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												role: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='insuranceName'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Seguradora:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='insuranceName'
-										name='insuranceName'
-										value={formInputs.insuranceName}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												insuranceName: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='insurancePolicy'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Apólice:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='insurancePolicy'
-										name='insurancePolicy'
-										value={formInputs.insurancePolicy}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												insurancePolicy: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='phone'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Contacto
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='phone'
-										name='phone'
-										value={formInputs.phone}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												phone: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div className='mb-3 row product'>
-								<label
-									htmlFor='username'
-									className='col-12 col-sm-6 col-form-label'
-								>
-									Username:
-								</label>
-								<div className='col-12 col-sm-6'>
-									<input
-										type='text'
-										className='form-control filled'
-										id='username'
-										name='username'
-										value={formInputs.username}
-										onChange={(e) =>
-											setFormInputs({
-												...formInputs,
-												username: e.target.value,
-											})
-										}
-									/>
-								</div>
-							</div>
-							<div
-								className='row align-items-center'
-								id='perfisBtn'
-							>
-								<div className='row'>
-									<div className='col'>
-										<button
+									>
+										Editar registos
+									</Button>
+								</Col>
+								<Col>
+									<a href='./printPerfis.html'>
+										<Button
 											className='blueBtn m-1'
 											type='button'
-											id='btnAdd'
-											onClick={handleCreateUser}
 										>
-											Adicionar Perfil
-										</button>
-									</div>
-									<div className='col'>
-										<button
-											className='redBtn m-1'
-											type='button'
-											id='btnDelete'
-											onClick={() =>
-												handleDeleteUser(
-													formInputs.username
-												)
-											}
-										>
-											Excluir Perfil
-										</button>
-									</div>
-								</div>
-								<div className='row'>
-									<div className='col'>
-										<button
-											className='blueBtn m-1'
-											type='button'
-											id='btnEdit'
-											onClick={() =>
-												handleEditUser(
-													formInputs.username
-												)
-											}
-										>
-											Editar registos
-										</button>
-									</div>
-									<div className='col'>
-										<a href='./printPerfis.html'>
-											<button
-												className='blueBtn m-1'
-												type='button'
-											>
-												Consultar perfil
-											</button>
-										</a>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<main />
-		</div>
+											Consultar perfil
+										</Button>
+									</a>
+								</Col>
+							</Row>
+						</Row>
+					</Form>
+				</Col>
+			</Row>
+		</Container>
 	);
 }
