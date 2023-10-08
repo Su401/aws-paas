@@ -1,6 +1,27 @@
-import "../css/TemplatePrimario.css"
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/TemplatePrimario.css';
 
 export default function Contactos() {
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [mensagem, setMensagem] = useState('');
+
+    const handleNomeChange = (e) => {
+        setNome(e.target.value);
+        console.log('Nome:', nome);
+      };
+      const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        console.log('Email:', email);
+      };
+      const handleMensagemChange = (e) => {
+        setMensagem(e.target.value);
+        console.log('Mensagem:', mensagem);
+      };
+  
+
     return (
         <div className="Contactos">
             <div className="body">
@@ -19,36 +40,55 @@ export default function Contactos() {
                     <h2>Formulário de Contacto</h2>
                     <div className="col-3 contact">
 
-                        <form action="/enviar-mensagem" method="post">
-                            <div className="mb-3">
-                                <label for="nome" className="form-label">Nome:</label>
-                                <input type="text" id="nome" name="nome" className="rounded-2 form-control" required></input>
-                            </div>
-                            <div className="mb-3">
-                                <label for="email" className="form-label">Email:</label>
-                                <input type="email" id="email" name="email" className="rounded-2 form-control" required></input>
-                            </div>
-                            <div className="mb-3">
-                                <label for="mensagem" className="form-label">Mensagem:</label>
-                                <textarea id="mensagem" name="mensagem" className="rounded-2 form-control" rows="4"
-                                    required></textarea>
-                            </div>
-                            <div className="mb-3">
-                                <button className="btn btn-primary shadow-sm btn-lg-custom" type="submit">Enviar
-                                    Mensagem</button>
-
-                            </div>
-                        </form>
-
-                    </div>
-                </section>
-
-            </div>
-
-
-
-
-        </div>
-
-    )
+                        
+                        <Form action="/enviar-mensagem" method="post">
+              <Form.Group controlId="nome">
+                <Form.Label>Nome:</Form.Label>
+                <Form.Control
+                  type="text"
+                  className="rounded-2"
+                  required
+                  value={nome}
+                  onChange={handleNomeChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="email">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control
+                  type="email"
+                  className="rounded-2"
+                  required
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="mensagem">
+                <Form.Label>Mensagem:</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  className="rounded-2"
+                  required
+                  value={mensagem}
+                  onChange={handleMensagemChange}
+                />
+              </Form.Group>
+              <Button
+                variant="primary"
+                type="submit"
+                className="shadow-sm btn-lg-custom"
+              >
+                Enviar Mensagem
+              </Button>
+            </Form>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
 }
+
+
+
+
+
