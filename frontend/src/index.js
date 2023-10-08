@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './Components/Sass/my-bootstrap.scss';
-import GerirPerfis from './Backoffice/GerirPerfis';
+// import GerirPerfis from './Backoffice/GerirPerfis';
+import Contactos from './Static/Contactos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<GerirPerfis />
+		<Contactos />
 	</React.StrictMode>
 );
 
