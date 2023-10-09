@@ -262,7 +262,7 @@ export default function GerirPerfis() {
 							{users.map((user) => (
 								<tr
 									key={user.username}
-									onClick={() => handleTableRowClick(user)} // Add this line to handle row click
+									onClick={() => handleTableRowClick(user)} // handle row click
 									className={
 										selectedUser &&
 										selectedUser.username === user.username
@@ -286,7 +286,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='name' column sm='6'>
 								Nome do Funcionário:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -306,7 +306,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='birthday' column sm='6'>
 								Data de Nascimento:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='date'
 									className='filled'
@@ -326,7 +326,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='nif' column sm='6'>
 								NIF
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='number'
 									className='filled'
@@ -346,7 +346,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='adress' column sm='6'>
 								Morada:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -366,7 +366,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='role' column sm='6'>
 								Cargo:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -386,7 +386,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='insuranceName' column sm='6'>
 								Seguradora:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -406,7 +406,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='insurancePolicy' column sm='6'>
 								Apólice:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -426,7 +426,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='phone' column sm='6'>
 								Contacto
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
@@ -446,7 +446,7 @@ export default function GerirPerfis() {
 							<Form.Label htmlFor='username' column sm='6'>
 								Username:
 							</Form.Label>
-							<Col sm='6' /* className='col-12 col-sm-6' */>
+							<Col sm='6'>
 								<Form.Control
 									type='text'
 									className='filled'
