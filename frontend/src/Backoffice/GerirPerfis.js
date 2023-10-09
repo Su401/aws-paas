@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../css/GerirPerfis.css';
-import '../Components/Sass/my-bootstrap.scss';
-
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
