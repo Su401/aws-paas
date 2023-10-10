@@ -1,22 +1,20 @@
 import "../css/GerirProdutos.css"
 import React, { useEffect, useState } from 'react';
-import '../Components/Sass/my-bootstrap.scss'
 
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 
 export default function GerirProdutos() {
-    const [dadosTabela, setDadosTabela] = useState([]);
-    const [nomeProdutoInput, setNomeProdutoInput] = useState('');
-    const [idInput, setIdInput] = useState('');
-    const [validadeInput, setValidadeInput] = useState('');
-    const [tipoPodutoInput, setTipoProdutoInput] = useState('');
+    const [dadosTabela, setDadosTabela] = useState([]); // Variável de estado para os dados da tabela
+    const [nomeProdutoInput, setNomeProdutoInput] = useState(''); // Variável de estado para a caixa de input nome do Produto
+    const [idInput, setIdInput] = useState(''); // Variável de estado para a caixa de input Selecao
+    const [validadeInput, setValidadeInput] = useState(''); // Variável de estado para a caixa de input Validade do Produto
+    const [tipoProdutoInput, setTipoProdutoInput] = useState(''); // Variável de estado para a caixa de input Tipo de Produto
     
 
+    // Para buscar os dados que irão renderizar na tabela
     const fetchDados = async () => {
         try{ 
             const response = await fetch('http://localhost:8080/api/criarTabela', 
@@ -44,6 +42,7 @@ export default function GerirProdutos() {
 
     }, [])
 
+    // Para preencher os campos de input quando clico em uma linha da tabela
     const handleRowClick = (produto) => {
         setIdInput(produto._id);
         setNomeProdutoInput(produto.nome_produto);
@@ -51,13 +50,14 @@ export default function GerirProdutos() {
         setValidadeInput(produto.dias_prazo);
     }
 
+    // Para fazer a busca do produto pelo id e posteriormente atualizá-lo
     const updateProduct = async () => {
         try{
             const productData = {
                 id: idInput,
                 nomeProduto: nomeProdutoInput,
                 validadeProduto: validadeInput,
-                tipoProduto: tipoPodutoInput,
+                tipoProduto: tipoProdutoInput,
             };
             console.log(productData)
             const response = await fetch(`http://localhost:8080/api/editarProduto/${productData.id}`, {
@@ -74,6 +74,8 @@ export default function GerirProdutos() {
         } catch (error){
             console.error("Error in updating", error)
         }
+
+        // Para apagar o conteúdo das caixas após a atualização
         setValidadeInput('');
         setIdInput('');
         setNomeProdutoInput('');
@@ -81,6 +83,7 @@ export default function GerirProdutos() {
         fetchDados()
     }
 
+    // Para deletar o produto com base no seu id
     const deleteProduct = async () => {
         try {
             const id = idInput;
@@ -97,6 +100,8 @@ export default function GerirProdutos() {
         } catch (error){
             console.error("Error in deleting", error)
         }
+
+        // Para apagar o conteúdo das caixas após a exclusão do produto
         setValidadeInput('');
         setIdInput('');
         setNomeProdutoInput('');
@@ -104,12 +109,12 @@ export default function GerirProdutos() {
         fetchDados()
     }
 
+    // Para adicionar um produto com base em todas as caixas, menos id
     const addProduct = async () => {
         try {
             const product = {
-                id: idInput,
                 validade: validadeInput,
-                tipo: tipoPodutoInput,
+                tipo: tipoProdutoInput,
                 nome: nomeProdutoInput,
             };
             const response = await fetch(`http://localhost:8080/api/adicionarProdutos`, {
@@ -126,6 +131,8 @@ export default function GerirProdutos() {
         } catch (error){
             console.error("Error in adding", error)
         }
+
+        // Para apagar o conteúdo das caixas após a adição
         setValidadeInput('');
         setIdInput('');
         setNomeProdutoInput('');
@@ -155,6 +162,10 @@ export default function GerirProdutos() {
                                 </tr>
                             </thead>
                             <tbody>
+                                {
+                                    /* Para iterar nos dados recebidos do banco de dados para o preenchimento da tabela 
+                                    A funcao handleRowClick atua no preenchimento das caixas ao clicarmos na tabela*/
+                                }
                                 {dadosTabela.map((produto => (
                                     <tr key={produto._id} className="information" onClick={() => handleRowClick(produto)}>
                                         <td>{produto._id}</td>
@@ -175,7 +186,7 @@ export default function GerirProdutos() {
                                     <label className="label-product" htmlFor="product-type">Tipo de produto:</label>
                                 </Col>
                                 <Col className="col-md-6 col-12">
-                                    <input className="product filled" type="text" id="product-type" value={tipoPodutoInput} onChange={(e) => setTipoProdutoInput(e.target.value)} >
+                                    <input className="product filled" type="text" id="product-type" value={tipoProdutoInput} onChange={(e) => setTipoProdutoInput(e.target.value)} >
                                     </input>
                                 </Col>
                             </Row>
