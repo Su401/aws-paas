@@ -12,6 +12,7 @@ export default function GerirProdutos() {
     const [idInput, setIdInput] = useState(''); // Variável de estado para a caixa de input Selecao
     const [validadeInput, setValidadeInput] = useState(''); // Variável de estado para a caixa de input Validade do Produto
     const [tipoProdutoInput, setTipoProdutoInput] = useState(''); // Variável de estado para a caixa de input Tipo de Produto
+    const [filtroNome, setFiltroNome] = useState('')
     
 
     // Para buscar os dados que irão renderizar na tabela
@@ -149,13 +150,13 @@ export default function GerirProdutos() {
             <Container>
                 <Row>
                     <Col lg={6} xs={12}>
+                        <input type="text" placeholder="Filtra por nome" value={filtroNome} onChange={(e) => setFiltroNome(e.target.value)}></input>
                         <Table responsive id="tableProducts" className="table-container products-table table table-hover table-light table-sm align-middle">
                             <thead>
                                 <tr>
                                     <th className="header" colSpan="4">Lista de Produtos</th>
                                 </tr>
                                 <tr>
-                                    <th scope="col">id</th>
                                     <th scope="col">Nome do Produto</th>
                                     <th scope="col">Tipo de produto</th>
                                     <th scope="col">Validade (dias)</th>
@@ -168,7 +169,6 @@ export default function GerirProdutos() {
                                 }
                                 {dadosTabela.map((produto => (
                                     <tr key={produto._id} className="information" onClick={() => handleRowClick(produto)}>
-                                        <td>{produto._id}</td>
                                         <td>{produto.nome_produto}</td>
                                         <td>{produto.tipo_produto}</td>
                                         <td>{produto.dias_prazo}</td>
@@ -200,7 +200,7 @@ export default function GerirProdutos() {
                             </Row>
                             <Row className="row div-product">
                                 <Col className="col-md-6 col-12">
-                                    <label className="label-product" htmlFor="product-validity">Validade dias (aberto):</label>
+                                    <label className="label-product" htmlFor="product-validity">Validade (aberto):</label>
                                 </Col>
                                 <Col className="col-md-6 col-12">
                                     <input type="number" min="0" className="product filled"
