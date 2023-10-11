@@ -59,7 +59,7 @@ export default function Contactos() {
       };
   
 
-    //   const handleNomeChange = (e) => setNome(e.target.value);: Aqui, estamos criando funções de 
+    //   const handleNomeChange = (e) => setNome(e.target.value);: Aqui, estamos a criar funções de 
     // manipulador de eventos para os campos do formulário. Essas funções são chamadas sempre que o valor 
     // dos campos do formulário é alterado, 
     // e elas atualizam os estados correspondentes usando as funções setNome, setEmail e setMensagem.
@@ -84,16 +84,18 @@ export default function Contactos() {
 onChange={handleNomeChange}: O evento onChange é configurado para chamar a função handleNome
 Change sempre que o valor do campo do formulário é alterado. Isso atualiza o estado correspondente. */}
 
-                <section>
-                    <h2>Formulário de Contacto</h2>
-                    <div className="col-3 contact">
-
+<section className="row">
+          <div className="col">
+            <h2>Formulário de Contacto</h2>
+            </div>
+            <div className="col">
                         
                         <Form action="/enviar-mensagem" method="post">
               <Form.Group controlId="nome">
                 <Form.Label>Nome:</Form.Label>
                 <Form.Control
                   type="text"
+                  placeholder='insira o seu nome p.f.'
                   className="rounded-2"
                   required
                   value={nome}
@@ -104,6 +106,7 @@ Change sempre que o valor do campo do formulário é alterado. Isso atualiza o e
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
                   type="email"
+                  placeholder='insira o seu email p.f.'
                   className="rounded-2"
                   required
                   value={email}
@@ -115,6 +118,7 @@ Change sempre que o valor do campo do formulário é alterado. Isso atualiza o e
                 <Form.Control
                   as="textarea"
                   rows={4}
+                  placeholder='p.f indique o seu motivo de contacto e entraremos em contacto consigo assim que possível'
                   className="rounded-2"
                   required
                   value={mensagem}
