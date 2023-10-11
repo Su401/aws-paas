@@ -161,6 +161,20 @@ export default function GerirPerfis() {
 
 			if (!response.ok) {
 				throw new Error('Failed to delete user');
+			} else {
+				setFormInputs({
+					fullName: '',
+					birthday: '',
+					nif: '',
+					userAddress: '',
+					role: '',
+					insuranceName: '',
+					insurancePolicy: '',
+					phone: '',
+					username: '',
+				});
+				// Fetch and update the users list to display the edited user
+				fetchUsers();
 			}
 
 			// Remove the deleted user from the list

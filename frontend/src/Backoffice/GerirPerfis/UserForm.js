@@ -1,7 +1,11 @@
+import { useState } from 'react';
+
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import PrintPerfis from './PrintPerfis';
+import React from 'react';
 
 export default function UserForm({
 	formInputs,
@@ -10,6 +14,12 @@ export default function UserForm({
 	handleEditUser,
 	handleDeleteUser,
 }) {
+	const [selectedUser, setSelectedUser] = useState(null);
+
+	const handleConsultarPerfis = () => {
+		// Set the selected user information in the state
+		setSelectedUser(formInputs);
+	};
 	return (
 		<Form className='form' action=''>
 			<Form.Group as={Row} className='mb-3'>
@@ -229,11 +239,15 @@ export default function UserForm({
 						</Button>
 					</Col>
 					<Col>
-						<a href='./printPerfis.html'>
-							<Button className='blueBtn m-1' type='button'>
-								Consultar perfil
-							</Button>
-						</a>
+						<Button
+							className='blueBtn m-1'
+							type='button'
+							onClick={handleConsultarPerfis}
+						>
+							Consultar Perfil
+						</Button>
+
+						{selectedUser && <PrintPerfis user={selectedUser} />}
 					</Col>
 				</Row>
 			</Row>
