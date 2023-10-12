@@ -49,3 +49,7 @@
         font-weight: 500;
     }
 }
+
+@page {}
+
+@media print {}

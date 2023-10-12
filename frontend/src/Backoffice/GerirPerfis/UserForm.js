@@ -239,15 +239,15 @@ export default function UserForm({
 						</Button>
 					</Col>
 					<Col>
-						<Button
-							className='blueBtn m-1'
-							type='button'
-							onClick={handleConsultarPerfis}
-						>
-							Consultar Perfil
-						</Button>
-
-						{selectedUser && <PrintPerfis user={selectedUser} />}
+						<a href='/consultar-perfis'>
+							<Button
+								className='blueBtn m-1'
+								type='button'
+								onClick={handleConsultarPerfis}
+							>
+								Consultar Perfil
+							</Button>
+						</a>
 					</Col>
 				</Row>
 			</Row>

@@ -3,8 +3,8 @@ import { lazy } from 'react';
 
 //Public
 
-const Homepage = lazy(() => import('../Static/Homepage'));
-const AboutUs = lazy(() => import('../Static/AboutUs'));
+const GerirPerfis = lazy(() => import('../Backoffice/GerirPerfis/GerirPerfis'));
+const PrintPerfis = lazy(() => import('../Backoffice/GerirPerfis/PrintPerfis'));
 const ContactUs = lazy(() => import('../Static/Contactos'));
 const Policies = lazy(() => import('../Static/PoliticaPrivacidade'));
 const Terms = lazy(() => import('../Static/TermosCondicoes'));
@@ -15,8 +15,12 @@ export default function PublicRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/' element={<Homepage />} />
-				<Route exact path='/about-us' element={<AboutUs />} />
+				<Route exact path='/gerir-perfis' element={<GerirPerfis />} />
+				<Route
+					exact
+					path='/consultar-perfis'
+					element={<PrintPerfis />}
+				/>
 				<Route exact path='/contact-us' element={<ContactUs />} />
 				<Route exact path='/policies' element={<Policies />} />
 				<Route exact path='/terms' element={<Terms />} />
