@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import PrintProfileModal from './PrintProfileModal';
 
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import PrintPerfis from './PrintPerfis';
 import React from 'react';
 
 export default function UserForm({
@@ -15,6 +15,7 @@ export default function UserForm({
 	handleDeleteUser,
 }) {
 	const [selectedUser, setSelectedUser] = useState(null);
+	const [modalShow, setModalShow] = React.useState(false);
 
 	const handleConsultarPerfis = () => {
 		// Set the selected user information in the state
@@ -239,15 +240,18 @@ export default function UserForm({
 						</Button>
 					</Col>
 					<Col>
-						<a href='/consultar-perfis'>
-							<Button
-								className='blueBtn m-1'
-								type='button'
-								onClick={handleConsultarPerfis}
-							>
-								Consultar Perfil
-							</Button>
-						</a>
+						<Button
+							className='blueBtn m-1'
+							type='button'
+							onClick={() => setModalShow(true)}
+						>
+							Consultar Perfil
+						</Button>{' '}
+						<PrintProfileModal
+							show={modalShow}
+							onHide={() => setModalShow(false)}
+							user={formInputs}
+						/>
 					</Col>
 				</Row>
 			</Row>

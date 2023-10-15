@@ -1,15 +1,24 @@
 import logo from '../../Images/logo.png';
 import '../../css/PrintPerfis.css';
-export default function PrintPerfis(user) {
-	const ogDate = new Date(user.user.birthday);
+import { useLocation } from 'react-router-dom';
+
+export default function PrintPerfis() {
+	const location = useLocation();
+	const user = location.state?.selectedUser?.user;
+
+	if (!user) {
+		// Handle the case where user data is not available
+		return <div>User data not found</div>;
+	}
+
+	const ogDate = new Date(user.birthday);
 	/**
 	 * Formats a given date object to a string in the format "dd-mm-yyyy".
 	 * @param {Date} ogDate - The original date object to be formatted.
 	 * @returns {string} - The formatted date string.
 	 */
-	const formattedDate = `${ogDate.getDate().toString().padStart(2, '0')}-${(
-		ogDate.getMonth() + 1
-	)
+	const formattedDate = `${ogDate.getDate().toString().padStart(2, '0')}
+	-${(ogDate.getMonth() + 1)
 		.toString()
 		.padStart(2, '0')}-${ogDate.getFullYear()}`;
 	/* 
@@ -29,31 +38,31 @@ export default function PrintPerfis(user) {
 
 	return (
 		<div className='PrintPerfis backgroundSec'>
-			<div class='container-fluid'>
-				<section class='flex-container paperContainer p-5'>
-					<article class='docHeader'>
-						<img src={logo} class='stamp' alt='logo' />
+			<div className='container-fluid'>
+				<section className='flex-container paperContainer p-5 sheet'>
+					<article className='docHeader'>
+						<img src={logo} className='stamp' alt='logo' />
 					</article>
 					<article>
 						<h2>Relatório do trabalhador {user.user.fullName}</h2>
 						<p>
-							{user.user.fullName}, nascido a {formattedDate}, com
-							o número de identificação fiscal {user.user.nif},
-							residente no endereço {user.user.userAddress}, e
-							atualmente trabalhador de {user.user.role} no
-							restaurante (shtoless tenho de ir buscar mais info
-							also o prof tinha razao damn.), é assegurado pela{' '}
-							{user.user.insuranceName} e número de apólice:{' '}
+							{user.user.fullName}, nascido em {formattedDate},
+							com o número de identificação fiscal {user.user.nif}
+							, residente no endereço {user.user.userAddress}, e
+							atualmente trabalhando como {user.user.role} no
+							restaurante (preciso buscar mais informações também,
+							o professor tinha razão), é assegurado pela{' '}
+							{user.user.insuranceName} e tem o número de apólice:{' '}
 							{user.user.insurancePolicy}.
 						</p>
 						&nbsp;
 					</article>
-					<article class='docFooter'>
+					<article className='docFooter'>
 						<hr />
-						<h3>Assinatura responsável</h3>
+						<h3>Assinatura do responsável</h3>
 					</article>
 				</section>
-				<button class='btn btn-primary d-flex float-start printBtn m-3'>
+				<button className='btn btn-primary d-flex float-start printBtn m-3'>
 					Enviar
 				</button>
 			</div>
