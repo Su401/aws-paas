@@ -3,16 +3,16 @@ const path = require('path');
 const { Products, registerProducts } = require('../db');
 
 const addProductsController = async (req, res, next) => {
-	const items = req.body.items;
+	const items = req.body;
+	console.log(items)
 	
 	try{
-		
-		const diasPrazo = parseInt(items[2]); // to convert the string into number 
+		 
 		
 		const products = await Products.create({
-        tipo_produto : items[0],
-        nome_produto: items[1],
-        dias_prazo: diasPrazo,
+        tipo_produto : items.tipo,
+        nome_produto: items.nome,
+        dias_prazo: items.validade,
     })
 
 		res.json({
@@ -50,9 +50,10 @@ const deleteProductController = async (req, res, next) => {
 
 const updateProductController = async (req, res, next) => {
 	const resourceId = req.params.id;
-	const caixaTipo = req.body.caixaTipo;
-	const caixaValidade = req.body.caixaValidade;
-	const caixaNome = req.body.caixaNome;
+	const corpo = req.body;
+	const caixaTipo = corpo.tipoProduto;
+	const caixaNome = corpo.nomeProduto;
+	const caixaValidade = corpo.validadeProduto;
 
 	try {
 		const response = await Products.findByIdAndUpdate({_id: resourceId}, 
