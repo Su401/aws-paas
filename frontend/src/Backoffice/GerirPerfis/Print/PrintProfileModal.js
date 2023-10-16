@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
-import PrintPerfis from '../PrintPerfis';
+import PrintPerfis from './PrintPerfis';
 
 export default function PrintProfileModal(props) {
 	console.log(props);

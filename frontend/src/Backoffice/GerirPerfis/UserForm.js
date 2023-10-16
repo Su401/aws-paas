@@ -13,6 +13,12 @@ export default function UserForm({
 	handleEditUser,
 	handleDeleteUser,
 }) {
+	/**
+	 * Handles the print or send button click event.
+	 * Constructs the HTML content for printing and opens a new window with the content.
+	 * Waits for the content to be fully loaded before triggering print.
+	 * Cleans up the print window after printing.
+	 */
 	function handlePrintOrSend() {
 		console.log('Button clicked');
 		// Construct the HTML content for printing
