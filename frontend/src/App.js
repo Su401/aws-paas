@@ -7,6 +7,7 @@ import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import './App.css';
 import Homepage from './Static/Homepage';
 import PublicRouter from './Routes/PublicRouter';
+import AdminRouter from './Routes/AdminRouter';
 
 function Public() {
 	return (
@@ -34,8 +35,8 @@ function LogedBabes() {
 }
 
 export default function App() {
-	const [isLoged, setIsLoged] = useState(false);
-	const [isAdmin, setIsAdmin] = useState(false);
+	const [isLoged, setIsLoged] = useState(true);
+	const [isAdmin, setIsAdmin] = useState(true);
 	if (isLoged) {
 		if (isAdmin) {
 			return (
@@ -43,7 +44,9 @@ export default function App() {
 					<header className='sticky-top'>
 						<SecondaryNav />
 					</header>
-					<main></main>
+					<main>
+						<AdminRouter />
+					</main>
 				</div>
 			);
 		} else {
