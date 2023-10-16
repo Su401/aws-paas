@@ -1,4 +1,5 @@
 import './SecondaryNav.css';
+import Logo from '../../Images/logo.png'
 
 export default function SecondaryNav() {
 	return (
@@ -6,7 +7,7 @@ export default function SecondaryNav() {
 			<nav className='navbar navbar-expand-sm sticky-top navSec'>
 				<div className='container-fluid'>
 					<a className='navbar-brand' href='/'>
-						<img src='../images/logo.png' alt='logo' />
+						<img src={Logo} alt='logo' />
 					</a>
 					<button
 						className='navbar-toggler'

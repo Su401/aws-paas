@@ -1,7 +1,7 @@
-import "../css/GerirRegistos.css"
-import '../Components/Sass/my-bootstrap.scss';
+import "../../css/GerirRegistos.css"
+import "../../Components/Sass/my-bootstrap.scss"
 import React, { useState } from 'react';
-import SecondaryNav from "../Components/SecondaryNav/SecondaryNav";
+import SecondaryNav from "../../Components/SecondaryNav/SecondaryNav"
 import { Form } from 'react-bootstrap';
 
 export default function GerirRegistos() {
@@ -75,21 +75,16 @@ function Formulario() {
         }
     }
 
-    const [rows, setRows] = useState(showRegistos)
-
-    const deleteRow = (id) => {
-        let copy = [...rows]
-        copy = copy.filter(
-            (item, index) => id != index
-        )
-        setRows()
-        alert('Registo Apagado com Sucesso')
+    const erraseRow = (id) => {
+        const updatedRegistos = [...showRegistos];
+        updatedRegistos.splice(id, 1);
+        setShowRegistos(updatedRegistos);
     }
 
-    return (
-        <div>
-            <div className="row">
 
+    return (
+        <div className="GerirRegistos">
+            <div className="row">
                 <div className="col-lg-5 mt-5 ps-5">
                     <Form method="POST">
                         <div className="form-check">
@@ -162,8 +157,8 @@ function Formulario() {
                                 <td></td>
                             </tr>
 
-                            {showRegistos.map((elem) => (
-                                <Registos data={elem.data} espaco={elem.espaço} tarefa={elem.tarefa} estado={elem.estado} id={Math.floor(Math.random() * 1000)} delRow={deleteRow} />
+                            {showRegistos.map((elem, index) => (
+                                <Registos data={elem.data} espaco={elem.espaço} tarefa={elem.tarefa} estado={elem.estado} id={index} erraseRow={() => { erraseRow(index) }} />
                             ))}
 
                         </tbody>
@@ -180,7 +175,7 @@ function Formulario() {
     )
 }
 
-function Registos({ data, espaco, tarefa, estado, id, delRow }) {
+function Registos({ data, espaco, tarefa, estado, erraseRow, id }) {
 
     return (
         <tr id={id}>
@@ -190,10 +185,10 @@ function Registos({ data, espaco, tarefa, estado, id, delRow }) {
             <td>{tarefa}</td>
             <td>{estado}</td>
             <td>
-                <button type="button" className="erraseButton" onClick={() => { delRow(id) }}>
+                <button type="button" className="erraseButton" onClick={() => { erraseRow(id) }}>
                     ✖
                 </button>
             </td>
-        </tr>
+        </tr >
     );
 }
