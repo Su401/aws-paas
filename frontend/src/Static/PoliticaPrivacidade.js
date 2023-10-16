@@ -1,4 +1,4 @@
-import '../css/TemplatePrimario.css';
+import './TemplatePrimario.css';
 
 export default function PoliticaPrivacidade() {
 	return (

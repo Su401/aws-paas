@@ -1,0 +1,32 @@
+@page {
+    size: A4;
+
+    img {
+        transform: translate(200%, 0);
+        margin-top: -2rem;
+        width: 15rem;
+    }
+
+
+    hr {
+        margin: 1rem auto;
+        width: 17rem;
+        border: 1px solid #000;
+    }
+}
+
+@media print {
+    img {
+        transform: translate(200%, 0);
+        margin-top: -2rem;
+        width: 15rem;
+    }
+
+
+    hr {
+        margin: 1rem auto;
+        width: 17rem;
+        border: 1px solid #000;
+    }
+
+}

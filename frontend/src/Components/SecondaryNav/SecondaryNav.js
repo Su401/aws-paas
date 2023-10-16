@@ -1,13 +1,20 @@
+import React, { useState } from 'react';
 import './SecondaryNav.css';
 import Logo from '../../Images/logo.png'
 
 export default function SecondaryNav() {
+	const [show, setShow] = useState(false);
+
+	const HandleLogin = (e) => {
+		e.preventDefault();
+		setShow(true);
+	};
 	return (
 		<div className='SecondaryNav'>
 			<nav className='navbar navbar-expand-sm sticky-top navSec'>
 				<div className='container-fluid'>
 					<a className='navbar-brand' href='/'>
-						<img src={Logo} alt='logo' />
+						<img src={logo} alt='logo' />
 					</a>
 					<button
 						className='navbar-toggler'
@@ -35,12 +42,12 @@ export default function SecondaryNav() {
 						</a>
 						<a
 							className='nav-item btn btn-primary'
-							href='#myModal'
-							data-bs-toggle='modal'
-							data-bs-target='#exampleModal'
+							href='/login'
+							onClick={HandleLogin}
 						>
 							Mudar de Conta
 						</a>
+						<LoginModal show={show} setShow={setShow} />
 					</div>
 				</div>
 			</nav>
