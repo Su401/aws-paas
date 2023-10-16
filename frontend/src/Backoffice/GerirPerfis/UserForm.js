@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import PrintProfileModal from './PrintProfileModal';
+import logo from '../../Images/logo.png';
 
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
@@ -14,13 +13,101 @@ export default function UserForm({
 	handleEditUser,
 	handleDeleteUser,
 }) {
-	const [selectedUser, setSelectedUser] = useState(null);
-	const [modalShow, setModalShow] = React.useState(false);
+	function handlePrintOrSend() {
+		console.log('Button clicked');
+		// Construct the HTML content for printing
+		const formattedDate = new Date(formInputs.birthday).toLocaleDateString(
+			undefined,
+			{
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			}
+		);
 
-	const handleConsultarPerfis = () => {
-		// Set the selected user information in the state
-		setSelectedUser(formInputs);
-	};
+		const printContent = `
+		  <!DOCTYPE html>
+		  <html>
+		  <head>
+			<title>Print Preview</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+			<link rel="stylesheet" href="../../css/PrintPerfis.css" media="print">
+			<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+            <style>
+			@page { size: A4 }
+			img {
+				transform: translate(170%, 0);
+				margin-top: -2rem;
+				width: 15rem;
+			}
+
+                body {
+                    font-family: 'Poppins', sans-serif;
+                }
+				h2{
+					font-size: 22pt;
+					text-align:center;
+				}
+				p{
+					text-align:justify;
+				}
+				hr {
+					margin: 1rem auto;
+					width: 27rem;
+					border: 1px solid #000;
+				}
+				h3{
+					font-size: 16pt;
+					text-align:center;
+				}
+				}
+            </style>
+		  </head>
+		  <body class="A4">
+			<section class="sheet padding-25mm">
+			  <article class='docHeader'>
+				<img src=${logo} class='stamp' alt='logo' />
+			  </article>
+			  <article>
+				<h2>Relatório do trabalhador <i>${formInputs.fullName}</i></h2>
+				<p>
+				  <i>${formInputs.fullName}</i>, nascido em <i>${formattedDate}</i>,
+				  com o número de identificação fiscal <i>${formInputs.nif}</i>
+				  , residente no endereço <i>${formInputs.userAddress}</i>, e
+				  atualmente trabalhando como <i>${formInputs.role}</i> na
+				  empresa {insert them compini}, é assegurado pela<i> ${formInputs.insuranceName}</i> e tem o
+				  número de apólice: <i>${formInputs.insurancePolicy}</i>.
+				</p>
+				&nbsp;
+			  </article>
+			  <article class='docFooter'>
+				<hr />
+				<h3>Assinatura do responsável</h3>
+			  </article>
+			</section>
+		  </body>
+		  </html>
+		`;
+
+		// Open a new window with the HTML content
+		const printWindow = window.open('', '_blank');
+
+		// Write the HTML content to the new window
+		printWindow.document.open();
+		printWindow.document.write(printContent);
+		printWindow.document.close();
+
+		// Wait for the content to be fully loaded before triggering print
+		printWindow.onload = () => {
+			printWindow.print();
+
+			// Clean up the print window after printing
+			printWindow.onafterprint = () => {
+				printWindow.close();
+			};
+		};
+	}
+
 	return (
 		<Form className='form' action=''>
 			<Form.Group as={Row} className='mb-3'>
@@ -243,15 +330,10 @@ export default function UserForm({
 						<Button
 							className='blueBtn m-1'
 							type='button'
-							onClick={() => setModalShow(true)}
+							onClick={handlePrintOrSend}
 						>
 							Consultar Perfil
-						</Button>{' '}
-						<PrintProfileModal
-							show={modalShow}
-							onHide={() => setModalShow(false)}
-							user={formInputs}
-						/>
+						</Button>
 					</Col>
 				</Row>
 			</Row>

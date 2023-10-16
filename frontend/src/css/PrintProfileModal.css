@@ -13,11 +13,6 @@
     max-width: 40rem;
 }
 
-article {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
 hr {
     margin: 1rem auto;
     width: 17rem;
@@ -69,5 +64,6 @@ h3 {
 @page {
     size: A4
 }
+
 
 @media print {}

@@ -1,6 +1,6 @@
 import logo from '../../Images/logo.png';
-import '../../css/PrintPerfis.css';
-import { useLocation } from 'react-router-dom';
+/* import '../../css/PrintPerfis.css';
+ */ import { useLocation } from 'react-router-dom';
 
 export default function PrintPerfis() {
 	const location = useLocation();
