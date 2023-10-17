@@ -18,13 +18,17 @@ import ConsultaTarefas from './Backoffice/ConsultaTarefas';
 // import ImprimirRegistos from './Backoffice/Registos/ImprimirRegistos';
 // import GerirRegistos from './Backoffice/GerirRegistos';
 //import GerirPerfis from './Backoffice/GerirPerfis';
+import Homepage from './Static/Homepage';
+import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
+import Footer from './Components/Footer/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 	<React.StrictMode>
-		<SecondaryNav />
-		<ConsultaTarefas />
+		<PrimaryNav />
+		<Homepage />
+		<Footer />
 	</React.StrictMode>
 );
 
