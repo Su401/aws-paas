@@ -7,15 +7,15 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './Components/Sass/my-bootstrap.scss';
-import GerirPerfis from './Backoffice/GerirPerfis';
+// import GerirPerfis from './Backoffice/GerirPerfis';
 
-import Contactos from './Static/Contactos';
-import PrimaryNav from '../src/Components/PrimaryNav/PrimaryNav';
-import Footer from '../src/Components/Footer/Footer';
+// import Contactos from './Static/Contactos';
+// import PrimaryNav from '../src/Components/PrimaryNav/PrimaryNav';
+// import Footer from '../src/Components/Footer/Footer';
 import ConsultaTarefas from './Static/ConsultaTarefas';
 // import GerirRegistos from './Backoffice/Registos/GerirRegistos';
 // import ImprimirRegistos from './Backoffice/Registos/ImprimirRegistos';
-import GerirRegistos from './Backoffice/GerirRegistos';
+// import GerirRegistos from './Backoffice/GerirRegistos';
 //import GerirPerfis from './Backoffice/GerirPerfis';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
