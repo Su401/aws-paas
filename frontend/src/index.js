@@ -11,12 +11,13 @@ import GerirPerfis from './Backoffice/GerirPerfis';
 import Contactos from './Static/Contactos';
 import PrimaryNav from '../src/Components/PrimaryNav/PrimaryNav';
 import Footer from '../src/Components/Footer/Footer';
+import ConsultaTarefas from './Static/ConsultaTarefas';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 	<React.StrictMode>
-		<App />
+		<ConsultaTarefas />
 	</React.StrictMode>
 );
 
