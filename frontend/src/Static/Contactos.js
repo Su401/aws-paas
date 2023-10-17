@@ -25,7 +25,7 @@ export default function Contactos() {
 	const [email, setEmail] = useState('');
 	const [mensagem, setMensagem] = useState('');
 
-    // const [nome, setNome] = useState('');: Isso cria um estado chamado nome e uma função setNome para atualizar esse 
+	// const [nome, setNome] = useState('');: Isso cria um estado chamado nome e uma função setNome para atualizar esse 
     // estado. O estado inicial é uma string vazia (''). O mesmo padrão se aplica a email e mensagem.
 
 
