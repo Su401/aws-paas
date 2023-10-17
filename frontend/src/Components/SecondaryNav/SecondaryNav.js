@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SecondaryNav.css';
-// import Logo from '../../Images/logo.png'
+import LoginModal from '../LoginModal/LoginModal';
+import logo from '../../Images/logo.png'
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
