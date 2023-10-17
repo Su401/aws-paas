@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SecondaryNav.css';
-import Logo from '../../Images/logo.png'
+// import Logo from '../../Images/logo.png'
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
