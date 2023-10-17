@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/TemplatePrimario.css';
+import './TemplatePrimario.css';
 
 // Resumo da Mecânica do useState:
 // Declaração de Estado: const [estado, setEstado] = useState(valorInicial);
@@ -21,9 +21,9 @@ import '../css/TemplatePrimario.css';
 // hook useState dela. O useState é um hook que permite adicionar estado a componentes de função no React.
 
 export default function Contactos() {
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [mensagem, setMensagem] = useState('');
+	const [nome, setNome] = useState('');
+	const [email, setEmail] = useState('');
+	const [mensagem, setMensagem] = useState('');
 
     // const [nome, setNome] = useState('');: Isso cria um estado chamado nome e uma função setNome para atualizar esse 
     // estado. O estado inicial é uma string vazia (''). O mesmo padrão se aplica a email e mensagem.
@@ -139,8 +139,3 @@ Change sempre que o valor do campo do formulário é alterado. Isso atualiza o e
     </div>
   );
 }
-
-
-
-
-

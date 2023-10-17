@@ -1,4 +1,4 @@
-import '../css/AdminBtn.css';
+import './css/AdminBtn.css';
 export default function AdminBtn() {
 	return (
 		<div className='admin-btn'>
