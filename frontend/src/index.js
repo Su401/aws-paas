@@ -13,7 +13,7 @@ import Contactos from './Static/Contactos';
 import PrimaryNav from '../src/Components/PrimaryNav/PrimaryNav';
 import Footer from '../src/Components/Footer/Footer';
 import ConsultaTarefas from './Static/ConsultaTarefas';
-import GerirRegistos from './Backoffice/Registos/GerirRegistos';
+// import GerirRegistos from './Backoffice/Registos/GerirRegistos';
 // import ImprimirRegistos from './Backoffice/Registos/ImprimirRegistos';
 import GerirRegistos from './Backoffice/GerirRegistos';
 //import GerirPerfis from './Backoffice/GerirPerfis';
