@@ -1,4 +1,4 @@
-import './TemplatePrimario.css';
+import "../css/TemplatePrimario.css";
 
 export default function AboutUs() {
 	return (
