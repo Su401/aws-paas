@@ -9,6 +9,7 @@ const BotoesRedecionais = lazy(() => import('../Static/BotoesRedecionais'))
 const GerirProdutos = lazy(() => import('../Backoffice/GerirProdutos'))
 const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos'))
 const ImprimirRegistos = lazy(() => import('../Backoffice/Registos/ImprimirRegistos'))
+const BotoesRedecionais2 = lazy(() => import('../Static/BotoesRedirecionais2'))
 /* const PrintPerfis = lazy(() => import('../Backoffice/GerirPerfis/PrintPerfis')); */
 
 const NotFound = lazy(() => import('../Components/404'));
@@ -24,6 +25,7 @@ export default function AdminRouter() {
 				<Route exact path='/botoesRedecionais' element={<BotoesRedecionais />} />
 				<Route exact path='/gerirProdutos' element={<GerirProdutos />} />
 				<Route exact path='/registarProdutos' element={<RegistarProdutos />} />
+				<Route exact path='/botoesRedecionais2' element={<BotoesRedecionais2 />} />
 				{/* <Route exact path='/consultar-perfis' element={<PrintPerfis />} /> */}
 				<Route path='*' element={<NotFound />} />
 			</Routes>

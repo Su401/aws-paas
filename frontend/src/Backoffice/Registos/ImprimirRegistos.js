@@ -1,11 +1,9 @@
 import "../../css/ImprimirRegistos.css"
-import SecondaryNav from "../../Components/SecondaryNav/SecondaryNav"
 import Logo from '../../Images/logo.png'
 
 export default function ImprimirRegistos() {
     return (
         <div>
-            <SecondaryNav />
             <div>
                 <div className="container-fluid">
                     <div className="row mt-5">
