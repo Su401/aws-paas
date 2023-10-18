@@ -37,6 +37,7 @@ export default function SecondaryNav() {
 							<button
 								className='btn btn-primary me-2'
 								type='button'
+								style={{ color: "white" }}
 							>
 								Área do utilizador
 							</button>
@@ -45,6 +46,7 @@ export default function SecondaryNav() {
 							className='nav-item btn btn-primary'
 							href='/login'
 							onClick={HandleLogin}
+							style={{ color: "white" }}
 						>
 							Mudar de Conta
 						</a>
