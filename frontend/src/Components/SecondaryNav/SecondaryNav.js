@@ -14,7 +14,7 @@ export default function SecondaryNav() {
 		<div className='SecondaryNav'>
 			<nav className='navbar navbar-expand-sm sticky-top navSec'>
 				<div className='container-fluid'>
-					<a className='navbar-brand' href='/botoesRedecionais'>
+					<a className='navbar-brand' href='/'>
 						<img src={logo} alt='logo' />
 					</a>
 					<button
@@ -33,7 +33,7 @@ export default function SecondaryNav() {
 						id='navbarTogglerDemo02'
 					>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'></ul>
-						<a href='/botoesRedecionais' className='nav-item'>
+						<a href='/' className='nav-item'>
 							<button
 								className='btn btn-primary me-2'
 								type='button'

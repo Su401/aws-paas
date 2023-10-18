@@ -7,7 +7,7 @@
 
 
 
-import "../css/ConsultarTarefas.css"
+import "../Consulta/ConsultarTarefas.css"
 
 
 export default function ConsultaTarefas() {
