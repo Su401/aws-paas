@@ -1,8 +1,9 @@
 import "../css/ConsultarTarefas.css"
 
+
 export default function ConsultaTarefas() {
     return (
-        <div className="ConsultaTarefas">
+        <div className="ConsultaTarefas backgroundSec" >
             <div className="container">
                 <div className="container-title">
                     <h1>Consulta de Tarefas</h1>
