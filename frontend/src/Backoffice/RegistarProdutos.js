@@ -1,7 +1,6 @@
 import '../css/RegistarProdutos.css';
 import React, { useEffect, useState } from 'react';
 import '../Components/Sass/my-bootstrap.scss';
-
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/Row';
@@ -10,6 +9,15 @@ export default function RegistarProdutos() {
     const [dadosTiposProduto, setDadosTipoProduto] = useState([]);
     const [caixaSelectValor, setCaixaSelectValor] = useState('');
     const [caixaSelectNome, setCaixaSelectNome] = useState([]);
+    const [valorCaixaSelectNome, setValorCaixaSelectNome] = useState('');
+    const [caixaInputValidadeAberto, setCaixaInputValidadeAberto] = useState('');
+    const [caixaInputLote, setCaixaInputLote] = useState('')
+    const [caixaInputValidade, setCaixaValidade] = useState('')
+    let dataAtual = new Date();
+    //const dataFormatadaPadrao = `${dataAtual.getDate()}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`;
+    let dataFormatadaPadrao = `${dataAtual.getFullYear()}-${dataAtual.getMonth() + 1}-${dataAtual.getDate()}`
+    const [caixaDataAbertura, setCaixaDataAbertura] = useState(dataFormatadaPadrao);
+
 
     const fetchDadosTiposProduto = async () => {
         try {
@@ -29,6 +37,8 @@ export default function RegistarProdutos() {
             setDadosTipoProduto(selectTypeData.allProducts);
             setCaixaSelectValor(selectTypeData.allProducts[0].tipo_produto);
             setCaixaSelectNome(selectTypeData.allProducts[0].produtosArray);
+            setCaixaInputValidadeAberto(selectTypeData.allProducts[0].produtosArray[0].validade);
+            setValorCaixaSelectNome(selectTypeData.allProducts[0].produtosArray[0].nomeProduto);
 
         } catch (error) {
             console.error('An error ocurred', error)
@@ -44,12 +54,52 @@ export default function RegistarProdutos() {
     const handleSelectTypeChange = (e) => {
         const novoValor = e.target.value;
         setCaixaSelectValor(novoValor);
+        const tipoProduto = dadosTiposProduto.filter(Tipo => Tipo.tipo_produto === novoValor);
+        const validade = tipoProduto[0].produtosArray[0].validade;
+        setCaixaInputValidadeAberto(validade);
+        setCaixaInputLote('');
+        setCaixaValidade('');
+    }
+
+    const handleSelectNameChangeThroughTypeChange = (e) => {
+        const atualTipo = e.target.value;
+        const novoArray = dadosTiposProduto.find(dados => dados.tipo_produto === atualTipo)
+        setCaixaSelectNome(novoArray.produtosArray);
+        setValorCaixaSelectNome(novoArray.produtosArray[0].nomeProduto);
+        setCaixaInputLote('');
+        setCaixaValidade('');
     }
 
     const handleSelectNameChange = (e) => {
-        console.log(dadosTiposProduto)
-        const novoArray = dadosTiposProduto.find(dados => dados.tipo_produto === caixaSelectValor)
-        console.log(novoArray)
+        const filtrarPorCaixaTipo = dadosTiposProduto.filter(Tipo => Tipo.tipo_produto === caixaSelectValor);
+        const atualProduto = filtrarPorCaixaTipo[0].produtosArray.find(produto => produto.nomeProduto === e.target.value);
+        setCaixaInputValidadeAberto(atualProduto.validade);
+        setValorCaixaSelectNome(atualProduto.nomeProduto);
+        setCaixaInputLote('');
+        setCaixaValidade('');
+    }
+
+    const handleBtnClick = () => {
+        const novaData = new Date(dataAtual);
+        novaData.setDate(dataAtual.getDate() + Number(caixaInputValidadeAberto));
+        dataFormatadaPadrao = `${novaData.getFullYear()}-${novaData.getMonth() + 1}-${novaData.getDate()}`
+        console.log(dataFormatadaPadrao);
+
+        if ((caixaSelectValor !== '' && valorCaixaSelectNome !== '' && caixaInputLote !== '' && caixaInputValidadeAberto !== '' && caixaInputValidade !== '')) {
+            const impressao = {
+                tipo_produto: caixaSelectValor,
+                nome_produto: valorCaixaSelectNome,
+                lote: caixaInputLote,
+                data_abertura: caixaDataAbertura,
+                validade: caixaInputValidade,
+                validade_atual: dataFormatadaPadrao,
+            }
+            setCaixaInputLote('');
+            setCaixaValidade('');
+            console.log(impressao)
+        } else {
+            console.log("Preencha todas as caixas.")
+        }
     }
 
     return (
@@ -68,7 +118,7 @@ export default function RegistarProdutos() {
                             </Col>
                             <Col className="col-md-4 col-12">
                                 <div className="selection-box">
-                                    <select name="select-box" id="select-boxType" className="w-100 form-select mt-1" value={caixaSelectValor} /* onChange={(e) => {handleSelectTypeChange(e), handleSelectNameChange(e)}} */>
+                                    <select name="select-box" id="select-boxType" className="w-100 form-select mt-1" value={caixaSelectValor} onChange={(e) => { handleSelectTypeChange(e); handleSelectNameChangeThroughTypeChange(e) }}>
                                         {dadosTiposProduto.map(tipoProduto => (
                                             <option value={tipoProduto.tipo_produto}>{tipoProduto.tipo_produto}</option>
                                         ))}
@@ -84,9 +134,8 @@ export default function RegistarProdutos() {
                             </Col>
                             <Col className="col-md-4 col-12">
                                 <div className="selection-box">
-                                    <select name="select-boxName" id="select-boxName" className="w-100 form-select mt-1">
-                                        {caixaSelectNome.map(nomeProduto => (
-                                            <option value={nomeProduto.nomeProduto} onChange={handleSelectNameChange}>{nomeProduto.nomeProduto}</option>
+                                    <select name="select-boxName" id="select-boxName" className="w-100 form-select mt-1" onChange={(e) => handleSelectNameChange(e)}>
+                                        {caixaSelectNome.map(nomeProduto => (<option value={nomeProduto.nomeProduto} >{nomeProduto.nomeProduto}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -101,7 +150,7 @@ export default function RegistarProdutos() {
                             <Col className="col-md-4 col-12">
                                 <div className="form-group text-center">
                                     <input type="number" name="productBatch" id="productBatch"
-                                        className="form-input-group w-100 mt-1 text-center" min="0">
+                                        className="form-input-group w-100 mt-1 text-center" min="0" value={caixaInputLote} onChange={(e) => setCaixaInputLote(e.target.value)}>
                                     </input>
                                 </div>
                             </Col>
@@ -114,8 +163,8 @@ export default function RegistarProdutos() {
                             </Col>
                             <Col className="col-md-4 col-12">
                                 <div className="form-group text-center">
-                                    <input type="text" name="productDate" id="productDate"
-                                        className="form-input-group w-100 mt-1 text-center" readonly>
+                                    <input type="date" name="productDate" id="productDate"
+                                        className="form-input-group w-100 mt-1 text-center" value={caixaDataAbertura}>
                                     </input>
                                 </div>
                             </Col>
@@ -129,7 +178,7 @@ export default function RegistarProdutos() {
                             <Col className="col-md-4 col-12">
                                 <div className="form-group text-center">
                                     <input type="text" name="productValidityAfterOpenned"
-                                        id="productValidityAfterOpenned" className="form-input-group w-100 mt-1 text-center" readonly>
+                                        id="productValidityAfterOpenned" className="form-input-group w-100 mt-1 text-center" value={Number(caixaInputValidadeAberto)}>
                                     </input>
                                 </div>
                             </Col>
@@ -143,7 +192,7 @@ export default function RegistarProdutos() {
                             <Col className="col-md-4 col-12">
                                 <div className="form-group text-center">
                                     <input type="date" name="productValidity" id="productValidity"
-                                        className="form-input-group w-100 mt-1 text-center">
+                                        className="form-input-group w-100 mt-1 text-center" value={caixaInputValidade} onChange={(e) => setCaixaValidade(e.target.value)}>
                                     </input>
                                 </div>
                             </Col>
@@ -154,7 +203,8 @@ export default function RegistarProdutos() {
                     <div>
                         <Row className="row">
                             <div className="btn-submit">
-                                <button id="printBtn" className="btn btn-primary btn-imprimir mt-5">Imprimir</button>
+                                <button id="printBtn" className="btn btn-primary btn-imprimir mt-5" onClick={handleBtnClick}>Impressão
+                                </button>
                             </div>
                         </Row>
                     </div>

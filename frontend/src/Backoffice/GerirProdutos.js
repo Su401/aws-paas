@@ -12,33 +12,34 @@ export default function GerirProdutos() {
     const [idInput, setIdInput] = useState(''); // Variável de estado para a caixa de input Selecao
     const [validadeInput, setValidadeInput] = useState(''); // Variável de estado para a caixa de input Validade do Produto
     const [tipoProdutoInput, setTipoProdutoInput] = useState(''); // Variável de estado para a caixa de input Tipo de Produto
-    const [filtroNome, setFiltroNome] = useState('')
-    
+    const [filtroNome, setFiltroNome] = useState('');
+    const [filtroTipo, setFiltroTipo] = useState('');
+
 
     // Para buscar os dados que irão renderizar na tabela
     const fetchDados = async () => {
-        try{ 
-            const response = await fetch('http://localhost:8080/api/criarTabela', 
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type':
-                    'application/json',
-                }
-            })
-            if (!response.ok){
+        try {
+            const response = await fetch('http://localhost:8080/api/criarTabela',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type':
+                            'application/json',
+                    }
+                })
+            if (!response.ok) {
                 throw new Error('Failed to fetch table data');
             }
             const tableData = await response.json();
             setDadosTabela(tableData.allProducts);
             console.log(tableData);
-        } catch (error){
+        } catch (error) {
             console.error('An error ocurred while fetching table data', error)
         }
     }
 
-    useEffect(()=> {
-        
+    useEffect(() => {
+
         fetchDados();
 
     }, [])
@@ -53,7 +54,7 @@ export default function GerirProdutos() {
 
     // Para fazer a busca do produto pelo id e posteriormente atualizá-lo
     const updateProduct = async () => {
-        try{
+        try {
             const productData = {
                 id: idInput,
                 nomeProduto: nomeProdutoInput,
@@ -63,16 +64,16 @@ export default function GerirProdutos() {
             console.log(productData)
             const response = await fetch(`http://localhost:8080/api/editarProduto/${productData.id}`, {
                 method: 'PUT',
-                headers:{
-                    'Content-Type':'application/json'
+                headers: {
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(productData)
             });
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error("An error ocurred while fetching update data");
             }
             console.log("Product updated!");
-        } catch (error){
+        } catch (error) {
             console.error("Error in updating", error)
         }
 
@@ -91,14 +92,14 @@ export default function GerirProdutos() {
             const response = await fetch(`http://localhost:8080/api/excluirProduto/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 }
             })
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error("An error ocurred while fetching delete data");
             }
             console.log("Deleted data!")
-        } catch (error){
+        } catch (error) {
             console.error("Error in deleting", error)
         }
 
@@ -121,15 +122,15 @@ export default function GerirProdutos() {
             const response = await fetch(`http://localhost:8080/api/adicionarProdutos`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(product),
             })
-            if(!response.ok){
+            if (!response.ok) {
                 throw new Error("An error ocurred while fetching add data");
             }
             console.log("Added data!")
-        } catch (error){
+        } catch (error) {
             console.error("Error in adding", error)
         }
 
@@ -141,6 +142,10 @@ export default function GerirProdutos() {
         fetchDados()
     }
 
+    // Para filtrar os dados da tabela por nome do produto    
+    const dadosTabelaFiltrados = dadosTabela.filter((produto) => {
+        return (produto.nome_produto.toLowerCase().includes(filtroNome.toLowerCase()) && produto.tipo_produto.toLowerCase().includes(filtroTipo.toLowerCase()))
+    })
 
     return (
         <Container className="GerirProdutos backgroundSec">
@@ -151,6 +156,7 @@ export default function GerirProdutos() {
                 <Row>
                     <Col lg={6} xs={12}>
                         <input type="text" placeholder="Filtra por nome" value={filtroNome} onChange={(e) => setFiltroNome(e.target.value)}></input>
+                        <input type="text" placeholder="Filtra por tipo" value={filtroTipo} onChange={(e) => setFiltroTipo(e.target.value)}></input>
                         <Table responsive id="tableProducts" className="table-container products-table table table-hover table-light table-sm align-middle">
                             <thead>
                                 <tr>
@@ -167,15 +173,15 @@ export default function GerirProdutos() {
                                     /* Para iterar nos dados recebidos do banco de dados para o preenchimento da tabela 
                                     A funcao handleRowClick atua no preenchimento das caixas ao clicarmos na tabela*/
                                 }
-                                {dadosTabela.map((produto => (
+                                {dadosTabelaFiltrados.map((produto => (
                                     <tr key={produto._id} className="information" onClick={() => handleRowClick(produto)}>
                                         <td>{produto.nome_produto}</td>
                                         <td>{produto.tipo_produto}</td>
                                         <td>{produto.dias_prazo}</td>
                                     </tr>
                                 )))}
-                                    
-                                
+
+
                             </tbody>
                         </Table>
                     </Col>
