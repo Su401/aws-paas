@@ -1,0 +1,3 @@
+//Nhecice
+
+//Template registo temperaturas
