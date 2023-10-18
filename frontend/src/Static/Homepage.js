@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "../css/TemplatePrimario.css";
+import "../css/TemplatePrimario.css";
+import imgbenef from "../Images/pexels-fauxels-3183197.jpg";
+import imgsetores from "../Images/pexels-jopwell-2422293.jpg";
 
 export default function Homepage() {
 	const subcapitulos = [
@@ -9,13 +11,13 @@ export default function Homepage() {
 			titulo: "Benefícios da Nossa Abordagem Digital",
 			texto:
 				"Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.",
-			imagem: "./src/Images/pexels-fauxels-3183197.jpg",
+			imagem: {imgbenef},
 		},
 		{
 			titulo: "Atendendo a Diversos Setores",
 			texto:
 				"Embora tenhamos começado com um foco na indústria de restauração, as nossas soluções são altamente adaptáveis e aplicáveis a uma variedade de setores. Esteja você gerindo um restaurante, uma fábrica, uma instalação de saúde ou qualquer outro tipo de negócio, estamos aqui para ajudar a aprimorar a sua gestão de segurança e conformidade.",
-			imagem: "./src/Images/pexels-jopwell-2422293.jpg",
+			imagem: {imgsetores},
 		},
 	];
 

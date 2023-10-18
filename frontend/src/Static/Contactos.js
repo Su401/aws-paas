@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './TemplatePrimario.css';
+import "../css/TemplatePrimario.css";
 
 // Resumo da Mecânica do useState:
 // Declaração de Estado: const [estado, setEstado] = useState(valorInicial);
