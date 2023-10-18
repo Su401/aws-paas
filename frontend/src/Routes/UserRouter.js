@@ -8,7 +8,7 @@ const UserHomeBtn = lazy(() => import('../Backoffice/UserComp/UserHomeBtn/UserHo
 const UserBtnRegistos = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'));
 const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos'))
 const ConsultaTarefas = lazy(() => import('../Backoffice/UserComp/Consulta/ConsultaTarefas'))
-const NotFound = lazy(() => import('../Components/404'));
+const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function PublicRouter() {
 	return (

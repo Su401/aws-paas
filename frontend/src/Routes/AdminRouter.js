@@ -12,7 +12,7 @@ const ImprimirRegistos = lazy(() => import('../Backoffice/Registos/ImprimirRegis
 const BotoesRedecionais2 = lazy(() => import('../Static/BotoesRedirecionais2'))
 /* const PrintPerfis = lazy(() => import('../Backoffice/GerirPerfis/PrintPerfis')); */
 
-const NotFound = lazy(() => import('../Components/404'));
+const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function AdminRouter() {
 	return (
