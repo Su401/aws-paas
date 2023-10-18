@@ -6,15 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './Components/Sass/my-bootstrap.scss';
-import GerirRegistos from './Backoffice/Registos/GerirRegistos';
-// import ImprimirRegistos from './Backoffice/Registos/ImprimirRegistos';
-import GerirRegistos from './Backoffice/GerirRegistos';
-//import GerirPerfis from './Backoffice/GerirPerfis';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<GerirRegistos />
+		<App />
 	</React.StrictMode>
 );
 

@@ -1,12 +1,9 @@
 import '../css/BotoesRedecionais.css'
 import '../Components/Sass/my-bootstrap.scss';
-import SecondaryNav from "../Components/SecondaryNav/SecondaryNav";
-import { Link } from 'react-router-dom';
 
 export default function BotoesRedecionais() {
     return (
         <div>
-            <SecondaryNav />
             <div className="row">
                 <div className='mt-lg-4'>
                     <span></span>
@@ -25,17 +22,17 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <Link to="/gerirProdutos" className="stretched-link btnedit"><span
+                                    <a href="/gerirProdutos" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
                                         <br></br><span className="letter2Edit"> PRODUTOS</span>
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/gerirPerfis" className="stretched-link btnedit"><span
+                                    <a href="/gerir-perfis" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
                                         <br></br> <span className="letter2Edit"> PERFIS</span></a>
                                 </div>
@@ -72,7 +69,7 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-0" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/registos" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
+                                    <a href="/registarProdutos" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
                                         <br></br><span className="letter2Edit">ABERTURA DE PRODUTOS</span></a>
                                 </div>
                             </div>
@@ -81,7 +78,7 @@ export default function BotoesRedecionais() {
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="/" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
-                                        <br></br><span className="letter2Edit"> DADOS</span></a>
+                                        <br></br><span className="letter2Edit"> CONTA</span></a>
                                 </div>
                             </div>
                         </div>

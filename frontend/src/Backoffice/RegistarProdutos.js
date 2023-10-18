@@ -1,46 +1,46 @@
 import '../css/RegistarProdutos.css';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Components/Sass/my-bootstrap.scss';
 
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/Row';
 
-export default function RegistarProdutos(){
+export default function RegistarProdutos() {
     const [dadosTiposProduto, setDadosTipoProduto] = useState([]);
     const [caixaSelectValor, setCaixaSelectValor] = useState('');
     const [caixaSelectNome, setCaixaSelectNome] = useState([]);
 
     const fetchDadosTiposProduto = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/registoDeProdutos/preencheProdutos', 
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if(!response.ok){
+            const response = await fetch('http://localhost:8080/api/registoDeProdutos/preencheProdutos',
+                {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            if (!response.ok) {
                 throw new Error('Failed to fetch product type')
             }
             const selectTypeData = await response.json();
             console.log(selectTypeData)
-            
+
             setDadosTipoProduto(selectTypeData.allProducts);
             setCaixaSelectValor(selectTypeData.allProducts[0].tipo_produto);
             setCaixaSelectNome(selectTypeData.allProducts[0].produtosArray);
 
-        } catch (error){
+        } catch (error) {
             console.error('An error ocurred', error)
         }
     }
 
     useEffect(() => {
-        if(caixaSelectValor === ''){
+        if (caixaSelectValor === '') {
             fetchDadosTiposProduto();
         }
     }, [caixaSelectValor])
-    
+
     const handleSelectTypeChange = (e) => {
         const novoValor = e.target.value;
         setCaixaSelectValor(novoValor);
@@ -51,7 +51,7 @@ export default function RegistarProdutos(){
         const novoArray = dadosTiposProduto.find(dados => dados.tipo_produto === caixaSelectValor)
         console.log(novoArray)
     }
-    
+
     return (
         <Container className='RegistarProdutos backgroundSec'>
             <div className="titulo">
@@ -68,7 +68,7 @@ export default function RegistarProdutos(){
                             </Col>
                             <Col className="col-md-4 col-12">
                                 <div className="selection-box">
-                                    <select name="select-box" id="select-boxType" className="w-100 form-select mt-1" value={caixaSelectValor} onChange={(e) => {handleSelectTypeChange(e), handleSelectNameChange(e)}}>
+                                    <select name="select-box" id="select-boxType" className="w-100 form-select mt-1" value={caixaSelectValor} /* onChange={(e) => {handleSelectTypeChange(e), handleSelectNameChange(e)}} */>
                                         {dadosTiposProduto.map(tipoProduto => (
                                             <option value={tipoProduto.tipo_produto}>{tipoProduto.tipo_produto}</option>
                                         ))}
@@ -101,7 +101,7 @@ export default function RegistarProdutos(){
                             <Col className="col-md-4 col-12">
                                 <div className="form-group text-center">
                                     <input type="number" name="productBatch" id="productBatch"
-                                    className="form-input-group w-100 mt-1 text-center" min="0">
+                                        className="form-input-group w-100 mt-1 text-center" min="0">
                                     </input>
                                 </div>
                             </Col>
@@ -148,16 +148,16 @@ export default function RegistarProdutos(){
                                 </div>
                             </Col>
                         </Row>
-                        </Col>
-                        <Col className="col-md-4">
-                        </Col>
-                        <div>
-                            <Row className="row">
-                                <div className="btn-submit">
-                                    <button id="printBtn" className="btn btn-primary btn-imprimir mt-5">Imprimir</button>
-                                </div>
-                            </Row>
-                        </div>
+                    </Col>
+                    <Col className="col-md-4">
+                    </Col>
+                    <div>
+                        <Row className="row">
+                            <div className="btn-submit">
+                                <button id="printBtn" className="btn btn-primary btn-imprimir mt-5">Imprimir</button>
+                            </div>
+                        </Row>
+                    </div>
                 </Row>
             </Container>
         </Container>

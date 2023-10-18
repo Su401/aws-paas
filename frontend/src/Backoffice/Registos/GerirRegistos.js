@@ -1,13 +1,11 @@
 import "../../css/GerirRegistos.css"
 import "../../Components/Sass/my-bootstrap.scss"
 import React, { useState } from 'react';
-import SecondaryNav from "../../Components/SecondaryNav/SecondaryNav"
 import { Form } from 'react-bootstrap';
 
 export default function GerirRegistos() {
     return (
         <div>
-            <SecondaryNav />
             <div className="GerirRegistos">
                 <div className="container-fluid backgroundSec">
                     <div className="row">
@@ -164,7 +162,7 @@ function Formulario() {
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-center">
-                        <a href="/">
+                        <a href="/imprimirRegistos">
                             <button id="btnAdicionarProdutos" className="btn btn-primary shadow-sm btn-lg-custom mt-3"
                                 type="button">IMPRIMIR</button>
                         </a>

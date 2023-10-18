@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SecondaryNav.css';
 import Logo from '../../Images/logo.png'
+import LoginModal from '../LoginModal/LoginModal';
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
@@ -13,8 +14,8 @@ export default function SecondaryNav() {
 		<div className='SecondaryNav'>
 			<nav className='navbar navbar-expand-sm sticky-top navSec'>
 				<div className='container-fluid'>
-					<a className='navbar-brand' href='/'>
-						<img src={logo} alt='logo' />
+					<a className='navbar-brand' href='/botoesRedecionais'>
+						<img src={Logo} alt='logo' />
 					</a>
 					<button
 						className='navbar-toggler'
@@ -32,7 +33,7 @@ export default function SecondaryNav() {
 						id='navbarTogglerDemo02'
 					>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'></ul>
-						<a href='/' className='nav-item'>
+						<a href='/botoesRedecionais' className='nav-item'>
 							<button
 								className='btn btn-primary me-2'
 								type='button'
