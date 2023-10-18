@@ -15,7 +15,7 @@ export default function SecondaryNav() {
 			<nav className='navbar navbar-expand-sm sticky-top navSec'>
 				<div className='container-fluid'>
 					<a className='navbar-brand' href='/botoesRedecionais'>
-						<img src={Logo} alt='logo' />
+						<img src={logo} alt='logo' />
 					</a>
 					<button
 						className='navbar-toggler'
