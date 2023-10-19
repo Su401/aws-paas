@@ -9,6 +9,7 @@ const UserBtnRegistos = lazy(() => import('../Backoffice/UserComp/RegistoTarefas
 const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos'))
 const ConsultaTarefas = lazy(() => import('../Backoffice/UserComp/Consulta/ConsultaTarefas'))
 const NotFound = lazy(() => import('../Components/404/404'));
+const RegLimpBalcao = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'))
 
 export default function PublicRouter() {
 	return (
@@ -18,6 +19,7 @@ export default function PublicRouter() {
 				<Route exact path='/UserBtnRegistos' element={<UserBtnRegistos />} />
 				<Route exact path='/RegistarProdutos' element={<RegistarProdutos />} />
 				<Route exact path='/ConsultarTarefas' element={<ConsultaTarefas />} />
+				<Route exact path='/RegLimpBalcao' element={<RegLimpBalcao />} />
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</Router>

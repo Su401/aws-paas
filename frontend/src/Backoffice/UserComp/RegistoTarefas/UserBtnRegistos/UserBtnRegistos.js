@@ -44,7 +44,7 @@ function DirectionalButtons() {
                     <div className="col-lg-4">
                         <div className="card pb-lg-5" style={{ width: "20rem", height: "15rem" }}>
                             <div className="card-body">
-                                <a href="/" className=" btnedit"><span
+                                <a href="/RegLimpBalcao" className=" btnedit"><span
                                     className="letterEdit">REGISTAR</span>
                                     <br></br> <span className="letter2Edit">LIMPEZA</span></a>
                             </div>
