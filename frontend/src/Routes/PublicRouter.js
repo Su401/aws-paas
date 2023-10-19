@@ -9,7 +9,7 @@ const AboutUs = lazy(() => import('../Static/AboutUs'));
 const ContactUs = lazy(() => import('../Static/Contactos'));
 const Policies = lazy(() => import('../Static/PoliticaPrivacidade'));
 const Terms = lazy(() => import('../Static/TermosCondicoes'));
-const NotFound = lazy(() => import('../Components/404'));
+const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function PublicRouter() {
 	return (

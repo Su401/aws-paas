@@ -1,4 +1,13 @@
-import "../css/ConsultarTarefas.css"
+//Nheco Nheco Butones
+
+//Troca Oleo ---> Sem Template
+//Limpeza Copa ---> Sem Template
+//Limpeza Cozinha ---> Sem Template
+//Registo produtos ---> Sem Template
+
+
+
+import "../Consulta/ConsultarTarefas.css"
 
 // Componente Pai: ConsultaTarefas
 export default function ConsultaTarefas() {
