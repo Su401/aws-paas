@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SecondaryNav.css';
 import LoginModal from '../LoginModal/LoginModal';
-import logo from '../../Images/logo.png'
+import logo from '../../Images/logo.png';
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
@@ -33,11 +33,11 @@ export default function SecondaryNav() {
 						id='navbarTogglerDemo02'
 					>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'></ul>
-						<a href='/' className='nav-item'>
+						<a href='/user' className='nav-item'>
 							<button
 								className='btn btn-primary me-2'
 								type='button'
-								style={{ color: "white" }}
+								style={{ color: 'white' }}
 							>
 								Área do utilizador
 							</button>
@@ -46,7 +46,7 @@ export default function SecondaryNav() {
 							className='nav-item btn btn-primary'
 							href='/login'
 							onClick={HandleLogin}
-							style={{ color: "white" }}
+							style={{ color: 'white' }}
 						>
 							Mudar de Conta
 						</a>
