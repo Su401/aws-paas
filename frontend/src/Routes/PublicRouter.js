@@ -11,11 +11,11 @@ const Policies = lazy(() => import('../Static/PoliticaPrivacidade'));
 const Terms = lazy(() => import('../Static/TermosCondicoes'));
 const NotFound = lazy(() => import('../Components/404'));
 
-export default function LogedRouter() {
+export default function PublicRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/admin' element={<Homepage />} />
+				<Route exact path='/' element={<Homepage />} />
 				<Route exact path='/about-us' element={<AboutUs />} />
 				<Route exact path='/contact-us' element={<ContactUs />} />
 				<Route exact path='/policies' element={<Policies />} />

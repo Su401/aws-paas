@@ -35,7 +35,7 @@ function LogedBabes() {
 }
 
 export default function App() {
-	const [isLoged, setIsLoged] = useState(true);
+	const [isLoged, setIsLoged] = useState(false);
 	const [isAdmin, setIsAdmin] = useState(true);
 	if (isLoged) {
 		if (isAdmin) {

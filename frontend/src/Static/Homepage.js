@@ -11,13 +11,13 @@ export default function Homepage() {
 			titulo: "Benefícios da Nossa Abordagem Digital",
 			texto:
 				"Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.",
-			imagem: {imgbenef},
+			imagem: imgbenef,
 		},
 		{
 			titulo: "Atendendo a Diversos Setores",
 			texto:
 				"Embora tenhamos começado com um foco na indústria de restauração, as nossas soluções são altamente adaptáveis e aplicáveis a uma variedade de setores. Esteja você gerindo um restaurante, uma fábrica, uma instalação de saúde ou qualquer outro tipo de negócio, estamos aqui para ajudar a aprimorar a sua gestão de segurança e conformidade.",
-			imagem: {imgsetores},
+			imagem: imgsetores,
 		},
 	];
 
@@ -43,7 +43,6 @@ export default function Homepage() {
 					<h2>O Nosso Compromisso com a Digitalização</h2>
 					{subcapitulos.map((subcapitulo, index) => (
 						<Card key={index}>
-							{/* Adicione a imagem do subcapítulo como plano de fundo do card */}
 							<Card.Img variant="top" src={subcapitulo.imagem} />
 							<Card.Body>
 								<Card.Title>{subcapitulo.titulo}</Card.Title>
@@ -77,6 +76,23 @@ export default function Homepage() {
 		</div>
 	);
 }
+
+// Responsividade: Para garantir uma boa experiência em dispositivos móveis, você pode adicionar estilos 
+// responsivos ou até mesmo considerar o uso de bibliotecas como Bootstrap para facilitar a criação de interfaces responsivas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import './TemplatePrimario.css';
 
