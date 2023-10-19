@@ -26,7 +26,7 @@ export default function AdminRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/' element={<BotoesRedecionais />} />
+				<Route exact path='/admin' element={<BotoesRedecionais />} />
 				<Route exact path='/gerir-perfis' element={<GerirPerfis />} />
 				<Route
 					exact
