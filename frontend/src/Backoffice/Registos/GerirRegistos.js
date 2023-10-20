@@ -1,9 +1,11 @@
 import "../../css/GerirRegistos.css"
 import "../../Components/Sass/my-bootstrap.scss"
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import CriarTabela from './CriarTabela';
+import logo from '../../Images/logo.png'
 
 export default function GerirRegistos() {
+    const [showRegistos, setShowRegistos] = useState([]);
     return (
         <div>
             <div className="GerirRegistos">
@@ -12,14 +14,14 @@ export default function GerirRegistos() {
                         <span className="headerText ms-5">Consultar Registos</span>
                         <hr className="custom-hr-top ms-5"></hr>
                     </div>
-                    <Formulario />
+                    <Formulario showRegistos={showRegistos} setShowRegistos={setShowRegistos} />
                 </div>
             </div>
         </div>
     )
 }
 
-function Formulario() {
+function Formulario({ showRegistos, setShowRegistos }) {
     const [limischecked, setLimischecked] = useState(false);
     const lim = "limpeza";
     const [troischecked, setTroischecked] = useState(false);
@@ -27,7 +29,7 @@ function Formulario() {
     const [temischecked, setTemischecked] = useState(false);
     const tem = "temperatura de frio";
     const [datacheck, setDatacheck] = useState("")
-    const [showRegistos, setShowRegistos] = useState([]);
+
 
     const handleOnChange1 = () => {
         setLimischecked(!limischecked);
@@ -79,12 +81,106 @@ function Formulario() {
         setShowRegistos(updatedRegistos);
     }
 
+    function handlePrintOrSend() {
+        console.log('Button clicked');
+
+        const printContent = `
+		  <!DOCTYPE html>
+		  <html>
+		  <head>
+			<title>Print Preview</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+			<link rel="stylesheet" href="../../css/PrintPerfis.css" media="print">
+			<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+            <style>
+			@page { size: A4 }
+			img {
+				transform: translate(170%, 0);
+				margin-top: -2rem;
+				width: 15rem;
+			}
+
+                body {
+                    font-family: 'Poppins', sans-serif;
+                }
+				h2{
+					font-size: 22pt;
+					text-align:center;
+				}
+				p{
+					text-align:justify;
+				}
+				hr {
+					margin: 1rem auto;
+					width: 27rem;
+					border: 1px solid #000;
+				}
+				h3{
+					font-size: 16pt;
+					text-align:center;
+				}
+				}
+            </style>
+		  </head>
+		  <body class="A4">
+			<section class="sheet padding-25mm">
+			  <article class='docHeader'>
+				<img src=${logo} class='stamp' alt='logo' />
+			  </article>
+              <article>
+            </article>
+            <article>
+            <table id="tableProducts" className="table-container products-table">
+                        <thead>
+                            <tr>
+                                <th className="header" colSpan="6">Lista de Produtos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="information">
+                                <td><b>ID</b></td>
+                                <td><b>Data</b></td>
+                                <td><b>Espaço</b></td>
+                                <td><b>Tarefa</b></td>
+                                <td><b>Estado</b></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </article>
+            <article class='docFooter'>
+                <hr />
+                <h3>Assinatura do responsável</h3>
+            </article>
+            </section >
+            </body >
+            </html >
+            `;
+
+        // Open a new window with the HTML content
+        const printWindow = window.open('', '_blank');
+
+        // Write the HTML content to the new window
+        printWindow.document.open();
+        printWindow.document.write(printContent);
+        printWindow.document.close();
+
+        // Wait for the content to be fully loaded before triggering print
+        printWindow.onload = () => {
+            printWindow.print();
+
+            // Clean up the print window after printing
+            printWindow.onafterprint = () => {
+                printWindow.close();
+            };
+        };
+    }
 
     return (
         <div className="GerirRegistos">
             <div className="row">
                 <div className="col-lg-5 mt-5 ps-5">
-                    <Form method="POST">
+                    <form method="POST">
                         <div className="form-check">
                             <input className="form-check-input" id="checkBox1" type="checkbox" value={lim} checked={limischecked} onChange={handleOnChange1}></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckDefault">
@@ -103,7 +199,7 @@ function Formulario() {
                                 Temperatura de Frio
                             </label>
                         </div>
-                    </Form>
+                    </form>
                     <div className="pb-5">
 
                     </div>
@@ -154,17 +250,13 @@ function Formulario() {
                                 <td><b>Estado</b></td>
                                 <td></td>
                             </tr>
-
-                            {showRegistos.map((elem, index) => (
-                                <Registos data={elem.data} espaco={elem.espaço} tarefa={elem.tarefa} estado={elem.estado} id={index} erraseRow={() => { erraseRow(index) }} />
-                            ))}
-
+                            <CriarTabela showRegistos={showRegistos} erraseRow={erraseRow} />
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-center">
                         <a href="/imprimirRegistos">
                             <button id="btnAdicionarProdutos" className="btn btn-primary shadow-sm btn-lg-custom mt-3"
-                                type="button">IMPRIMIR</button>
+                                type="submit" onClick={handlePrintOrSend}>IMPRIMIR</button>
                         </a>
                     </div>
                 </div>
@@ -173,20 +265,5 @@ function Formulario() {
     )
 }
 
-function Registos({ data, espaco, tarefa, estado, erraseRow, id }) {
 
-    return (
-        <tr id={id}>
-            <td>{id}</td>
-            <td>{data}</td>
-            <td>{espaco}</td>
-            <td>{tarefa}</td>
-            <td>{estado}</td>
-            <td>
-                <button type="button" className="erraseButton" onClick={() => { erraseRow(id) }}>
-                    ✖
-                </button>
-            </td>
-        </tr >
-    );
-}
+

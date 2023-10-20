@@ -2,6 +2,7 @@ import "../../css/ImprimirRegistos.css"
 import Logo from '../../Images/logo.png'
 
 export default function ImprimirRegistos() {
+
     return (
         <div>
             <div>
@@ -29,6 +30,7 @@ export default function ImprimirRegistos() {
                                         <td><b>Estado</b></td>
                                         <td></td>
                                     </tr>
+
                                 </tbody>
                             </table>
                         </article>
@@ -42,4 +44,33 @@ export default function ImprimirRegistos() {
             </div >
         </div>
     )
+}
+
+function CriarTabela({ showRegistos, erraseRow }) {
+    return (
+
+        showRegistos.map((elem, index) => (
+            <Registos data={elem.data} espaco={elem.espaço} tarefa={elem.tarefa} estado={elem.estado} id={index} erraseRow={() => { erraseRow(index) }} />
+        ))
+
+    )
+}
+
+
+function Registos({ data, espaco, tarefa, estado, erraseRow, id }) {
+
+    return (
+        <tr id={id}>
+            <td>{id}</td>
+            <td>{data}</td>
+            <td>{espaco}</td>
+            <td>{tarefa}</td>
+            <td>{estado}</td>
+            <td>
+                <button type="button" className="erraseButton" onClick={() => { erraseRow(id) }}>
+                    ✖
+                </button>
+            </td>
+        </tr >
+    );
 }
