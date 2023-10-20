@@ -5,6 +5,7 @@ const usersModule = require('./users');
 const logsModule = require('./logs');
 const labelsModule = require('./labels');
 const productsModule = require('./products')
+const equipmentsModule = require('./equipments')
 
 const openDbConnection = async function main() {
 	try {
@@ -32,4 +33,5 @@ module.exports = {
 	...logsModule,
 	...labelsModule,
 	...productsModule,
+	...equipmentsModule,
 };
