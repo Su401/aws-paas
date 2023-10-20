@@ -6,6 +6,7 @@ const getEquipmentsOilChanging = async (req, res, next) => {
 		res.json({
 			allEquipaments: equipaments,
 		})
+		console.log(equipaments)
 	} catch (error) {
 		console.log("Ocorreu um problema na busca dos dados de equipamentos ", error);
 		res.status(500).json({error: "Um problema foi detectado"})

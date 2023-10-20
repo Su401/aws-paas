@@ -1,10 +1,11 @@
 import React from 'react';
+import '../../css/RegistarTrocaOleo.css';
 
-function CaixaSelecao ({options, onChange}){
+function CaixaSelecao ({caixaSelecaoEquipamento, onChange}){
     return (
-        <select onChange={onChange}>
-            {options.map((option, index) => (
-                <option key={index} value={option.value}>
+        <select className="form-select" onChange={onChange}>
+           {caixaSelecaoEquipamento && caixaSelecaoEquipamento.map((option, index) => (
+                <option key={index} value={option.type.value}>
                     {option.label}
                 </option>
             ))}

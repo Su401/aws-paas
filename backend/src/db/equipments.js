@@ -4,7 +4,9 @@ const { Schema, model } = mongoose;
 const equipamentsSchema = new Schema({
     type: {
         type: String,
-        number: Number,
+    },
+    name: {
+        type: String,
     }
 });
 
