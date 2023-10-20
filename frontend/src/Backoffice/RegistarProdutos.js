@@ -18,7 +18,7 @@ export default function RegistarProdutos() {
     let dataFormatadaPadrao = `${dataAtual.getFullYear()}-${dataAtual.getMonth() + 1}-${dataAtual.getDate()}`
     const [caixaDataAbertura, setCaixaDataAbertura] = useState(dataFormatadaPadrao);
 
-
+    // Para buscar os dados no banco de dados 
     const fetchDadosTiposProduto = async () => {
         try {
             const response = await fetch('http://localhost:8080/api/registoDeProdutos/preencheProdutos',
@@ -33,7 +33,9 @@ export default function RegistarProdutos() {
             }
             const selectTypeData = await response.json();
 
+            // Para alterar a variavel de estado para todos os produtos buscados
             setDadosTipoProduto(selectTypeData.allProducts);
+            // Para preencher as caixas na renderização com o primeiro valor do array
             setCaixaSelectValor(selectTypeData.allProducts[0].tipo_produto);
             setCaixaSelectNome(selectTypeData.allProducts[0].produtosArray);
             setCaixaInputValidadeAberto(selectTypeData.allProducts[0].produtosArray[0].validade);
@@ -44,12 +46,14 @@ export default function RegistarProdutos() {
         }
     }
 
+    // Para chamar a funcao que vai buscar os dados
     useEffect(() => {
         if (caixaSelectValor === '') {
             fetchDadosTiposProduto();
         }
     }, [caixaSelectValor])
 
+    // Para mudar a caixa select e sua influencia em outras caixas
     const handleSelectTypeChange = (e) => {
         const novoValor = e.target.value;
         setCaixaSelectValor(novoValor);
@@ -60,6 +64,7 @@ export default function RegistarProdutos() {
         setCaixaValidade('');
     }
 
+    // Para alterar a caixa select de acordo com a mudanca da caixa tipo
     const handleSelectNameChangeThroughTypeChange = (e) => {
         const atualTipo = e.target.value;
         const novoArray = dadosTiposProduto.find(dados => dados.tipo_produto === atualTipo)
@@ -69,6 +74,7 @@ export default function RegistarProdutos() {
         setCaixaValidade('');
     }
 
+    // Para realizar a influencia da mudanca na caixa select nome
     const handleSelectNameChange = (e) => {
         const filtrarPorCaixaTipo = dadosTiposProduto.filter(Tipo => Tipo.tipo_produto === caixaSelectValor);
         const atualProduto = filtrarPorCaixaTipo[0].produtosArray.find(produto => produto.nomeProduto === e.target.value);
@@ -78,6 +84,7 @@ export default function RegistarProdutos() {
         setCaixaValidade('');
     }
 
+    // Para imprimir os valores
     const handleBtnClick = () => {
         const novaData = new Date(dataAtual);
         novaData.setDate(dataAtual.getDate() + Number(caixaInputValidadeAberto));
