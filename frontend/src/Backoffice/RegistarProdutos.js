@@ -32,7 +32,6 @@ export default function RegistarProdutos() {
                 throw new Error('Failed to fetch product type')
             }
             const selectTypeData = await response.json();
-            console.log(selectTypeData)
 
             setDadosTipoProduto(selectTypeData.allProducts);
             setCaixaSelectValor(selectTypeData.allProducts[0].tipo_produto);
@@ -83,7 +82,6 @@ export default function RegistarProdutos() {
         const novaData = new Date(dataAtual);
         novaData.setDate(dataAtual.getDate() + Number(caixaInputValidadeAberto));
         dataFormatadaPadrao = `${novaData.getFullYear()}-${novaData.getMonth() + 1}-${novaData.getDate()}`
-        console.log(dataFormatadaPadrao);
 
         if ((caixaSelectValor !== '' && valorCaixaSelectNome !== '' && caixaInputLote !== '' && caixaInputValidadeAberto !== '' && caixaInputValidade !== '')) {
             const impressao = {
