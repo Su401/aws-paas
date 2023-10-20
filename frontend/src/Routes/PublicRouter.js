@@ -15,7 +15,7 @@ export default function PublicRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/' element={<Homepage />} />
+				<Route exact path='/home' element={<Homepage />} />
 				<Route exact path='/about-us' element={<AboutUs />} />
 				<Route exact path='/contact-us' element={<ContactUs />} />
 				<Route exact path='/policies' element={<Policies />} />
