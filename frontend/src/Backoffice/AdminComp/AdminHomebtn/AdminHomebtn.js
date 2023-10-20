@@ -1,5 +1,5 @@
-import './BotoesRedecionais.css';
-export default function BotoesRedecionais() {
+import './AdminHomebtn.css';
+export default function AdminHomebtn() {
 	return (
 		<div>
 			<div className='row'>
@@ -141,7 +141,7 @@ export default function BotoesRedecionais() {
 							>
 								<div className='card-body'>
 									<a
-										href='/botoesRedecionais2'
+										href='/AdminHomebtn2'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
