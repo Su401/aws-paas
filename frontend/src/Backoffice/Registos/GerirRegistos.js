@@ -21,11 +21,11 @@ export default function GerirRegistos() {
 
 function Formulario() {
     const [limischecked, setLimischecked] = useState(false);
-    const [lim, setLim] = useState("limpeza")
+    const lim = "limpeza";
     const [troischecked, setTroischecked] = useState(false);
-    const [tro, setTro] = useState("troca de oleo")
+    const tro = "troca de oleo";
     const [temischecked, setTemischecked] = useState(false);
-    const [tem, setTem] = useState("temperatura de frio")
+    const tem = "temperatura de frio";
     const [datacheck, setDatacheck] = useState("")
     const [showRegistos, setShowRegistos] = useState([]);
 

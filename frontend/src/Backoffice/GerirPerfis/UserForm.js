@@ -114,6 +114,16 @@ export default function UserForm({
 		};
 	}
 
+	const formattedDate = () => {
+		const date = new Date(formInputs.birthday);
+		const year = date.getFullYear();
+		const month = String(date.getMonth() + 1).padStart(2, '0');
+		const day = String(date.getDate()).padStart(2, '0');
+		const formattedDate = `${year}-${month}-${day}`;
+		console.log(formattedDate); // Output: "yyyy-MM-dd"
+		return formattedDate;
+	};
+
 	return (
 		<Form className='form' action=''>
 			<Form.Group as={Row} className='mb-3'>
@@ -146,7 +156,7 @@ export default function UserForm({
 						className='filled'
 						id='birthday'
 						name='birthday'
-						value={formInputs.birthday}
+						value={formattedDate()}
 						onChange={(e) =>
 							setFormInputs({
 								...formInputs,

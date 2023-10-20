@@ -15,6 +15,7 @@ const {
 	deleteProductController,
 	updateProductController,
 	getProductTypeController,
+	getEquipmentsOilChanging,
 } = require('./controllers');
 
 const { findRecordsController } = require('./controllers/records');
@@ -78,6 +79,9 @@ app.post('/api/gerirRegistos', findRecordsController);
 
 // Definindo a rota GET para buscar os produtos para a impressão das etiquetas
 app.get('/api/registoDeProdutos/preencheProdutos', getProductTypeController);
+
+// Definindo a rota GET para buscar os equipamentos de troca de oleo
+app.get('/api/registoTarefas/registarTrocaOleo', getEquipmentsOilChanging)
 
 // every err object has "message" attribute and "code" attribute
 /* app.use(errorHandlerMiddleware); */
