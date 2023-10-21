@@ -90,72 +90,109 @@ function Formulario({ showRegistos, setShowRegistos }) {
 		  <head>
 			<title>Print Preview</title>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
-			<link rel="stylesheet" href="../../css/PrintPerfis.css" media="print">
+			<link rel="stylesheet" href="../../css/ImprimirRegistos.css" media="print">
 			<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
             <style>
 			@page { size: A4 }
 			img {
-				transform: translate(170%, 0);
+				transform: translate(80%, 0);
 				margin-top: -2rem;
 				width: 15rem;
-			}
-
-                body {
-                    font-family: 'Poppins', sans-serif;
+			}              
+              
+              article {
+                text-align: center;
+              }
+              
+              hr {
+                margin: auto;
+                width: 17.5rem;
+                text-align: center;
+                border: 1px solid #000;
+              }  
+                .docFooter {
+                  padding-top: 12rem;
+                  font-weight: 500;
                 }
-				h2{
-					font-size: 22pt;
-					text-align:center;
-				}
-				p{
-					text-align:justify;
-				}
-				hr {
-					margin: 1rem auto;
-					width: 27rem;
-					border: 1px solid #000;
-				}
-				h3{
-					font-size: 16pt;
-					text-align:center;
-				}
-				}
+              }
+              
+              .headerText {
+                font-family: poppins;
+                font-weight: 700;
+                font-size: 200%;
+              }
+              
+              .products-table {
+                width: 100%;
+                border-collapse: collapse;
+              }
+              
+              th.header {
+                font-family: Poppins;
+                font-size: 30px;
+                color: black;
+                font-weight: 500;
+                background-color: rgb(182, 182, 182);
+                text-align: center;
+                border: 1px solid black;
+              }
+              
+              tr.information {
+                border: 1px solid black;
+              }
+              tr {
+                border: 1px solid black;
+              }
+              .information {
+                text-align: center;
+              }
+              .table-container {
+                max-height: 500px;
+                overflow-y: auto;
+                background-color: lightgrey;
+                margin-top: 40px;
+                margin-right: 10px
+              }
+              
             </style>
 		  </head>
 		  <body class="A4">
 			<section class="sheet padding-25mm">
-			  <article class='docHeader'>
-				<img src=${logo} class='stamp' alt='logo' />
-			  </article>
-              <article>
-            </article>
-            <article>
-            <table id="tableProducts" className="table-container products-table">
+				<img src=${logo} alt='logo' />
+                <article>
+                    <table id="tableProducts" class="table-container products-table">
                         <thead>
                             <tr>
-                                <th className="header" colSpan="6">Lista de Produtos</th>
+                                <th class="header" colSpan="6">Lista de Registos</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="information">
+                            <tr class="information">
                                 <td><b>ID</b></td>
                                 <td><b>Data</b></td>
                                 <td><b>Espaço</b></td>
                                 <td><b>Tarefa</b></td>
                                 <td><b>Estado</b></td>
-                                <td></td>
                             </tr>
-                        </tbody>
-                    </table>
-            </article>
-            <article class='docFooter'>
-                <hr />
-                <h3>Assinatura do responsável</h3>
-            </article>
+                            ${showRegistos.map((elem, i) => `
+                                <tr id=${i}>
+                                <td>${i}</td>
+                                <td>${elem.data}</td>
+                                <td>${elem.espaço}</td>
+                                <td>${elem.tarefa}</td>
+                                <td>${elem.estado}</td>
+                                </tr>`).join('')}
+                        </tbody >
+                    </table >
+                </article >
+                <article class='docFooter'>
+                    <hr />
+                    <h3>Assinatura do responsável</h3>
+                </article>
             </section >
-            </body >
-            </html >
-            `;
+        </body >
+        </html >
+        `;
 
         // Open a new window with the HTML content
         const printWindow = window.open('', '_blank');

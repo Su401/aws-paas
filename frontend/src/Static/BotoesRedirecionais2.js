@@ -16,7 +16,7 @@ export default function BotoesRedirecionais() {
                 <div className="d-flex justify-content-evenly">
                     <div className="row mt-lg-5 mt-md-5">
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style="width: 18rem;">
+                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="./gerirProdutos.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
@@ -25,7 +25,7 @@ export default function BotoesRedirecionais() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style="width: 18rem;">
+                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="./gerirPerfis.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
@@ -34,7 +34,7 @@ export default function BotoesRedirecionais() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style="width: 18rem;">
+                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="./gerirRegistos.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
@@ -54,7 +54,7 @@ export default function BotoesRedirecionais() {
                 <div className="d-flex justify-content-evenly">
                     <div className="row">
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style="width: 18rem;">
+                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="#" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
                                         <br /><span className="letter2Edit">TAREFAS</span></a>
@@ -62,7 +62,7 @@ export default function BotoesRedirecionais() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-0" style="width: 18rem;">
+                            <div className="card pb-lg-0" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="#" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
                                         <br /><span className="letter2Edit">ABERTURA DE PRODUTOS</span></a>
@@ -70,7 +70,7 @@ export default function BotoesRedirecionais() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style="width: 18rem;">
+                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
                                     <a href="#" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
                                         <br /><span className="letter2Edit"> DADOS</span></a>

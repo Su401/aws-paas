@@ -3,21 +3,14 @@ import { lazy } from 'react';
 //Logged
 //Admin
 //const Homepage = lazy(() => import('../Static/AdminBtn'));
-const GerirRegistos = lazy(() =>
-	import('../Backoffice/Registos/GerirRegistos')
-);
+const GerirRegistos = lazy(() => import('../Backoffice/Registos/GerirRegistos'));
 const GerirPerfis = lazy(() => import('../Backoffice/GerirPerfis/GerirPerfis'));
 const BotoesRedecionais = lazy(() => import('../Static/BotoesRedecionais'));
 const GerirProdutos = lazy(() => import('../Backoffice/GerirProdutos'));
-/* const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos'))
- */ const ImprimirRegistos = lazy(() =>
-	import('../Backoffice/Registos/ImprimirRegistos')
-);
+/* const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos')) */
 const BotoesRedecionais2 = lazy(() => import('../Static/BotoesRedirecionais2'));
 /* const PrintPerfis = lazy(() => import('../Backoffice/GerirPerfis/PrintPerfis')); */
-
 const NotFound = lazy(() => import('../Components/404/404'));
-
 const UserHomeBtn = lazy(() =>
 	import('../Backoffice/UserComp/UserHomeBtn/UserHomeBtn')
 );
@@ -32,11 +25,6 @@ export default function AdminRouter() {
 					exact
 					path='/gerirRegistos'
 					element={<GerirRegistos />}
-				/>
-				<Route
-					exact
-					path='/imprimirRegistos'
-					element={<ImprimirRegistos />}
 				/>
 				<Route
 					exact
