@@ -12,7 +12,7 @@ import UserRouter from './Routes/UserRouter'
 
 export default function App() {
 	const [isLoged, setIsLoged] = useState(true);
-	const [isAdmin, setIsAdmin] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(true);
 	if (isLoged) {
 		if (isAdmin) {
 			return (

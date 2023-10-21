@@ -1,4 +1,4 @@
-// import '../css/RegistarProdutos.css';
+import '../css/RegistarProdutos.css';
 import React, { useEffect, useState } from 'react';
 import '../Components/Sass/my-bootstrap.scss';
 import Container from 'react-bootstrap/Container';

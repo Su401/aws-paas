@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './LoginModal.css';
-import userImg from '../../Images/user.png';
+import userImg1 from '../../Images/user1.png';
+import userImg2 from '../../Images/user2.jpeg';
+import userImg3 from '../../Images/user3.png';
+import userImg4 from '../../Images/user4.png';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import Modal from '../../../node_modules/react-bootstrap/Modal';
@@ -48,13 +51,12 @@ export default function LoginModal({ show, setShow }) {
 					<div className='row d-lg-flex'>
 						<div className='col-lg text-center'>
 							<img
-								className={`rounded-circle ${
-									selectedImg === 'avatar1'
-										? 'selected-img'
-										: ''
-								}`}
+								className={`rounded-circle ${selectedImg === 'avatar1'
+									? 'selected-img'
+									: ''
+									}`}
 								alt='avatar1'
-								src={userImg}
+								src={userImg1}
 								onClick={() => handleImgClick('avatar1')}
 							/>
 							<div className='mb-2'></div>
@@ -64,13 +66,12 @@ export default function LoginModal({ show, setShow }) {
 						</div>
 						<div className='col-lg text-center'>
 							<img
-								className={`rounded-circle ${
-									selectedImg === 'avatar2'
-										? 'selected-img'
-										: ''
-								}`}
+								className={`rounded-circle ${selectedImg === 'avatar2'
+									? 'selected-img'
+									: ''
+									}`}
 								alt='avatar2'
-								src={userImg}
+								src={userImg2}
 								onClick={() => handleImgClick('avatar2')}
 							/>
 							<div className='mb-2'></div>
@@ -80,13 +81,12 @@ export default function LoginModal({ show, setShow }) {
 						</div>
 						<div className='col-lg text-center'>
 							<img
-								className={`rounded-circle ${
-									selectedImg === 'avatar3'
-										? 'selected-img'
-										: ''
-								}`}
+								className={`rounded-circle ${selectedImg === 'avatar3'
+									? 'selected-img'
+									: ''
+									}`}
 								alt='avatar3'
-								src={userImg}
+								src={userImg3}
 								onClick={() => handleImgClick('avatar3')}
 							/>
 							<div className='mb-2'></div>
@@ -96,13 +96,12 @@ export default function LoginModal({ show, setShow }) {
 						</div>
 						<div className='col-lg text-center'>
 							<img
-								className={`rounded-circle ${
-									selectedImg === 'avatar4'
-										? 'selected-img'
-										: ''
-								}`}
+								className={`rounded-circle ${selectedImg === 'avatar4'
+									? 'selected-img'
+									: ''
+									}`}
 								alt='avatar4'
-								src={userImg}
+								src={userImg4}
 								onClick={() => handleImgClick('avatar4')}
 							/>
 							<div className='mb-2'></div>
