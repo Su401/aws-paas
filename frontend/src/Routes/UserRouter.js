@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
-const Homepage = lazy(() => import('../Static/Homepage'));
-
 // Logged
 // Users
 const UserHomeBtn = lazy(() =>
@@ -62,8 +60,11 @@ export default function UserRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/' element={<Homepage />} />
-				<Route exact path='/user' element={<UserHomeBtn />} />
+				<Route
+					exact
+					path='/'
+					element={<UserHomeBtn />}
+				/>
 				<Route
 					exact
 					path='/consultar-tarefas'

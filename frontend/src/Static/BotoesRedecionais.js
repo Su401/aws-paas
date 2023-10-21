@@ -20,7 +20,7 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/gerirProdutos" className="stretched-link btnedit"><span
+                                    <a href="/gerir-produtos" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
                                         <br></br><span className="letter2Edit"> PRODUTOS</span>
                                     </a>
@@ -39,7 +39,7 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/gerirRegistos" className="stretched-link btnedit"><span
+                                    <a href="/gerir-registos" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
                                         <br></br> <span className="letter2Edit"> REGISTOS</span></a>
                                 </div>
@@ -67,7 +67,7 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-0" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/registarProdutos" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
+                                    <a href="/registar-produtos" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
                                         <br></br><span className="letter2Edit">ABERTURA DE PRODUTOS</span></a>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export default function BotoesRedecionais() {
                         <div className="col-lg-4">
                             <div className="card pb-lg-5" style={{ width: "18rem" }}>
                                 <div className="card-body">
-                                    <a href="/botoesRedecionais2" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
+                                    <a href="/" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
                                         <br></br><span className="letter2Edit"> REGISTOS</span></a>
                                 </div>
                             </div>
