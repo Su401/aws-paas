@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginModal.css';
 import userImg from '../../Images/user.png';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+import AuthContext from '../Auth/AuthContext';
+
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Stack from 'react-bootstrap/Stack';
 
 export default function LoginModal({ show, setShow }) {
-	const [selectedImg, setSelectedImg] = useState(null);
+	const { setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
+	const [selectedImg, setSelectedImg] = useState(null);
 
 	const handleClose = () => setShow(false);
 
@@ -20,13 +25,15 @@ export default function LoginModal({ show, setShow }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (selectedImg && password) {
-			// Call the handleLogin function and pass the selectedImg and password
-			// handleLogin(selectedImg, password);
+		if (login !== '' && password === '1111') {
+			// Call the handleLogin function
+			//handleLogin(selectedImg, password);
+			setAuth(1);
+			navigate('/user-home');
 			// Close the modal
 			handleClose();
 		} else {
-			// Handle validation or show an error message
+			alert('you a no go');
 		}
 	};
 
@@ -55,8 +62,12 @@ export default function LoginModal({ show, setShow }) {
 								}`}
 								alt='avatar1'
 								src={userImg}
-								onClick={() => handleImgClick('avatar1')}
+								onClick={() => {
+									handleImgClick('avatar1');
+									setLogin('Antonio');
+								}}
 							/>
+
 							<div className='mb-2'></div>
 							<span className='text-lg-center editNames'>
 								Antonio
@@ -71,7 +82,10 @@ export default function LoginModal({ show, setShow }) {
 								}`}
 								alt='avatar2'
 								src={userImg}
-								onClick={() => handleImgClick('avatar2')}
+								onClick={() => {
+									handleImgClick('avatar2');
+									setLogin('Michaela');
+								}}
 							/>
 							<div className='mb-2'></div>
 							<span className='text-lg-center editNames'>
@@ -87,7 +101,10 @@ export default function LoginModal({ show, setShow }) {
 								}`}
 								alt='avatar3'
 								src={userImg}
-								onClick={() => handleImgClick('avatar3')}
+								onClick={() => {
+									handleImgClick('avatar3');
+									setLogin('Michelle');
+								}}
 							/>
 							<div className='mb-2'></div>
 							<span className='text-lg-center editNames'>
@@ -103,7 +120,10 @@ export default function LoginModal({ show, setShow }) {
 								}`}
 								alt='avatar4'
 								src={userImg}
-								onClick={() => handleImgClick('avatar4')}
+								onClick={() =>
+									handleImgClick('avatar4') &&
+									setLogin('Santiago')
+								}
 							/>
 							<div className='mb-2'></div>
 							<span className='text-lg-center editNames'>

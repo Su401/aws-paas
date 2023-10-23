@@ -2,64 +2,80 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 //Logged
 //Admin
-//const Homepage = lazy(() => import('../Static/AdminBtn'));
+const AdminHome = lazy(() =>
+	import('../Backoffice/AdminComp/AdminHomebtn/AdminHomebtn')
+);
+
+//AdminHome
+const GerirProdutos = lazy(() =>
+	import('../Backoffice/AdminComp/GerirProdutos/GerirProdutos')
+);
+
+//GerirPerfis
+const GerirPerfis = lazy(() =>
+	import('../Backoffice/AdminComp/GerirPerfis/GerirPerfis')
+);
+
+//GerirRegistos --> Aquela Parte malandra de backofice / admin sem codigo nenhum #medo
 const GerirRegistos = lazy(() =>
-	import('../Backoffice/Registos/GerirRegistos')
+	import('../Backoffice/AdminComp/GerirRegistos/GeirRegistosBtn')
 );
-const GerirPerfis = lazy(() => import('../Backoffice/GerirPerfis/GerirPerfis'));
-const BotoesRedecionais = lazy(() => import('../Static/BotoesRedecionais'));
-const GerirProdutos = lazy(() => import('../Backoffice/GerirProdutos'));
-const RegistarProdutos = lazy(() => import('../Backoffice/RegistarProdutos'));
+// Registo de tarefas
+const UserBtnRegistos = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'
+	)
+);
+// Registo de Produtos
+const RegistarProdutos = lazy(() =>
+	import('../Backoffice/UserComp/RegistoProdutos/RegistarProdutos')
+);
+
+const ConsultarRegistos = lazy(() =>
+	import('../Backoffice/AdminComp/ConsultarRegistos/ConsultarRegistos')
+);
 const ImprimirRegistos = lazy(() =>
-	import('../Backoffice/Registos/ImprimirRegistos')
+	import('../Backoffice/AdminComp/ConsultarRegistos/ImprimirRegistos')
 );
-const BotoesRedecionais2 = lazy(() => import('../Static/BotoesRedirecionais2'));
-/* const PrintPerfis = lazy(() => import('../Backoffice/GerirPerfis/PrintPerfis')); */
-
 const NotFound = lazy(() => import('../Components/404/404'));
-
-const UserHomeBtn = lazy(() =>
-	import('../Backoffice/UserComp/UserHomeBtn/UserHomeBtn')
-);
 
 export default function AdminRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/admin' element={<BotoesRedecionais />} />
+				<Route exact path='/admin' element={<AdminHome />} />
+				<Route
+					exact
+					path='/gerir-produtos'
+					element={<GerirProdutos />}
+				/>
 				<Route exact path='/gerir-perfis' element={<GerirPerfis />} />
 				<Route
 					exact
-					path='/gerirRegistos'
+					path='/gerir-registos'
 					element={<GerirRegistos />}
 				/>
 				<Route
 					exact
-					path='/imprimirRegistos'
+					path='/imprimir-registos'
 					element={<ImprimirRegistos />}
 				/>
 				<Route
 					exact
-					path='/botoesRedecionais'
-					element={<BotoesRedecionais />}
+					path='/registar-tarefas'
+					element={<UserBtnRegistos />}
 				/>
 				<Route
 					exact
-					path='/gerirProdutos'
-					element={<GerirProdutos />}
-				/>
-				<Route
-					exact
-					path='/registarProdutos'
+					path='/registar-produtos'
 					element={<RegistarProdutos />}
 				/>
-
 				<Route
 					exact
-					path='/botoesRedecionais2'
-					element={<BotoesRedecionais2 />}
+					path='/consultar-registos'
+					element={<ConsultarRegistos />}
 				/>
-				<Route exact path='/user' element={<UserHomeBtn />} />
+
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</Router>
