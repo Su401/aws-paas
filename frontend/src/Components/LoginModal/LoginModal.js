@@ -1,30 +1,39 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginModal.css';
-import userImg from '../../Images/user.png';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 
 import AuthContext from '../Auth/AuthContext';
 
+=======
+>>>>>>> main
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+<<<<<<< HEAD
 export default function LoginModal({ show, setShow }) {
 	const { setAuth } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
+=======
+
+export default function LoginModal({ show, setShow, dbUsers }) {
+>>>>>>> main
 	const [selectedImg, setSelectedImg] = useState(null);
 
 	const handleClose = () => setShow(false);
 
 	const handleImgClick = (img) => {
 		setSelectedImg(img);
+
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+<<<<<<< HEAD
 		if (login !== '' && password === '1111') {
 			// Call the handleLogin function
 			//handleLogin(selectedImg, password);
@@ -35,6 +44,9 @@ export default function LoginModal({ show, setShow }) {
 		} else {
 			alert('you a no go');
 		}
+=======
+		handleClose()
+>>>>>>> main
 	};
 
 	return (
@@ -46,11 +58,12 @@ export default function LoginModal({ show, setShow }) {
 				aria-labelledby='contained-modal-title-vcenter'
 				centered
 			>
-				<Modal.Header closeButton>
+				<Modal.Header style={{ backgroundColor: "#F0F0F0" }} closeButton>
 					<Modal.Title id='contained-modal-title-vcenter'>
-						Login
+						LOGIN
 					</Modal.Title>
 				</Modal.Header>
+<<<<<<< HEAD
 				<Modal.Body>
 					<div className='row d-lg-flex'>
 						<div className='col-lg text-center'>
@@ -130,26 +143,22 @@ export default function LoginModal({ show, setShow }) {
 								Santiago
 							</span>
 						</div>
+=======
+				<Modal.Body style={{ backgroundColor: "#F0F0F0" }}>
+					< div className='d-lg-flex' >
+						<UsersWithProfile selectedImg={selectedImg} handleImgClick={handleImgClick} dbUsers={dbUsers} />
+>>>>>>> main
 					</div>
 					{selectedImg && (
 						<div className='row flex-lg-wrap botaoPositioning '>
 							<Form onSubmit={handleSubmit}>
-								<label
-									htmlFor='password'
+								<label htmlFor='password'
 									className='password-edit'
 								>
 									PASSWORD:
 								</label>
-								<Form.Control
-									type='password'
-									id='password'
-									name='password'
-									value={password}
-									onChange={(e) =>
-										setPassword(e.target.value)
-									}
-									placeholder='Insert Password...'
-								/>
+								<Form.Control type='password' id='password' name='password' placeholder='Insert Password...' />
+
 								<div className='d-flex bd-highlight mb-3'>
 									<div className='p-2 bd-highlight '>
 										<div>
@@ -191,12 +200,44 @@ export default function LoginModal({ show, setShow }) {
 						</div>
 					)}
 				</Modal.Body>
-				<Modal.Footer>
+				<Modal.Footer style={{ backgroundColor: "#F0F0F0" }}>
 					<Button variant='secondary' onClick={handleClose}>
 						Close
 					</Button>
 				</Modal.Footer>
-			</Modal>
+			</Modal >
 		</>
 	);
+}
+
+
+function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
+	return (
+
+		dbUsers.map((elem) => (
+			<UserWithProfile selectedImg={selectedImg} key={elem.nif} handleImgClick={handleImgClick} dbUsers={elem.username} numberNif={elem.nif} />
+		))
+
+	)
+}
+
+function UserWithProfile({ handleImgClick, dbUsers, numberNif }) {
+	return (
+		<div className='col-lg text-center'>
+			<div>
+				<img
+					className="normal"
+					style={{ width: "100px", height: "90px" }}
+					alt={dbUsers}
+					src={`https://i.pravatar.cc/48${numberNif}`}
+					onClick={() => handleImgClick(dbUsers)}
+				/>
+				<div className='nomesUsers'>
+					<span>
+						{dbUsers}
+					</span>
+				</div >
+			</div >
+		</div >
+	)
 }

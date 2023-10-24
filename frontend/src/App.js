@@ -6,14 +6,14 @@ import { AuthProvider } from './Components/Auth/AuthContext';
 import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
-
-import AdminRouter from './Routes/AdminRouter';
+import SecondaryUser from './Components/SecondaryNavUser/SecondaryNav';
+import './App.css';
 import PublicRouter from './Routes/PublicRouter';
 import UserRouter from './Routes/UserRouter';
-
+import AdminRouter from './Routes/AdminRouter';
 export default function App() {
-	const [isLoged, setIsLoged] = useState(false);
-	const [isAdmin, setIsAdmin] = useState(false);
+	const [isLoged, setIsLoged] = useState(true);
+	const [isAdmin, setIsAdmin] = useState(true);
 	if (isLoged) {
 		if (isAdmin) {
 			return (
@@ -30,7 +30,7 @@ export default function App() {
 			return (
 				<div className='User'>
 					<header className='sticky-top'>
-						<SecondaryNav />
+						<SecondaryUser />
 					</header>
 					<main>
 						<UserRouter />

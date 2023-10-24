@@ -1,31 +1,31 @@
 .text-box {
-    background-color: #36bae2;
-    color: white;
-    font-size: 23px;
-    font-weight: 500;
-    margin: 5px;
-  }
-  
-  .form-select {
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 0;
-    border: 0;
-  }
-  
-  .form-input-group {
-    background-color: white;
-    color: black;
-    font-size: 23px;
-    font-weight: 500;
-    border: none;
-  }
-  
-  .btn-imprimir {
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
-    font-size: 25px;
-    border-radius: 20px;
-    width: 160px;
-  }
+  background-color: #36bae2;
+  color: white;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.form-select {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0;
+  border: 0;
+}
+
+.form-input-group {
+  background-color: white;
+  color: black;
+  font-size: 23px;
+  font-weight: 500;
+  border: none;
+}
+
+.btn-imprimir {
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  border-radius: 20px;
+  width: 160px;
+}
