@@ -76,7 +76,7 @@ export default function RegLimpBalcao() {
                         <div className="form-check">
                             <input className="form-check-input" id="checkBox3" type="checkbox" value="Puchadores das Portas" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Puchadores das Portas
+                                Puxadores das Portas
                             </label>
                         </div>
                         <div className="form-check">
