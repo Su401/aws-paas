@@ -1,14 +1,17 @@
 import './App.css';
 import { useState } from 'react';
-import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import routes from './Routes/Router';
+import { AuthProvider } from './Components/Auth/AuthContext';
+import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
 import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
+import SecondaryUser from './Components/SecondaryNavUser/SecondaryNav';
 import './App.css';
 import PublicRouter from './Routes/PublicRouter';
-import AdminRouter from './Routes/AdminRouter';
 import UserRouter from './Routes/UserRouter';
-
+import AdminRouter from './Routes/AdminRouter';
 export default function App() {
 	const [isLoged, setIsLoged] = useState(true);
 	const [isAdmin, setIsAdmin] = useState(true);

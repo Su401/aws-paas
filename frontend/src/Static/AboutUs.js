@@ -1,6 +1,7 @@
-import '../TemplatePrimario.css';
+import './TemplatePrimario.css';
 
 export default function AboutUs() {
+	console.log('bout us');
 	return (
 		<div className='AboutUs'>
 			<div className='body'>

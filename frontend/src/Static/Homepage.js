@@ -6,8 +6,11 @@ import imgbenef from '../Images/pexels-fauxels-3183197.jpg';
 import imgsetores from '../Images/pexels-jopwell-2422293.jpg';
 
 export default function Homepage() {
+	console.log('public home');
 	const subcapitulos = [
 		{
+			titulo: 'Benefícios da Nossa Abordagem Digital',
+			texto: 'Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.',
 			titulo: 'Benefícios da Nossa Abordagem Digital',
 			texto: 'Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.',
 			imagem: imgbenef,

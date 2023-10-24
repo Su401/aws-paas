@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginModal.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
+
+import AuthContext from '../Auth/AuthContext';
+
+=======
+>>>>>>> main
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+<<<<<<< HEAD
+export default function LoginModal({ show, setShow }) {
+	const { setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
+	const [login, setLogin] = useState('');
+	const [password, setPassword] = useState('');
+=======
 
 export default function LoginModal({ show, setShow, dbUsers }) {
+>>>>>>> main
 	const [selectedImg, setSelectedImg] = useState(null);
 
 	const handleClose = () => setShow(false);
@@ -18,7 +33,20 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+<<<<<<< HEAD
+		if (login !== '' && password === '1111') {
+			// Call the handleLogin function
+			//handleLogin(selectedImg, password);
+			setAuth(1);
+			navigate('/user-home');
+			// Close the modal
+			handleClose();
+		} else {
+			alert('you a no go');
+		}
+=======
 		handleClose()
+>>>>>>> main
 	};
 
 	return (
@@ -35,9 +63,91 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 						LOGIN
 					</Modal.Title>
 				</Modal.Header>
+<<<<<<< HEAD
+				<Modal.Body>
+					<div className='row d-lg-flex'>
+						<div className='col-lg text-center'>
+							<img
+								className={`rounded-circle ${
+									selectedImg === 'avatar1'
+										? 'selected-img'
+										: ''
+								}`}
+								alt='avatar1'
+								src={userImg}
+								onClick={() => {
+									handleImgClick('avatar1');
+									setLogin('Antonio');
+								}}
+							/>
+
+							<div className='mb-2'></div>
+							<span className='text-lg-center editNames'>
+								Antonio
+							</span>
+						</div>
+						<div className='col-lg text-center'>
+							<img
+								className={`rounded-circle ${
+									selectedImg === 'avatar2'
+										? 'selected-img'
+										: ''
+								}`}
+								alt='avatar2'
+								src={userImg}
+								onClick={() => {
+									handleImgClick('avatar2');
+									setLogin('Michaela');
+								}}
+							/>
+							<div className='mb-2'></div>
+							<span className='text-lg-center editNames'>
+								Michaela
+							</span>
+						</div>
+						<div className='col-lg text-center'>
+							<img
+								className={`rounded-circle ${
+									selectedImg === 'avatar3'
+										? 'selected-img'
+										: ''
+								}`}
+								alt='avatar3'
+								src={userImg}
+								onClick={() => {
+									handleImgClick('avatar3');
+									setLogin('Michelle');
+								}}
+							/>
+							<div className='mb-2'></div>
+							<span className='text-lg-center editNames'>
+								Michelle
+							</span>
+						</div>
+						<div className='col-lg text-center'>
+							<img
+								className={`rounded-circle ${
+									selectedImg === 'avatar4'
+										? 'selected-img'
+										: ''
+								}`}
+								alt='avatar4'
+								src={userImg}
+								onClick={() =>
+									handleImgClick('avatar4') &&
+									setLogin('Santiago')
+								}
+							/>
+							<div className='mb-2'></div>
+							<span className='text-lg-center editNames'>
+								Santiago
+							</span>
+						</div>
+=======
 				<Modal.Body style={{ backgroundColor: "#F0F0F0" }}>
 					< div className='d-lg-flex' >
 						<UsersWithProfile selectedImg={selectedImg} handleImgClick={handleImgClick} dbUsers={dbUsers} />
+>>>>>>> main
 					</div>
 					{selectedImg && (
 						<div className='row flex-lg-wrap botaoPositioning '>

@@ -1,7 +1,6 @@
 //Consultar Tarefas --> Redireciona ConsultaTarefas (ritz)
 
 import '../UserHomeBtn/UserHomeBtn.css';
-
 export default function UserHomeBtn() {
 	return (
 		<div>
