@@ -12,43 +12,67 @@ export default function GerirPerfis() {
 	const [users, setUsers] = useState([]);
 	const [selectedUser, setSelectedUser] = useState(null);
 	const [editedUser, setEditedUser] = useState({
+		username: '',
+		password: '',
 		fullName: '',
-		nif: '',
-		userAddress: '',
+		birthday: '',
+		email: '',
+		phone: '',
 		role: '',
+		userAddress: '',
+		nif: '',
 		insurance: {
 			name: '',
 			policy: '',
 		},
-		phone: '',
-		username: '',
+		company: {
+			name: '',
+			address: '',
+			CAE: '',
+			NIPC: '',
+		},
 	});
 
 	const [formInputs, setFormInputs] = useState({
+		username: '',
+		password: '',
 		fullName: '',
 		birthday: '',
-		nif: '',
-		userAddress: '',
+		email: '',
+		phone: '',
 		role: '',
+		userAddress: '',
+		nif: '',
 		insuranceName: '',
 		insurancePolicy: '',
-		phone: '',
-		username: '',
+		companyName: '',
+		companyAddress: '',
+		companyCAE: '',
+		companyNIPC: '',
 	});
 
 	useEffect(() => {
 		if (selectedUser) {
 			setEditedUser({
+				username: selectedUser.username,
+				password: selectedUser.password,
 				fullName: selectedUser.fullName,
-				nif: selectedUser.nif,
-				userAddress: selectedUser.userAddress,
+				birthday: selectedUser.birthday,
+				email: selectedUser.email,
+				phone: selectedUser.phone,
 				role: selectedUser.role,
+				userAddress: selectedUser.userAddress,
+				nif: selectedUser.nif,
 				insurance: {
 					name: selectedUser.insurance.name,
 					policy: selectedUser.insurance.policy,
 				},
-				phone: selectedUser.phone,
-				username: selectedUser.username,
+				company: {
+					name: selectedUser.company.name,
+					address: selectedUser.company.address,
+					CAE: selectedUser.company.CAE,
+					NIPC: selectedUser.company.NIPC,
+				},
 			});
 		}
 	}, [selectedUser]);
@@ -105,15 +129,21 @@ export default function GerirPerfis() {
 			if (response.ok) {
 				// Clear the form fields after successful creation
 				setFormInputs({
+					username: '',
+					password: '',
 					fullName: '',
 					birthday: '',
-					nif: '',
-					userAddress: '',
+					email: '',
+					phone: '',
 					role: '',
+					userAddress: '',
+					nif: '',
 					insuranceName: '',
 					insurancePolicy: '',
-					phone: '',
-					username: '',
+					companyName: '',
+					companyAddress: '',
+					companyCAE: '',
+					companyNIPC: '',
 				});
 
 				// Fetch and update the users list to display the new user
@@ -132,15 +162,21 @@ export default function GerirPerfis() {
 	const handleTableRowClick = (user) => {
 		setSelectedUser(user);
 		setFormInputs({
+			username: user.username,
+			password: user.password,
 			fullName: user.fullName,
 			birthday: user.birthday,
-			nif: user.nif,
-			userAddress: user.userAddress,
+			email: user.email,
+			phone: user.phone,
 			role: user.role,
+			userAddress: user.userAddress,
+			nif: user.nif,
 			insuranceName: user.insurance.name,
 			insurancePolicy: user.insurance.policy,
-			phone: user.phone,
-			username: user.username,
+			companyName: user.company.name,
+			companyAddress: user.company.address,
+			companyCAE: user.company.CAE,
+			companyNIPC: user.company.NIPC,
 		});
 	};
 
@@ -163,15 +199,21 @@ export default function GerirPerfis() {
 				throw new Error('Failed to delete user');
 			} else {
 				setFormInputs({
+					username: '',
+					password: '',
 					fullName: '',
 					birthday: '',
-					nif: '',
-					userAddress: '',
+					email: '',
+					phone: '',
 					role: '',
+					userAddress: '',
+					nif: '',
 					insuranceName: '',
 					insurancePolicy: '',
-					phone: '',
-					username: '',
+					companyName: '',
+					companyAddress: '',
+					companyCAE: '',
+					companyNIPC: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -206,15 +248,21 @@ export default function GerirPerfis() {
 				throw new Error('Failed to update user');
 			} else {
 				setFormInputs({
+					username: '',
+					password: '',
 					fullName: '',
 					birthday: '',
-					nif: '',
-					userAddress: '',
+					email: '',
+					phone: '',
 					role: '',
+					userAddress: '',
+					nif: '',
 					insuranceName: '',
 					insurancePolicy: '',
-					phone: '',
-					username: '',
+					companyName: '',
+					companyAddress: '',
+					companyCAE: '',
+					companyNIPC: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -229,16 +277,25 @@ export default function GerirPerfis() {
 
 			// Clear the selected and edited users
 			setEditedUser({
+				username: '',
+				password: '',
 				fullName: '',
-				nif: '',
-				userAddress: '',
+				birthday: '',
+				email: '',
+				phone: '',
 				role: '',
+				userAddress: '',
+				nif: '',
 				insurance: {
 					name: '',
 					policy: '',
 				},
-				phone: '',
-				username: '',
+				company: {
+					name: '',
+					address: '',
+					CAE: '',
+					NIPC: '',
+				},
 			});
 			setSelectedUser(null);
 		} catch (error) {

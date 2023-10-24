@@ -33,7 +33,7 @@ export default function SecondaryNav() {
 						id='navbarTogglerDemo02'
 					>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'></ul>
-						<a href='/user' className='nav-item'>
+						<a href='/' className='nav-item'>
 							<button
 								className='btn btn-primary me-2'
 								type='button'
