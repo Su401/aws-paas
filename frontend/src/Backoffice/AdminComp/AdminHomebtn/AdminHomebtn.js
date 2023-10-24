@@ -1,8 +1,11 @@
-import './css/AdminBtn.css';
-export default function AdminBtn() {
+import './AdminHomebtn.css';
+export default function AdminHomebtn() {
 	return (
-		<div className='admin-btn'>
+		<div>
 			<div className='row'>
+				<div className='mt-lg-4'>
+					<span></span>
+				</div>
 				<div className='col greetings'>
 					<span className='hello'>Olá </span>
 					<span className='user'>Susana !</span>
@@ -15,16 +18,19 @@ export default function AdminBtn() {
 				<div className='d-flex justify-content-evenly'>
 					<div className='row mt-lg-5 mt-md-5'>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-5'>
+							<div
+								className='card pb-lg-5'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
-										href='//gerirProdutos.html'
+										href='/gerirProdutos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
 											GERIR
 										</span>
-										<br />
+										<br></br>
 										<span className='letter2Edit'>
 											{' '}
 											PRODUTOS
@@ -34,16 +40,19 @@ export default function AdminBtn() {
 							</div>
 						</div>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-5'>
+							<div
+								className='card pb-lg-5'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
-										href='//gerirPerfis.html'
+										href='/gerir-perfis'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
 											GERIR
 										</span>
-										<br />{' '}
+										<br></br>{' '}
 										<span className='letter2Edit'>
 											{' '}
 											PERFIS
@@ -53,16 +62,19 @@ export default function AdminBtn() {
 							</div>
 						</div>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-5'>
+							<div
+								className='card pb-lg-5'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
-										href='//gerirRegistos.html'
+										href='/gerirRegistos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
 											GERIR
 										</span>
-										<br />{' '}
+										<br></br>{' '}
 										<span className='letter2Edit'>
 											{' '}
 											REGISTOS
@@ -81,7 +93,10 @@ export default function AdminBtn() {
 				<div className='d-flex justify-content-evenly'>
 					<div className='row'>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-5'>
+							<div
+								className='card pb-lg-5'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
 										href='/'
@@ -90,7 +105,7 @@ export default function AdminBtn() {
 										<span className='letterEdit'>
 											REGISTAR
 										</span>
-										<br />
+										<br></br>
 										<span className='letter2Edit'>
 											TAREFAS
 										</span>
@@ -99,16 +114,19 @@ export default function AdminBtn() {
 							</div>
 						</div>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-0'>
+							<div
+								className='card pb-lg-0'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
-										href='/'
+										href='/registarProdutos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
 											REGISTAR
 										</span>
-										<br />
+										<br></br>
 										<span className='letter2Edit'>
 											ABERTURA DE PRODUTOS
 										</span>
@@ -117,19 +135,22 @@ export default function AdminBtn() {
 							</div>
 						</div>
 						<div className='col-lg-4'>
-							<div className='card pb-lg-5'>
+							<div
+								className='card pb-lg-5'
+								style={{ width: '18rem' }}
+							>
 								<div className='card-body'>
 									<a
-										href='/'
+										href='/AdminHomebtn2'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
 											CONSULTAR
 										</span>
-										<br />
+										<br></br>
 										<span className='letter2Edit'>
 											{' '}
-											DADOS
+											REGISTOS
 										</span>
 									</a>
 								</div>

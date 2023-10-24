@@ -1,4 +1,4 @@
-import logo from '../../Images/logo.png';
+import logo from '../../../Images/logo.png';
 
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
@@ -81,7 +81,7 @@ export default function UserForm({
 				  com o número de identificação fiscal <i>${formInputs.nif}</i>
 				  , residente no endereço <i>${formInputs.userAddress}</i>, e
 				  atualmente trabalhando como <i>${formInputs.role}</i> na
-				  empresa {insert them compini}, é assegurado pela<i> ${formInputs.insuranceName}</i> e tem o
+				  empresa ${formInputs.companyName}, é assegurado pela<i> ${formInputs.insuranceName}</i> e tem o
 				  número de apólice: <i>${formInputs.insurancePolicy}</i>.
 				</p>
 				&nbsp;
@@ -127,6 +127,46 @@ export default function UserForm({
 	return (
 		<Form className='form' action=''>
 			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='username' column sm='6'>
+					Username:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='text'
+						className='filled'
+						id='username'
+						name='username'
+						value={formInputs.username}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								username: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='password' column sm='6'>
+					Password:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='password'
+						className='filled'
+						id='password'
+						name='password'
+						value={formInputs.password}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								password: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
 				<Form.Label htmlFor='name' column sm='6'>
 					Nome do Funcionário:
 				</Form.Label>
@@ -167,20 +207,60 @@ export default function UserForm({
 				</Col>
 			</Form.Group>
 			<Form.Group as={Row} className='mb-3'>
-				<Form.Label htmlFor='nif' column sm='6'>
-					NIF
+				<Form.Label htmlFor='email' column sm='6'>
+					Email
 				</Form.Label>
 				<Col sm='6'>
 					<Form.Control
-						type='number'
+						type='email'
 						className='filled'
-						id='nif'
-						name='nif'
-						value={formInputs.nif}
+						id='email'
+						name='email'
+						value={formInputs.email}
 						onChange={(e) =>
 							setFormInputs({
 								...formInputs,
-								nif: e.target.value,
+								email: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='phone' column sm='6'>
+					Contacto:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='text'
+						className='filled'
+						id='phone'
+						name='phone'
+						value={formInputs.phone}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								phone: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='role' column sm='6'>
+					isAdmin:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Check
+						type='checkbox'
+						className='filled'
+						id='role'
+						name='role'
+						checked={formInputs.role}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								role: e.target.checked,
 							})
 						}
 					/>
@@ -207,20 +287,20 @@ export default function UserForm({
 				</Col>
 			</Form.Group>
 			<Form.Group as={Row} className='mb-3'>
-				<Form.Label htmlFor='role' column sm='6'>
-					Cargo:
+				<Form.Label htmlFor='nif' column sm='6'>
+					NIF
 				</Form.Label>
 				<Col sm='6'>
 					<Form.Control
-						type='text'
+						type='number'
 						className='filled'
-						id='role'
-						name='role'
-						value={formInputs.role}
+						id='nif'
+						name='nif'
+						value={formInputs.nif}
 						onChange={(e) =>
 							setFormInputs({
 								...formInputs,
-								role: e.target.value,
+								nif: e.target.value,
 							})
 						}
 					/>
@@ -267,45 +347,86 @@ export default function UserForm({
 				</Col>
 			</Form.Group>
 			<Form.Group as={Row} className='mb-3'>
-				<Form.Label htmlFor='phone' column sm='6'>
-					Contacto
+				<Form.Label htmlFor='companyName' column sm='6'>
+					Empresa:
 				</Form.Label>
 				<Col sm='6'>
 					<Form.Control
 						type='text'
 						className='filled'
-						id='phone'
-						name='phone'
-						value={formInputs.phone}
+						id='companyName'
+						name='companyName'
+						value={formInputs.companyName}
 						onChange={(e) =>
 							setFormInputs({
 								...formInputs,
-								phone: e.target.value,
+								companyName: e.target.value,
 							})
 						}
 					/>
 				</Col>
 			</Form.Group>
 			<Form.Group as={Row} className='mb-3'>
-				<Form.Label htmlFor='username' column sm='6'>
-					Username:
+				<Form.Label htmlFor='companyAddress' column sm='6'>
+					Morada da Empresa:
 				</Form.Label>
 				<Col sm='6'>
 					<Form.Control
 						type='text'
 						className='filled'
-						id='username'
-						name='username'
-						value={formInputs.username}
+						id='companyAddress'
+						name='companyAddress'
+						value={formInputs.companyAddress}
 						onChange={(e) =>
 							setFormInputs({
 								...formInputs,
-								username: e.target.value,
+								companyAddress: e.target.value,
 							})
 						}
 					/>
 				</Col>
 			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='companyCAE' column sm='6'>
+					CAE da Empresa:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='number'
+						className='filled'
+						id='companyCAE'
+						name='companyCAE'
+						value={formInputs.companyCAE}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								companyCAE: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='companyNIPC' column sm='6'>
+					NIPC da Empresa:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='number'
+						className='filled'
+						id='companyNIPC'
+						name='companyNIPC'
+						value={formInputs.companyNIPC}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								companyNIPC: e.target.value,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+
 			<Row className='align-items-center' id='perfisBtn'>
 				<Row>
 					<Col>
