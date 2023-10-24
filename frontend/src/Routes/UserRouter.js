@@ -16,7 +16,7 @@ const UserBtnRegistos = lazy(() =>
 
 // Limpezas
 const BtnRegistoLimp = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas')
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas')
 );
 const RegLimpBalcao = lazy(() =>
 	import(
