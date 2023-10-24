@@ -1,0 +1,178 @@
+.headerText {
+  font-family: poppins;
+  font-weight: 700;
+  font-size: 200%;
+}
+
+.textEdit {
+  font-family: poppins;
+  font-weight: 700;
+  font-size: 150%;
+  padding-right: 15%;
+  margin-left: 5%;
+}
+
+.textEsq {
+  font-family: poppins;
+  font-weight: 300;
+  font-size: 150%;
+}
+
+.form-control {
+  background-color: white;
+}
+
+.fimedit {
+  margin-bottom: 50px;
+}
+
+.editTex {
+  font-family: poppins;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 3%;
+}
+
+.form-check-input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.btn-lg-custom {
+  font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.personalizeTxt {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.mid {
+  margin-left: 10%;
+}
+
+.custom-hr-top {
+  border-color: #00c3ff;
+  border-width: 3px;
+  margin: 3px 10px;
+  width: 8%;
+}
+
+.custom-hr-vertical {
+  border-color: #00c3ff;
+  border-width: 3px;
+  transform: rotate(90deg);
+  margin-top: 120px;
+  margin-right: 120px;
+  width: 120%;
+}
+
+.editarDir {
+  margin-left: 60px;
+}
+
+.btn {
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.titulo {
+  margin-left: 60px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  background-color: white;
+  font-weight: 500;
+}
+
+th.header {
+  font-family: Poppins;
+  font-size: 30px;
+  color: black;
+  font-weight: 500;
+  background-color: rgb(182, 182, 182);
+  text-align: center;
+}
+
+tr.information {
+  border-bottom: 1px solid black;
+}
+.information {
+  text-align: center;
+}
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: white;
+  margin-top: 40px;
+}
+
+.products-form {
+  margin-top: 50px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.label-product {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.div-product {
+  padding: 15px;
+}
+
+.product {
+  border-radius: 6px;
+  border: none;
+  width: 230px;
+  height: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.col-btn {
+  padding: 10px;
+  text-align: center;
+}
+
+.btn {
+  width: 230px;
+}
+
+.selection {
+  border-radius: 6px;
+  border: none;
+  width: 230px;
+  height: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.erraseButton {
+  border-style: none;
+  border-radius: 3px;
+  padding: 0.1em 0.4em 0.1em 0.4em;
+  background-color: rgb(218, 92, 92);
+  color: white;
+}

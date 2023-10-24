@@ -15,7 +15,7 @@ const UserBtnRegistos = lazy(() =>
 );
 // Limpezas
 const BtnRegistoLimp = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas')
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas')
 );
 const RegLimpBalcao = lazy(() =>
 	import(
@@ -23,13 +23,13 @@ const RegLimpBalcao = lazy(() =>
 	)
 );
 const RegLimpCopa = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa')
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa/RegLimpCopa')
 );
 const RegLimpCozinha = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha')
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha/RegLimpCozinha')
 );
 const RegLimpSala = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala')
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala/RegLimpSala')
 );
 
 // Óleo
