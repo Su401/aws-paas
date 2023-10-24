@@ -1,8 +1,56 @@
 import './App.css';
+import { useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import routes from './Routes/Router';
 import { AuthProvider } from './Components/Auth/AuthContext';
+import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
+import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
+import Footer from './Components/Footer/Footer';
+
+import AdminRouter from './Routes/AdminRouter';
+import PublicRouter from './Routes/PublicRouter';
+import UserRouter from './Routes/UserRouter';
 
 export default function App() {
-	return <RouterProvider router={routes} />;
+	const [isLoged, setIsLoged] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(false);
+	if (isLoged) {
+		if (isAdmin) {
+			return (
+				<div className='Admin'>
+					<header className='sticky-top'>
+						<SecondaryNav />
+					</header>
+					<main>
+						<AdminRouter />
+					</main>
+				</div>
+			);
+		} else {
+			return (
+				<div className='User'>
+					<header className='sticky-top'>
+						<SecondaryNav />
+					</header>
+					<main>
+						<UserRouter />
+					</main>
+				</div>
+			);
+		}
+	} else {
+		return (
+			<div className='Public'>
+				<header className='sticky-top'>
+					<PrimaryNav />
+				</header>
+				<main>
+					<PublicRouter />
+				</main>
+				<footer className='sticky-bottom'>
+					<Footer />
+				</footer>
+			</div>
+		);
+	}
 }
