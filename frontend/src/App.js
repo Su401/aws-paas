@@ -1,49 +1,27 @@
+import './App.css';
 import { useState } from 'react';
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { useAuth } from './Components/Auth/AuthContext';
+import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
-import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
-import './App.css';
-import Homepage from './Static/Homepage';
+
+import AdminRouter from './Routes/AdminRouter';
 import PublicRouter from './Routes/PublicRouter';
-
-function Public() {
-	return (
-		<div className='Public'>
-			<header className='sticky-top'>
-				<PrimaryNav />
-			</header>
-			<main></main>
-			<footer className='sticky-bottom'>
-				<Footer />
-			</footer>
-		</div>
-	);
-}
-
-function LogedBabes() {
-	return (
-		<div className='Public'>
-			<header className='sticky-top'>
-				<SecondaryNav />
-			</header>
-			<main></main>
-		</div>
-	);
-}
+import UserRouter from './Routes/UserRouter';
 
 export default function App() {
-	const [isLoged, setIsLoged] = useState(false);
-	const [isAdmin, setIsAdmin] = useState(false);
-	if (isLoged) {
-		if (isAdmin) {
+	const { user } = useAuth();
+
+	if (user) {
+		if (user.isAdmin) {
 			return (
 				<div className='Admin'>
 					<header className='sticky-top'>
 						<SecondaryNav />
 					</header>
-					<main></main>
+					<main>
+						<AdminRouter />
+					</main>
 				</div>
 			);
 		} else {
@@ -52,7 +30,9 @@ export default function App() {
 					<header className='sticky-top'>
 						<SecondaryNav />
 					</header>
-					<main></main>
+					<main>
+						<UserRouter />
+					</main>
 				</div>
 			);
 		}
