@@ -6,16 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 import './Components/Sass/my-bootstrap.scss';
-import GerirRegistos from './Backoffice/GerirRegistos';
-import GerirPerfis from './Backoffice/GerirPerfis';
-import Contactos from './Static/Contactos';
-import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<SecondaryNav />
-		<GerirPerfis />
+		<App />
 	</React.StrictMode>
 );
 

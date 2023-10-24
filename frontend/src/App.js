@@ -1,19 +1,20 @@
 import './App.css';
 import { useState } from 'react';
-import { useAuth } from './Components/Auth/AuthContext';
-import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
+import React from 'react';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
-
-import AdminRouter from './Routes/AdminRouter';
+import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
+import SecondaryUser from './Components/SecondaryNavUser/SecondaryNav';
+import './App.css';
 import PublicRouter from './Routes/PublicRouter';
+import AdminRouter from './Routes/AdminRouter';
 import UserRouter from './Routes/UserRouter';
 
 export default function App() {
-	const { user } = useAuth();
-
-	if (user) {
-		if (user.isAdmin) {
+	const [isLoged, setIsLoged] = useState(true);
+	const [isAdmin, setIsAdmin] = useState(true);
+	if (isLoged) {
+		if (isAdmin) {
 			return (
 				<div className='Admin'>
 					<header className='sticky-top'>
@@ -28,7 +29,7 @@ export default function App() {
 			return (
 				<div className='User'>
 					<header className='sticky-top'>
-						<SecondaryNav />
+						<SecondaryUser />
 					</header>
 					<main>
 						<UserRouter />

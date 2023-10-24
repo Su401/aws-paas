@@ -1,14 +1,50 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import LoginModal from '../LoginModal/LoginModal';
 import './SecondaryNav.css';
+=======
+import './SecondaryNav.css';
+import LoginModal from '../LoginModal/LoginModal';
+>>>>>>> main
 import logo from '../../Images/logo.png';
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
+<<<<<<< HEAD
 
 	const HandleLogin = (e) => {
 		e.preventDefault();
 		setShow(true);
+=======
+	const [dbUsers, setdbUsers] = useState([])
+
+	const HandleLogin = async (e) => {
+		e.preventDefault();
+		setShow(true);
+		try {
+			const response = await fetch(
+				'http://localhost:8080/api/modalUsers',
+				{
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					}
+				}
+			);
+			if (response.ok) {
+				const dados = await response.json();
+				const dbUserIds = new Set(dbUsers.map(user => user.id));
+				const newUserData = dados.filter(user => !dbUserIds.has(user.id));
+				const result = [...dbUsers, ...newUserData];
+				setdbUsers(result);
+			} else {
+				console.log('Something went wrong with your data')
+			}
+		} catch (error) {
+			console.error('Erro na solicitação', error);
+		}
+
+>>>>>>> main
 	};
 	return (
 		<div className='SecondaryNav'>
@@ -37,6 +73,7 @@ export default function SecondaryNav() {
 							<button
 								className='btn btn-primary me-2'
 								type='button'
+								style={{ color: 'white' }}
 							>
 								Área do utilizador
 							</button>
@@ -45,10 +82,18 @@ export default function SecondaryNav() {
 							className='nav-item btn btn-primary'
 							href='/login'
 							onClick={HandleLogin}
+<<<<<<< HEAD
 						>
 							Mudar de Conta
 						</a>
 						<LoginModal show={show} setShow={setShow} />
+=======
+							style={{ color: 'white' }}
+						>
+							Mudar de Conta
+						</a>
+						<LoginModal show={show} setShow={setShow} dbUsers={dbUsers} setdbUsers={setdbUsers} />
+>>>>>>> main
 					</div>
 				</div>
 			</nav>

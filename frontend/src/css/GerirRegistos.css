@@ -102,7 +102,6 @@ td {
 }
 
 th.header {
-  width: 100%;
   font-family: Poppins;
   font-size: 30px;
   color: black;
@@ -168,4 +167,12 @@ tr.information {
   width: 230px;
   height: 40px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.erraseButton {
+  border-style: none;
+  border-radius: 3px;
+  padding: 0.1em 0.4em 0.1em 0.4em;
+  background-color: rgb(218, 92, 92);
+  color: white;
 }

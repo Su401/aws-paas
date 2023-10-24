@@ -1,4 +1,4 @@
-import '../css/TemplatePrimario.css';
+import "../css/TemplatePrimario.css";
 
 export default function TermosCondicoes() {
 	return (

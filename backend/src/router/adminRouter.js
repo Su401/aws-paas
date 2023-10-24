@@ -8,6 +8,10 @@ const {
 } = require('../controllers/users');
 
 const {
+	findModalUsersController
+} = require('../controllers/modalUsers')
+
+const {
 	findRecordsController
 } = require('../controllers/records')
 
@@ -24,6 +28,8 @@ router.delete('/deleteUser', deleteByUsername);
 router.put('/updateUser', updateUserByUserame);
 
 router.post('/gerirRegistos', findRecordsController);
+
+router.post('/modalUsers', findModalUsersController)
 
 module.exports = {
 	adminRouter: router,
