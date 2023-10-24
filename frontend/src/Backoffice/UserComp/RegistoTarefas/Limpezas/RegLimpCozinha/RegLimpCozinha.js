@@ -70,7 +70,7 @@ export default function RegLimpCozinha() {
                         <div className="form-check">
                             <input className="form-check-input" id="checkBox1" type="checkbox" value="Bimbi" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckDefault">
-                                Bimbi
+                                Bimby
                             </label>
                         </div>
                         <div className="form-check">
@@ -106,7 +106,7 @@ export default function RegLimpCozinha() {
                         <div className="form-check">
                             <input className="form-check-input" id="checkBox1" type="checkbox" value="Puchadores de Portas" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckDefault">
-                                Puchadores de Portas
+                                Puxadores de Portas
                             </label>
                         </div>
                     </div>
