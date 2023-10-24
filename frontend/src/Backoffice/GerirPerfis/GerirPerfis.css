@@ -45,3 +45,8 @@ h1 {
   font-weight: 500;
   font-size: 20px;
 }
+
+.form-check-input {
+  width: 20em;
+  height: 2em;
+}

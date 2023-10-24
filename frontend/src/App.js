@@ -4,7 +4,6 @@ import React from 'react';
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
 import SecondaryNav from './Components/SecondaryNav/SecondaryNav';
-import SecondaryUser from './Components/SecondaryNavUser/SecondaryNav';
 import './App.css';
 import PublicRouter from './Routes/PublicRouter';
 import AdminRouter from './Routes/AdminRouter';
@@ -29,7 +28,7 @@ export default function App() {
 			return (
 				<div className='User'>
 					<header className='sticky-top'>
-						<SecondaryUser />
+						<SecondaryNav />
 					</header>
 					<main>
 						<UserRouter />

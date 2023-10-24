@@ -11,6 +11,7 @@ const userSchema = new Schema({
 	},
 	password: {
 		type: String,
+		default: '1111',
 		/* 		required: true, */
 	},
 	fullName: {
@@ -31,7 +32,8 @@ const userSchema = new Schema({
 		/* 		required: true, */
 	},
 	role: {
-		type: String,
+		type: Boolean,
+		default: false,
 		/* 		required: true, */
 	},
 	userAddress: {
