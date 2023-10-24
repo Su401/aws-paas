@@ -8,7 +8,7 @@ import Table from 'react-bootstrap/Table';
 
 function RegistarTrocaOleo () {
     const [caixaSelecaoEquipamento, setCaixaSelecaoEquipamento] = useState([]);
-    const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] = useState([]);
+    const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [isChecked, setIsChecked] = useState(false);
     const [inputObs, setInputObs] = useState('');
@@ -31,10 +31,11 @@ function RegistarTrocaOleo () {
             console.log(equipmentsData)
             setCaixaSelecaoEquipamento(equipmentsData.allEquipaments.map(equip => ({
                 type: { value: equip._id },
-                label: equip.name
-            })));            
+                label: equip.name,
+                id: equip._id,
+            })));       
+            setCaixaSelecaoEquipamentoValor(equipmentsData.allEquipaments[0].name);     
             setIsLoading(false);
-            console.log("caixa",caixaSelecaoEquipamento)
         } catch (error){
             console.error('An error ocurred while fetching equipments data', error);
             setIsLoading(false);
@@ -60,13 +61,30 @@ function RegistarTrocaOleo () {
             checked = 'Efetuada'
         } else {
             checked = 'Não efetuada'
-        }
-        setAddedEquipaments(prevEquipaments => [...prevEquipaments, {
-            equipamento: caixaSelecaoEquipamento.find(equip => equip.type.value === caixaSelecaoEquipamentoValor).label,
+        };
+
+        console.log(caixaSelecaoEquipamentoValor)
+        const id = caixaSelecaoEquipamento.find(equip => equip.label === caixaSelecaoEquipamentoValor).id;
+        const equipamento = caixaSelecaoEquipamento.find(equip => equip.label === caixaSelecaoEquipamentoValor).label;
+        const newEquipamento = {
+            equipamento: equipamento,
             mudanca: checked,
-            observacoes: inputObs
-        }]);
+            observacoes: inputObs,
+            id: id,
+        }
+        const idExists = addedEquipaments.some(equip => equip.id === newEquipamento.id);
+        if(!idExists){
+            setAddedEquipaments(prevEquipaments => [...prevEquipaments, newEquipamento]);
+        } else {
+            alert("Um item com esse id já está na tabela")
+        }
         
+    }
+
+    const handleButtonDelete = (index) => {
+        const newData = [...addedEquipaments];
+        newData.splice(index, 1);
+        setAddedEquipaments(newData);
     }
 
     return (
@@ -112,11 +130,14 @@ function RegistarTrocaOleo () {
                             </tr>
                         </thead>
                         <tbody>
-                            {addedEquipaments.map((equipaments => (
-                                <tr key={equipaments.equipamento}>
+                            {addedEquipaments.map(((equipaments, index) => (
+                            <tr key={equipaments.id}>
                                 <td>{equipaments.equipamento}</td>
                                 <td>{equipaments.mudanca}</td>
                                 <td>{equipaments.observacoes}</td>
+                                <td>
+                                    <button onClick={() => handleButtonDelete(index)}>X</button>
+                                </td>
                             </tr>
                             )))}
                         </tbody>
