@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './RegistarTrocaOleo.css'
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
