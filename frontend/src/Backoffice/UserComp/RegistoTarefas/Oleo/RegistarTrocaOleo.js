@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
-import CaixaSelecao from '../../../RegistarTrocaOleo/CaixaSelecao';
+import CaixaSelecao from './CaixaSelecao';
 import Table from 'react-bootstrap/Table';
 
 function RegistarTrocaOleo() {

@@ -34,7 +34,7 @@ const RegLimpSala = lazy(() =>
 
 // Óleo
 const RegTrocaOleo = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegTrocaOleo')
+	import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegistarTrocaOleo')
 );
 
 // Temperaturas

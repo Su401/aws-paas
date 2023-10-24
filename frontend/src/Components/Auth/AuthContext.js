@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import {
+	getAuth,
+	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
+} from 'firebase/auth';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDNaGiCK1d5CGXCh4uPU53rrfaC5iQWa-I',
@@ -12,7 +17,8 @@ const firebaseConfig = {
 	measurementId: 'G-9T714640V3',
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 
 // Create an authentication context
 export const AuthContext = createContext();
@@ -22,37 +28,41 @@ export function AuthProvider({ children }) {
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
-		const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
 			setUser(user);
 		});
 
 		return () => {
 			unsubscribe();
 		};
-	}, []);
+	}, [auth]);
 
 	const signIn = async (username, password) => {
 		try {
-			await firebase
-				.auth()
-				.signInWithEmailAndPassword(
-					`${username}@example.com`,
-					password
-				);
+			await signInWithEmailAndPassword(
+				auth,
+				`${username}@example.com`,
+				password
+			);
 		} catch (error) {
 			// Handle authentication errors (e.g., wrong password, non-existing user)
 			console.error(error.message);
 		}
 	};
 
-	const signOut = async () => {
-		await firebase.auth().signOut();
+	const signOutUser = async () => {
+		try {
+			await signOut(auth);
+		} catch (error) {
+			// Handle sign out errors
+			console.error(error.message);
+		}
 	};
 
 	const authContextValue = {
 		user,
 		signIn,
-		signOut,
+		signOut: signOutUser,
 	};
 
 	return (

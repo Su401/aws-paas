@@ -1,4 +1,4 @@
-import '../../css/ImprimirRegistos.css';
+import './ImprimirRegistos.css';
 import logo from '../../../Images/logo.png';
 
 export default function ImprimirRegistos() {
@@ -61,4 +61,3 @@ export default function ImprimirRegistos() {
 		</div>
 	);
 }
-

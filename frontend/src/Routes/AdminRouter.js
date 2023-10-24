@@ -18,7 +18,9 @@ const GerirPerfis = lazy(() =>
 
 //GerirRegistos --> Aquela Parte malandra de backofice / admin sem codigo nenhum #medo
 const GerirRegistos = lazy(() =>
-	import('../Backoffice/AdminComp/GerirRegistos/GeirRegistosBtn')
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GeirRegistosBtn/GerirRegistosBtn'
+	)
 );
 // Registo de tarefas
 const UserBtnRegistos = lazy(() =>

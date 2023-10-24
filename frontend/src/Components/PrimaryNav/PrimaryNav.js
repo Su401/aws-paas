@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import LoginModal from '../LoginModal/LoginModal';
 import './PrimaryNav.css';
 import logo from '../../Images/logo.png';
 
 export default function PrimaryNav() {
-	const navigate = useNavigate(); // Initialize the useNavigate hook
 	const [show, setShow] = useState(false);
-
-	// Handle navigation to different routes
-	const handleNavigation = (path) => {
-		navigate(path);
-	};
 
 	// Handle opening the login modal
 	const handleLogin = (e) => {
@@ -24,7 +17,7 @@ export default function PrimaryNav() {
 			<nav className='navbar navbar-expand-md bg-body py-3 shadow nav'>
 				<div className='container-fluid me-5'>
 					<div className='navbar-brand d-flex align-items-center logo'>
-						<a href='/' onClick={() => handleNavigation('/')}>
+						<a href='/'>
 							{/* Use handleNavigation to navigate to the home page */}
 							<img src={logo} alt='paas logo' />
 						</a>
@@ -42,11 +35,7 @@ export default function PrimaryNav() {
 					<div id='navcol-2' className='collapse navbar-collapse'>
 						<ul className='navbar-nav ms-auto'>
 							<li className='nav-item'>
-								<a
-									className='nav-link Typograph'
-									href='/'
-									onClick={() => handleNavigation('/')}
-								>
+								<a className='nav-link Typograph' href='/'>
 									Home
 								</a>
 							</li>
@@ -64,9 +53,6 @@ export default function PrimaryNav() {
 								<a
 									className='nav-link Typograph'
 									href='/about-us'
-									onClick={() =>
-										handleNavigation('/about-us')
-									}
 								>
 									About Us
 								</a>
