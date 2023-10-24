@@ -13,7 +13,6 @@ const UserBtnRegistos = lazy(() =>
 		'../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'
 	)
 );
-
 // Limpezas
 const BtnRegistoLimp = lazy(() =>
 	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas')
@@ -60,11 +59,7 @@ export default function UserRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route
-					exact
-					path='/'
-					element={<UserHomeBtn />}
-				/>
+				<Route exact path='/' element={<UserHomeBtn />} />
 				<Route
 					exact
 					path='/consultar-tarefas'

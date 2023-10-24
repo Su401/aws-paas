@@ -1,4 +1,4 @@
-import logo from '../../Images/logo.png';
+import logo from '../../../Images/logo.png';
 
 import Button from 'react-bootstrap/esm/Button';
 import Col from 'react-bootstrap/Col';
