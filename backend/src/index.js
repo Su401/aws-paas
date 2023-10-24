@@ -18,6 +18,7 @@ const {
 	getEquipmentsOilChanging,
 } = require('./controllers');
 
+const { findModalUsersController } = require('./controllers/modalUsers')
 const { findRecordsController } = require('./controllers/records');
 
 const { errorHandlerMiddleware } = require('./midleware/errors');
@@ -79,6 +80,8 @@ app.post('/api/gerirRegistos', findRecordsController);
 
 // Definindo a rota GET para buscar os produtos para a impressão das etiquetas
 app.get('/api/registoDeProdutos/preencheProdutos', getProductTypeController);
+
+app.get('/api/modalUsers', findModalUsersController)
 
 // Definindo a rota GET para buscar os equipamentos de troca de oleo
 app.get('/api/registoTarefas/registarTrocaOleo', getEquipmentsOilChanging)

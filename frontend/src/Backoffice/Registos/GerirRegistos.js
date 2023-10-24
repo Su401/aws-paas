@@ -89,8 +89,8 @@ function Formulario({ showRegistos, setShowRegistos }) {
 		  <html>
 		  <head>
 			<title>Print Preview</title>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
-			<link rel="stylesheet" href="../../css/ImprimirRegistos.css" media="print">
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+			<link rel="stylesheet" type="text/css" href="../../css/ImprimirRegistos.css" media="print">
 			<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
             <style>
 			@page { size: A4 }
@@ -291,7 +291,7 @@ function Formulario({ showRegistos, setShowRegistos }) {
                         </tbody>
                     </table>
                     <div className="d-flex justify-content-center">
-                        <a href="/imprimirRegistos">
+                        <a href="/gerir-registos">
                             <button id="btnAdicionarProdutos" className="btn btn-primary shadow-sm btn-lg-custom mt-3"
                                 type="submit" onClick={handlePrintOrSend}>IMPRIMIR</button>
                         </a>
