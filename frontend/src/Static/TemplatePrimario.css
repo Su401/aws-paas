@@ -127,6 +127,19 @@
   max-width: 85%;
 }
 
+.Contactos .col-form {
+  position: relative;
+  padding-left: 7rem;
+  padding-right: 10rem;
+  max-width: 50%;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10 8px #999;
+  margin-right: 100rem;
+  ;
+}
 
 /* Fim do Main */
 
