@@ -16,6 +16,7 @@ const {
 	updateProductController,
 	getProductTypeController,
 	getEquipmentsOilChanging,
+	updateOilChangeRecords,
 } = require('./controllers');
 
 const { findModalUsersController } = require('./controllers/modalUsers')
@@ -89,6 +90,8 @@ app.get('/api/modalUsers', findModalUsersController)
 // Definindo a rota GET para buscar os equipamentos de troca de oleo
 app.get('/api/registoTarefas/registarTrocaOleo', getEquipmentsOilChanging)
 
+// Definindo a rota PUT para atualizar os registos de troca de óleo ao banco de dados
+app.put('/api/registoTarefas/registarTrocaOleo/submeterDados', updateOilChangeRecords)
 // every err object has "message" attribute and "code" attribute
 /* app.use(errorHandlerMiddleware); */
 

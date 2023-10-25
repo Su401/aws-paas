@@ -1,4 +1,4 @@
-const { Records } = require('../db/records');
+const { Records, OilChangeRecords } = require('../db/records');
 
 const findRecordsController = async (req, res, next) => {
     const limischecked = req.body.limischecked;
@@ -35,8 +35,19 @@ const findRecordsController = async (req, res, next) => {
     }
 };
 
+const updateOilChangeRecords = async (req, res, next) => {
+    const oilChangeRecord = req.body;
+    try {
+        const documento = await OilChangeRecords.find({_id: "65383c3f900669a4502e0ab5"});
+        res.status(200).json(documento);
+    } catch(error) {
+        console.log("Um problema foi detectado", error);
+        res.status(500);
+    }
+}
 
 module.exports = {
-    findRecordsController
+    findRecordsController,
+    updateOilChangeRecords
 };
 
