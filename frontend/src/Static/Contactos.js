@@ -95,7 +95,7 @@ Change sempre que o valor do campo do formulário é alterado. Isso atualiza o e
 					<div className='col'>
 						<h2>Formulário de Contacto</h2>
 					</div>
-					<div className='col'>
+					<div className='col-form'>
 						<Form action='/enviar-mensagem' method='post'>
 							<Form.Group controlId='nome'>
 								<Form.Label>Nome:</Form.Label>
