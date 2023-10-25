@@ -4,6 +4,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import logo from '../../Images/logo.png'
 
 export default function LoginModal({ show, setShow, dbUsers }) {
 	const [selectedImg, setSelectedImg] = useState(null);
@@ -118,12 +119,12 @@ function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 			key={elem.nif}
 			handleImgClick={handleImgClick}
 			dbUsers={elem.username}
-			numberNif={elem.nif}
+			imagemUser={elem.myFile}
 		/>
 	));
 }
 
-function UserWithProfile({ handleImgClick, dbUsers, numberNif }) {
+function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 	return (
 		<div className='col-lg text-center'>
 			<div>
@@ -131,7 +132,7 @@ function UserWithProfile({ handleImgClick, dbUsers, numberNif }) {
 					className='normal'
 					style={{ width: '100px', height: '90px' }}
 					alt={dbUsers}
-					src={`https://i.pravatar.cc/48${numberNif}`}
+					src={!imagemUser ? logo : imagemUser}
 					onClick={() => handleImgClick(dbUsers)}
 				/>
 				<div className='nomesUsers'>

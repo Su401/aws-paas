@@ -58,7 +58,6 @@ const updateUserByUserame = async (req, res, next) => {
 			companyAddress,
 			companyCAE,
 			companyNIPC,
-			photo,
 		} = req.body;
 		const user = await User.findOneAndUpdate(
 			{ username },
@@ -81,7 +80,6 @@ const updateUserByUserame = async (req, res, next) => {
 					cae: companyCAE,
 					nipc: companyNIPC,
 				},
-				photo,
 				$set: {
 					updatedAt: new Date(),
 				},
@@ -111,7 +109,7 @@ const createUserController = async (req, res, next) => {
 		companyAddress,
 		companyCAE,
 		companyNIPC,
-		photo,
+		myFile,
 	} = req.body;
 
 	try {
@@ -162,7 +160,7 @@ const createUserController = async (req, res, next) => {
 					cae: companyCAE,
 					nipc: companyNIPC,
 				},
-				photo,
+				myFile: myFile,
 			});
 			res.status(200).json({
 				message: 'User created',

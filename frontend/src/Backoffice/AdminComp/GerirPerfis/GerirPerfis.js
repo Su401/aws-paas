@@ -31,7 +31,6 @@ export default function GerirPerfis() {
 			CAE: '',
 			NIPC: '',
 		},
-		photo: '',
 	});
 
 	const [formInputs, setFormInputs] = useState({
@@ -50,7 +49,6 @@ export default function GerirPerfis() {
 		companyAddress: '',
 		companyCAE: '',
 		companyNIPC: '',
-		photo: '',
 	});
 
 	useEffect(() => {
@@ -75,7 +73,6 @@ export default function GerirPerfis() {
 					CAE: selectedUser.company?.CAE,
 					NIPC: selectedUser.company?.NIPC,
 				},
-				photo: selectedUser.photo?.photo,
 			});
 		}
 	}, [selectedUser]);
@@ -147,7 +144,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
-					photo: '',
+					myFile: ''
 				});
 
 				// Fetch and update the users list to display the new user
@@ -181,7 +178,6 @@ export default function GerirPerfis() {
 			companyAddress: user.company?.address,
 			companyCAE: user.company?.CAE,
 			companyNIPC: user.company?.NIPC,
-			photo: user.photo,
 		});
 	};
 
@@ -219,7 +215,6 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
-					photo: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -269,7 +264,6 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
-					photo: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -303,7 +297,6 @@ export default function GerirPerfis() {
 					CAE: '',
 					NIPC: '',
 				},
-				photo: '',
 			});
 			setSelectedUser(null);
 		} catch (error) {
