@@ -1,7 +1,7 @@
 import '../css/BotoesRedecionais.css'
 export default function BotoesRedecionais() {
     return (
-        <div>
+        <div className='backgroundSec'>
             <div className="row">
                 <div className='mt-lg-4'>
                     <span></span>

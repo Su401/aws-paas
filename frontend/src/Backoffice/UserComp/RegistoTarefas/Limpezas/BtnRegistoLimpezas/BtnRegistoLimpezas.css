@@ -1,0 +1,110 @@
+h1 {
+    color: #000;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 6rem;
+  }
+  
+  /* para colocar a linha azul em baixo do título */
+  .container-title {
+    position: relative;
+    max-width: 32rem;
+    margin-left: 15rem;
+  }
+  
+  .container-title h1 {
+    margin-left: 3rem;
+  }
+  
+  /* .container-title::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    width: 90%;
+    height: 3px;
+    background-color: #76c9e2;
+  } */
+  
+  /* botões de tarefas */
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .btn {
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 230px;
+  }
+  
+  .col-btn {
+    text-align: left;
+    /* alinhar o texto à esquerda */
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 2rem;
+  }
+  
+  .btn-lg {
+    background-color: #36bae2;
+    font-size: 2rem;
+    width: 100%;
+    /* fazer com que os botões ocupem toda a largura disponível */
+    padding: 8px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* estilos para o container dos botões */
+  .btn-container {
+    margin-left: 15rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  
+  .col-md-12>a>button {
+    max-width: 30rem;
+  }
+  
+  /* estilos para o botão da área do colaborador */
+  .btn-bottom-container {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  
+  .area_col {
+    display: flex;
+    width: auto;
+    transform: rotate(-0.166deg);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #76c9e2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .typography {
+    color: #eaeaea;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }

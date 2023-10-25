@@ -3,57 +3,17 @@ import { lazy } from 'react';
 
 // Logged
 // Users
-const UserHomeBtn = lazy(() =>
-	import('../Backoffice/UserComp/UserHomeBtn/UserHomeBtn')
-);
-
-// Registo de tarefas
-const UserBtnRegistos = lazy(() =>
-	import(
-		'../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'
-	)
-);
-
-// Limpezas
-const BtnRegistoLimp = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas')
-);
-const RegLimpBalcao = lazy(() =>
-	import(
-		'../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'
-	)
-);
-const RegLimpCopa = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa')
-);
-const RegLimpCozinha = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha')
-);
-const RegLimpSala = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala')
-);
-
-// Óleo
-const RegTrocaOleo = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegTrocaOleo')
-);
-
-// Temperaturas
-const RegTemperaturas = lazy(() =>
-	import('../Backoffice/UserComp/RegistoTarefas/Temperaturas/RegTemperaturas')
-);
-
-// Registo de Produtos
-const RegistarProdutos = lazy(() =>
-	import('../Backoffice/UserComp/RegistoProdutos/RegistarProdutos')
-);
-
-// Consulta
-const ConsultaTarefas = lazy(() =>
-	import('../Backoffice/UserComp/Consulta/ConsultaTarefas')
-);
-
-// Not found
+const UserHomeBtn = lazy(() => import('../Backoffice/UserComp/UserHomeBtn/UserHomeBtn'));
+const UserBtnRegistos = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'));
+const BtnRegistoLimp = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas'));
+const RegLimpBalcao = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'));
+const RegLimpCopa = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa/RegLimpCopa'));
+const RegLimpCozinha = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha/RegLimpCozinha'));
+const RegLimpSala = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala/RegLimpSala'));
+const RegTrocaOleo = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegistarTrocaOleo'));
+const RegTemperaturas = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Temperaturas/RegTemperaturas'));
+const RegistarProdutos = lazy(() => import('../Backoffice/UserComp/RegistoProdutos/RegistarProdutos'));
+const ConsultaTarefas = lazy(() => import('../Backoffice/UserComp/Consulta/ConsultaTarefas'));
 const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function UserRouter() {
@@ -115,7 +75,10 @@ export default function UserRouter() {
 					path='/registo-limpeza-sala'
 					element={<RegLimpSala />}
 				/>
-				<Route path='*' element={<NotFound />} />
+				<Route
+					path='*'
+					element={<NotFound />}
+				/>
 			</Routes>
 		</Router>
 	);

@@ -48,7 +48,7 @@ export default function RegLimpBalcao() {
                             </label>
                         </div>
                         <div className="row mt-5">
-                            <a href="/">
+                            <a href="/registo-limpeza-balcao">
                                 <button id="btnExcluirProdutos" className="btn btn-primary shadow-sm btn-md"
                                     type="button">Submeter</button>
                             </a>
@@ -76,7 +76,7 @@ export default function RegLimpBalcao() {
                         <div className="form-check">
                             <input className="form-check-input" id="checkBox3" type="checkbox" value="Puchadores das Portas" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Puchadores das Portas
+                                Puxadores das Portas
                             </label>
                         </div>
                         <div className="form-check">

@@ -1,60 +1,35 @@
-.Modal .imgag {
-  width: 84px;
-  height: 90px;
+.normal {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-
-  &:hover {
-    filter: contrast(50%);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
 }
 
-.Modal .selected-img {
+.normal:hover {
   filter: contrast(50%);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
-.Modal .modalEdit {
-  border-style: none;
-  background-color: white;
+.selecionado {
+  filter: opacity(50%);
 }
 
-.Modal .submitButton {
-  border-style: none;
-  background-color: lightgray;
-  color: black;
-  font-family: poppins;
-  font-weight: 500;
-  font-size: 20px;
-  border-style: none;
-  border-radius: 5px;
-  border: 2px;
+.nomesUsers {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
-.Modal .passWordEdit {
-  color: black;
-  font-family: poppins;
-  font-weight: 300;
-  font-size: 20px;
-  padding-left: 2%;
+.d-lg-flex {
+  flex-wrap: wrap;
+  max-width: 95%;
+  margin: 0 auto;
 }
 
-.Modal .botaoPositioning {
-  padding-top: 3%;
+.col-lg {
+  flex: 0 0 20%;
+  padding: 0.5rem;
 }
 
-#lname {
-  border-radius: 5px;
-  margin-left: 20px;
-  border: 2px;
-  width: 290px;
-  background-color: #d9d9d9;
-}
-
-.Modal .editNames {
-  font-family: poppins;
-  font-weight: 300;
+img {
+  border-radius: 50%;
 }

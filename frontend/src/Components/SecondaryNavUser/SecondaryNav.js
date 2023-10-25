@@ -5,10 +5,35 @@ import logo from '../../Images/logo.png';
 
 export default function SecondaryNav() {
 	const [show, setShow] = useState(false);
+	const [dbUsers, setdbUsers] = useState([]);
 
-	const HandleLogin = (e) => {
+	const HandleLogin = async (e) => {
 		e.preventDefault();
 		setShow(true);
+		try {
+			const response = await fetch(
+				'http://localhost:8080/api/modalUsers',
+				{
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+			if (response.ok) {
+				const dados = await response.json();
+				const dbUserIds = new Set(dbUsers.map((user) => user.id));
+				const newUserData = dados.filter(
+					(user) => !dbUserIds.has(user.id)
+				);
+				const result = [...dbUsers, ...newUserData];
+				setdbUsers(result);
+			} else {
+				console.log('Something went wrong with your data');
+			}
+		} catch (error) {
+			console.error('Erro na solicitação', error);
+		}
 	};
 	return (
 		<div className='SecondaryNav'>
@@ -50,7 +75,12 @@ export default function SecondaryNav() {
 						>
 							Mudar de Conta
 						</a>
-						<LoginModal show={show} setShow={setShow} />
+						<LoginModal
+							show={show}
+							setShow={setShow}
+							dbUsers={dbUsers}
+							setdbUsers={setdbUsers}
+						/>
 					</div>
 				</div>
 			</nav>
