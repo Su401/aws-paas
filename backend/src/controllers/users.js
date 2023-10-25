@@ -50,6 +50,7 @@ const updateUserByUserame = async (req, res, next) => {
 			email,
 			phone,
 			role,
+			isAdmin,
 			nif,
 			userAddress,
 			insuranceName,
@@ -68,6 +69,7 @@ const updateUserByUserame = async (req, res, next) => {
 				email,
 				phone,
 				role,
+				isAdmin,
 				nif,
 				userAddress,
 				insurance: {
@@ -101,6 +103,7 @@ const createUserController = async (req, res, next) => {
 		email,
 		phone,
 		role,
+		isAdmin,
 		nif,
 		userAddress,
 		insuranceName,
@@ -147,6 +150,7 @@ const createUserController = async (req, res, next) => {
 				email,
 				phone,
 				role,
+				isAdmin,
 				userAddress,
 				nif,
 				insurance: {

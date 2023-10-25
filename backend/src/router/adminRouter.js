@@ -7,14 +7,6 @@ const {
 	updateUserByUserame,
 } = require('../controllers/users');
 
-const {
-	findModalUsersController
-} = require('../controllers/modalUsers')
-
-const {
-	findRecordsController
-} = require('../controllers/records')
-
 const router = express.Router();
 
 router.post('/createUser', createUserController);
@@ -26,10 +18,6 @@ router.get('/getUser', getUserByUsername);
 router.delete('/deleteUser', deleteByUsername);
 
 router.put('/updateUser', updateUserByUserame);
-
-router.post('/gerirRegistos', findRecordsController);
-
-router.post('/modalUsers', findModalUsersController)
 
 module.exports = {
 	adminRouter: router,

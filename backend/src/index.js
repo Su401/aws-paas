@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const { sessionMiddleware } = require('./midleware/sessions');
+const { checkAuth } = require('./midleware/auth');
 const { openDbConnection, closeDbConnection } = require('./db');
 const { userRouter } = require('./router/userRouter');
 const { adminRouter } = require('./router/adminRouter');
@@ -18,7 +19,7 @@ const {
 	getEquipmentsOilChanging,
 } = require('./controllers');
 
-const { findModalUsersController } = require('./controllers/modalUsers')
+const { findModalUsersController } = require('./controllers/modalUsers');
 const { findRecordsController } = require('./controllers/records');
 
 const { errorHandlerMiddleware } = require('./midleware/errors');
@@ -38,8 +39,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require('cors');
 app.use(cors());
-/* app.use(checkAuth); */
-/* app.use(sessionMiddleware); */
+app.use(checkAuth);
+app.use(sessionMiddleware);
 app.use(initRequest);
 
 /* //teste para localhost:3000/
@@ -49,10 +50,10 @@ app.get('/', (req, res) => {
 app.use('/contatos', contactsRouter);
 
 // User router para enpoits acesseiveis para os usuários
-app.use(userRouter);
+app.use('/user', userRouter);
 
 //Admin router para endpoints acessiveis para os admin/gerentes (contem crud users)
-app.use('/user', adminRouter);
+app.use('/admin', adminRouter);
 
 // Definindo a rota POST para criar usuários //-->está no abminRouter
 //app.post('/api/users', userController);
@@ -81,10 +82,10 @@ app.post('/api/gerirRegistos', findRecordsController);
 // Definindo a rota GET para buscar os produtos para a impressão das etiquetas
 app.get('/api/registoDeProdutos/preencheProdutos', getProductTypeController);
 
-app.get('/api/modalUsers', findModalUsersController)
+app.get('/api/modalUsers', findModalUsersController);
 
 // Definindo a rota GET para buscar os equipamentos de troca de oleo
-app.get('/api/registoTarefas/registarTrocaOleo', getEquipmentsOilChanging)
+app.get('/api/registoTarefas/registarTrocaOleo', getEquipmentsOilChanging);
 
 // every err object has "message" attribute and "code" attribute
 /* app.use(errorHandlerMiddleware); */
