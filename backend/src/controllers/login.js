@@ -1,7 +1,7 @@
 const { User } = require('../db/users');
 
-const getUserByUsernameAndPassword = async (req, res, next) => {
-	const { username, password } = req.query;
+/* const getUserByUsernameAndPassword = async (req, res, next) => {
+	const { username, password } = req.body;
 	if (!username || !password) {
 		return res
 			.status(400)
@@ -16,20 +16,16 @@ const getUserByUsernameAndPassword = async (req, res, next) => {
 	} catch (err) {
 		next(err);
 	}
-};
+}; */
 
-const login = async (req, res, next) => {
-	const { username, password } = request.body;
-	const user = await getUserByUsernameAndPassword(username, password);
-	if (user) {
-		const { password, ...userWithoutPassword } = user;
-		request.session = userWithoutPassword;
-		response.status(200).json(userWithoutPassword);
-	} else {
-		response.status(401).json({
-			errorMessage: 'Invalid credentials',
-		});
+const loginController = async (req, res, next) => {
+	const { username, password } = req.body;
+	const user = await User.findOne({ username, password });
+	if (!user) {
+		return res.status(401).json({ error: 'Invalid credentials' });
 	}
+	req.session.user = user;
+	res.json(user);
 };
 
 const getCurrentUserController = (req, res, next) => {
@@ -41,6 +37,7 @@ const getCurrentUserController = (req, res, next) => {
 };
 
 module.exports = {
-	getUserByUsernameAndPassword,
+	loginController,
+	/* getUserByUsernameAndPassword */
 	getCurrentUserController,
 };

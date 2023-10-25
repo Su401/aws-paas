@@ -2,7 +2,7 @@ const express = require('express');
 
 const { getAllUsers } = require('../controllers/users');
 
-const { getUserByUsernameAndPassword } = require('../controllers/login');
+const { loginController } = require('../controllers/login');
 
 const { findModalUsersController } = require('../controllers/modalUsers');
 
@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get('/allUsers', getAllUsers);
 
-router.post('/login', getUserByUsernameAndPassword);
+router.post('/login', loginController);
 
 router.post('/gerirRegistos', findRecordsController);
 
