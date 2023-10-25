@@ -426,7 +426,26 @@ export default function UserForm({
 					/>
 				</Col>
 			</Form.Group>
-
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='photo' column sm='6'>
+					Imagem de Perfil:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						type='file'
+						className='filled'
+						id='photo'
+						name='photo'
+						value={formInputs.fotoPerfil}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								photo: e.target.files[0],
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
 			<Row className='align-items-center' id='perfisBtn'>
 				<Row>
 					<Col>

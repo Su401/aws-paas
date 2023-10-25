@@ -31,6 +31,7 @@ export default function GerirPerfis() {
 			CAE: '',
 			NIPC: '',
 		},
+		photo: '',
 	});
 
 	const [formInputs, setFormInputs] = useState({
@@ -49,6 +50,7 @@ export default function GerirPerfis() {
 		companyAddress: '',
 		companyCAE: '',
 		companyNIPC: '',
+		photo: '',
 	});
 
 	useEffect(() => {
@@ -68,11 +70,12 @@ export default function GerirPerfis() {
 					policy: selectedUser.insurance.policy,
 				},
 				company: {
-					name: selectedUser.company.name,
-					address: selectedUser.company.address,
-					CAE: selectedUser.company.CAE,
-					NIPC: selectedUser.company.NIPC,
+					name: selectedUser.company?.name,
+					address: selectedUser.company?.address,
+					CAE: selectedUser.company?.CAE,
+					NIPC: selectedUser.company?.NIPC,
 				},
+				photo: selectedUser.photo?.photo,
 			});
 		}
 	}, [selectedUser]);
@@ -144,6 +147,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
+					photo: '',
 				});
 
 				// Fetch and update the users list to display the new user
@@ -173,10 +177,11 @@ export default function GerirPerfis() {
 			nif: user.nif,
 			insuranceName: user.insurance.name,
 			insurancePolicy: user.insurance.policy,
-			companyName: user.company.name,
-			companyAddress: user.company.address,
-			companyCAE: user.company.CAE,
-			companyNIPC: user.company.NIPC,
+			companyName: user.company?.name,
+			companyAddress: user.company?.address,
+			companyCAE: user.company?.CAE,
+			companyNIPC: user.company?.NIPC,
+			photo: user.photo,
 		});
 	};
 
@@ -214,6 +219,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
+					photo: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -263,6 +269,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
+					photo: '',
 				});
 				// Fetch and update the users list to display the edited user
 				fetchUsers();
@@ -296,6 +303,7 @@ export default function GerirPerfis() {
 					CAE: '',
 					NIPC: '',
 				},
+				photo: '',
 			});
 			setSelectedUser(null);
 		} catch (error) {
