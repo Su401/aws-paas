@@ -41,7 +41,6 @@ export default function UserTable({
 						<td>{user.nif}</td>
 						<td>{user.phone}</td>
 						<td>{user.insurance?.policy}</td>
-						<td>{user.photo}</td>
 					</tr>
 				))}
 			</tbody>

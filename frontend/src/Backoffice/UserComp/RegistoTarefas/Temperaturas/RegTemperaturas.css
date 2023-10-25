@@ -1,0 +1,22 @@
+.inputBox{
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+  height: 40px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-select {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 0;
+    border: 0;
+    width: 250px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .caixaTextArea {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2)
+  }

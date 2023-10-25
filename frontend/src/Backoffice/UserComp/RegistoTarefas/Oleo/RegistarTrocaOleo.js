@@ -8,8 +8,7 @@ import Table from 'react-bootstrap/Table';
 
 function RegistarTrocaOleo() {
 	const [caixaSelecaoEquipamento, setCaixaSelecaoEquipamento] = useState([]);
-	const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] =
-		useState('');
+	const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
 	const [inputObs, setInputObs] = useState('');
@@ -171,7 +170,7 @@ function RegistarTrocaOleo() {
                         <textarea style={{border:'none', width:'250px', height:'150px', borderRadius:'5px', textAlign:'left', padding:'4px'}} type="text" placeholder="Inserir observações..." value={inputObs} onChange={(e) => setInputObs(e.target.value)}>
                         </textarea>
                     </div>
-					<button className="btn btn-primary" onClick={handleButtonAdicionar}>Adicionar</button>
+					<button className="btn btn-primary" onClick={(e) => handleButtonAdicionar(e)}>Adicionar</button>
 				</Col>
 				<Col xs={12} lg={6}>
 					<Table style={{textAlign:'center'}}>

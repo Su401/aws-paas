@@ -72,6 +72,9 @@ const userSchema = new Schema({
 			/* 		required: true, */
 		},
 	},
+	myFile: {
+		type: String,
+	},
 });
 //console.log(userSchema);
 /* userSchema.pre('save', async function (next) {
