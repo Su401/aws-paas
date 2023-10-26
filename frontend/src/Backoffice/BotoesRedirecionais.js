@@ -1,12 +1,9 @@
-import '../css/BotoesRedecionais.css'
-import '../Components/Sass/my-bootstrap.scss'
-export default function BotoesRedecionais() {
+import "../css/TemplatePrimario.css"
+
+export default function BotoesRedirecionais() {
     return (
-        <div className='backgroundSec'>
+        <div className="BotoesRedirecionais">
             <div className="row">
-                <div className='mt-lg-4'>
-                    <span></span>
-                </div>
                 <div className="col greetings">
                     <span className="hello">Olá </span><span className="user">Susana !</span>
                 </div>
@@ -19,30 +16,29 @@ export default function BotoesRedecionais() {
                 <div className="d-flex justify-content-evenly">
                     <div className="row mt-lg-5 mt-md-5">
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-5" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/gerir-produtos" className="stretched-link btnedit"><span
+                                    <a href="./gerirProdutos.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
-                                        <br></br><span className="letter2Edit"> PRODUTOS</span>
-                                    </a>
+                                        <br /><span className="letter2Edit"> PRODUTOS</span></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-5" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/gerir-perfis" className="stretched-link btnedit"><span
+                                    <a href="./gerirPerfis.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
-                                        <br></br> <span className="letter2Edit"> PERFIS</span></a>
+                                        <br /> <span className="letter2Edit"> PERFIS</span></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-5" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/gerir-registos" className="stretched-link btnedit"><span
+                                    <a href="./gerirRegistos.html" className="stretched-link btnedit"><span
                                         className="letterEdit">GERIR</span>
-                                        <br></br> <span className="letter2Edit"> REGISTOS</span></a>
+                                        <br /> <span className="letter2Edit"> REGISTOS</span></a>
                                 </div>
                             </div>
                         </div>
@@ -58,32 +54,35 @@ export default function BotoesRedecionais() {
                 <div className="d-flex justify-content-evenly">
                     <div className="row">
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-5" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
-                                        <br></br><span className="letter2Edit">TAREFAS</span></a>
+                                    <a href="#" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
+                                        <br /><span className="letter2Edit">TAREFAS</span></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-0" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-0" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/registar-produtos" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
-                                        <br></br><span className="letter2Edit">ABERTURA DE PRODUTOS</span></a>
+                                    <a href="#" className="stretched-link btnedit"><span className="letterEdit">REGISTAR</span>
+                                        <br /><span className="letter2Edit">ABERTURA DE PRODUTOS</span></a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card pb-lg-5" style={{ width: "18rem" }}>
+                            <div className="card pb-lg-5" style="width: 18rem;">
                                 <div className="card-body">
-                                    <a href="/" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
-                                        <br></br><span className="letter2Edit"> REGISTOS</span></a>
+                                    <a href="#" className="stretched-link btnedit"><span className="letterEdit">CONSULTAR</span>
+                                        <br /><span className="letter2Edit"> DADOS</span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
+
     )
 }
+
+
