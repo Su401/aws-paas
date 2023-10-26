@@ -1,0 +1,236 @@
+/* Inicio do header navbar */
+
+.Public .Typograph_active {
+  color: #000;
+  font-family: Poppins;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.Public .Typograph {
+  color: #000;
+  font-family: Poppins;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: light;
+}
+
+.Public .active {
+  border-bottom: 1px solid black;
+}
+
+.Public li {
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.Public .shadow {
+  position: relative;
+  background-color: #e2e2e2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* Final do Header */
+
+/* Inicio do Body */
+/* Inicio do Main */
+
+/* Estilizar o cabeçalho */
+.Public h1 {
+  color: #000;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-left: 7rem;
+  padding-top: 3rem;
+}
+
+.Public main {
+  height: auto;
+}
+
+/* Estiliza o subtítulo */
+.Public h2 {
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-left: 7rem;
+  padding-top: 5rem;
+}
+
+.Public .subcapitulo {
+  color: #212529;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  padding-left: 7rem;
+  padding-top: 2rem;
+}
+
+/* Estiliza os parágrafos */
+.Public p {
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  line-height: 1.5;
+  padding-left: 7rem;
+  padding-right: 10rem;
+  max-width: 85%;
+}
+
+/* Estiliza os artigos */
+.Public article {
+  margin-bottom: 2rem;
+}
+
+.Public .primeiro {
+  text-align: left;
+}
+
+.Public .texto {
+  padding-left: 7rem;
+  text-align: left;
+}
+
+/* Estiliza o subtítulo do artigo */
+.Public .subcapitulo {
+  color: #212529;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  padding-left: 7rem;
+}
+
+/* Estiliza o subtítulo o Body */
+
+
+
+.Public h3 {
+  color: #36bae2;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-left: 7rem;
+  padding-top: 3rem;
+  padding-right: 10rem;
+  max-width: 85%;
+}
+
+/* Fim do Main */
+
+/* Inicio do footer */
+
+/* Estilos gerais do footer */
+
+.Public .black-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.Public .use-links ul {
+  display: flex;
+  justify-content: flex-start;
+  /* Alinha os itens à esquerda */
+  padding: 0;
+  margin: 0;
+}
+
+.Public .use-links ul li {
+  list-style-type: none;
+  margin-right: 2rem;
+}
+
+.Public .social-icons {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+}
+
+.Public .shadow {
+  position: relative;
+  background-color: #e2e2e2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.Public .shadowf {
+  background: #e2e2e2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-top: 1rem;
+}
+
+/* Fim do Footer */
+
+/* Fim do Body */
+
+
+
+
+.Public img {
+  width: 6rem;
+  height: 4rem;
+}
+
+
+@media (min-width: 576px) {
+  .Public img {
+    width: 10rem;
+    height: 7rem;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+  .Public .use-links ul {
+    flex-direction: column;
+    /* coloca os itens verticalmente em dispositivos pequenos */
+    align-items: center;
+    /* Centra os itens na vertical */
+  }
+
+  .Public .use-links ul li {
+    margin: 5px 0;
+    /* Adiciona espaço entre os itens */
+  }
+
+  .Public .social-icons {
+    justify-content: center;
+    /* Centra os ícones na horizontal */
+  }
+
+  .Public body {
+    background-image: none;
+    /* Remove a imagem de fundo para o texto ter leitura */
+  }
+
+  .Public .navbar-nav {
+    text-align: center;
+    /* Centrar os itens do menu */
+  }
+
+  .Public .nav-item {
+    margin-right: 0;
+    /* Remove a margem direita para itens do menu */
+    margin-bottom: 10px;
+    /* Adiciona espaço entre os itens do menu */
+  }
+
+  .Public img {
+    width: 7rem;
+    height: 5rem;
+  }
+
+}
