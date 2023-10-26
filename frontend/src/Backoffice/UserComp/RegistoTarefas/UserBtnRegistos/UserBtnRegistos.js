@@ -37,7 +37,7 @@ function DirectionalButtons() {
 						>
 							<div className='card-body'>
 								<a
-									href='/user/registo-troca-oleo'
+									href={'/user/registo-troca-oleo' || '/admin/registo-troca-oleo'}
 									className='stretched-link btnedit'
 								>
 									<span className='letterEdit'>REGISTAR</span>
@@ -57,7 +57,7 @@ function DirectionalButtons() {
 						>
 							<div className='card-body'>
 								<a
-									href='user/registo-limpeza'
+									href={'/admin/registo-limpeza' || '/user/registo-limpeza'}
 									className=' btnedit'
 								>
 									<span className='letterEdit'>REGISTAR</span>
@@ -74,7 +74,7 @@ function DirectionalButtons() {
 						>
 							<div className='card-body'>
 								<a
-									href='user/registo-temperaturas'
+									href={'/user/registo-temperaturas' || '/admin/registo-temperaturas' }
 									className='btnedit'
 								>
 									<span className='letterEdit'>REGISTAR</span>
