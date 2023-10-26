@@ -14,37 +14,8 @@ export default function LoginModal({ show, setShow }) {
 
 	const handleClose = () => setShow(false);
 
-
-
 	const handleImgClick = (img) => {
 		setSelectedImg(img);
-	};
-
-	const fetchUsers = async () => {
-		try {
-			const response = await fetch(
-				`http://localhost:8080/user/modalUsers`,
-				{
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				}
-			);
-			if (response.ok) {
-				const data = await response.json();
-				const dbUserIds = new Set(dbUsers.map((user) => user.id));
-				const newUserData = data.filter(
-					(user) => !dbUserIds.has(user.id)
-				);
-				const result = [...dbUsers, ...newUserData];
-				setDbUsers(result);
-			} else {
-				console.log('Something went wrong with your data');
-			}
-		} catch (error) {
-			console.error('Error in request', error);
-		}
 	};
 
 	const handleSubmit = async (e) => {
@@ -72,9 +43,7 @@ export default function LoginModal({ show, setShow }) {
 		handleClose();
 	};
 
-
 	return (
-
 		<>
 			<Modal
 				show={show}
