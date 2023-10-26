@@ -142,7 +142,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
-					myFile: ''
+					myFile: '',
 				});
 
 				// Fetch and update the users list to display the new user

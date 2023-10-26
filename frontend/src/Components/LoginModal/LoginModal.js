@@ -6,15 +6,43 @@ import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import logo from '../../Images/logo.png';
 
-export default function LoginModal({ show, setShow, dbUsers }) {
+export default function LoginModal({ show, setShow }) {
 	const [selectedImg, setSelectedImg] = useState(null);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [dbUsers, setDbUsers] = useState([]);
 
 	const handleClose = () => setShow(false);
 
 	const handleImgClick = (img) => {
 		setSelectedImg(img);
+	};
+
+	const fetchUsers = async () => {
+		try {
+			const response = await fetch(
+				`http://localhost:8080/user/modalUsers`,
+				{
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+			if (response.ok) {
+				const data = await response.json();
+				const dbUserIds = new Set(dbUsers.map((user) => user.id));
+				const newUserData = data.filter(
+					(user) => !dbUserIds.has(user.id)
+				);
+				const result = [...dbUsers, ...newUserData];
+				setDbUsers(result);
+			} else {
+				console.log('Something went wrong with your data');
+			}
+		} catch (error) {
+			console.error('Error in request', error);
+		}
 	};
 
 	const handleSubmit = async (e) => {
@@ -127,16 +155,16 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 	// Check if dbUsers is defined and not null before mapping
 	if (!dbUsers) {
-		return null; // or return a loading indicator or an error message
+		console.log(dbUsers);
+		return 'loading'; // or return a loading indicator or an error message
 	}
-
 	return dbUsers.map((elem) => (
 		<UserWithProfile
 			selectedImg={selectedImg}
 			key={elem.nif}
 			handleImgClick={handleImgClick}
 			dbUsers={elem.username}
-			imagemUser={elem.myFile}
+			numberNif={elem.nif}
 		/>
 	));
 }
