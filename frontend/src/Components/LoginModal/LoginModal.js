@@ -125,6 +125,11 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 }
 
 function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
+	// Check if dbUsers is defined and not null before mapping
+	if (!dbUsers) {
+		return null; // or return a loading indicator or an error message
+	}
+
 	return dbUsers.map((elem) => (
 		<UserWithProfile
 			selectedImg={selectedImg}
@@ -132,12 +137,10 @@ function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 			handleImgClick={handleImgClick}
 			dbUsers={elem.username}
 			imagemUser={elem.myFile}
-			imagemUser={elem.myFile}
 		/>
 	));
 }
 
-function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 	return (
 		<div className='col-lg text-center'>
@@ -146,7 +149,6 @@ function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 					className='normal'
 					style={{ width: '100px', height: '90px' }}
 					alt={dbUsers}
-					src={!imagemUser ? logo : imagemUser}
 					src={!imagemUser ? logo : imagemUser}
 					onClick={() => handleImgClick(dbUsers)}
 				/>
