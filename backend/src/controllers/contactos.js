@@ -1,11 +1,13 @@
-const {Contato} = require('../db/contactos'); // Importe o modelo de contato
+const {Contato} = require('../db/contactos'); 
 
-/* // Controlador para lidar com o envio do formulário
+// Importe o modelo de contato
+
+// Controlador para lidar com o envio do formulário
 const enviarMensagem = async (req, res) => {
   try {
     // Obtenha os dados do corpo da solicitação (formulário)
     const { nome, email, mensagem } = req.body;
-
+    console.log('Dados do formulário:', { nome, email, mensagem });
     // Crie uma nova instância de Contato com os dados do formulário
     const novoContato = new Contato({
       nome,
@@ -22,7 +24,7 @@ const enviarMensagem = async (req, res) => {
     console.error('Erro ao processar o formulário:', erro);
     res.status(500).json({ erro: 'Ocorreu um erro ao processar a mensagem.' });
   }
-}; */
+};
  
 const getAllContacts = async (req, res) =>{
     console.log('get them contacts')
@@ -37,6 +39,6 @@ const getAllContacts = async (req, res) =>{
      } */
    }
 module.exports = {
- /*  enviarMensagem, */
+ enviarMensagem,
   getAllContacts
 };

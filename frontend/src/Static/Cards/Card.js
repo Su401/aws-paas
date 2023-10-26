@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import imgbenef from '../Images/pexels-fauxels-3183197.jpg';
-import imgsetores from '../Images/pexels-jopwell-2422293.jpg';
-import './Card.css'
+import imgbenef from '../../Images/pexels-fauxels-3183197.jpg';
+// import imgsetores from '../Images/pexels-jopwell-2422293.jpg';
+import '../Cards/Card.css'
 
 export default function Card ()  {
     return (
