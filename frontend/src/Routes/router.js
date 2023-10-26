@@ -116,11 +116,7 @@ const ConsultarRegistos = lazy(() =>
 export const routes = createBrowserRouter(
 	createRoutesFromElements(
 		<>
-			{
-				{
-					/* PUBLIC */
-				}
-			}
+			{/* PUBLIC */}
 			<Route path='/' element={<PublicTemplate />}>
 				<Route index element={<Homepage />} />
 				<Route path='about-us' element={<AboutUs />} />
@@ -131,11 +127,7 @@ export const routes = createBrowserRouter(
 				<Route path='diversos' element={<Diversos />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>
-			{
-				{
-					/* USER */
-				}
-			}
+			{/* USER */}
 			<Route path='/user' element={<UserTemplate />}>
 				<Route index element={<UserHomeBtn />} />
 				<Route path='consultar-tarefas' element={<ConsultaTarefas />} />
@@ -163,11 +155,7 @@ export const routes = createBrowserRouter(
 				/>
 				<Route path='*' element={<NotFound />} />
 			</Route>
-			{
-				{
-					/* ADMIN */
-				}
-			}
+			{/* ADMIN */}
 			<Route path='/admin' element={<AdminTemplate />}>
 				<Route index element={<AdminHome />} />
 				<Route path='gerir-produtos' element={<GerirProdutos />} />
