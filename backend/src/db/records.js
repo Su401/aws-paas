@@ -22,9 +22,42 @@ const recordsSchema = new Schema({
     }
 });
 
+const changeSchema = new Schema({
+    user: {
+        type: String,
+        required: true,
+    },
+    mudanca: {
+        type: Boolean,
+        required: true,
+    },
+    observacoes: {
+        type: String,
+        required: true,
+    },
+    data: {
+        type: Date,
+        required: false
+    }
+})
+
+const oilChangeRecordsSchema = new Schema({
+    id_equipamento: {
+        type: String,
+        required: true,
+    },
+    trocas: [changeSchema]
+})
+
+
+
 recordsSchema.plugin(mongooseDateFormat);
 const Records = model('Records', recordsSchema, 'records');
 
+oilChangeRecordsSchema.plugin(mongooseDateFormat);
+const OilChangeRecords = model('OilChangeRecords', oilChangeRecordsSchema, 'registo');
+
 module.exports = {
     Records,
+    OilChangeRecords,
 };

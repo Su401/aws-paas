@@ -132,10 +132,12 @@ function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 			handleImgClick={handleImgClick}
 			dbUsers={elem.username}
 			imagemUser={elem.myFile}
+			imagemUser={elem.myFile}
 		/>
 	));
 }
 
+function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 	return (
 		<div className='col-lg text-center'>
@@ -144,6 +146,7 @@ function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 					className='normal'
 					style={{ width: '100px', height: '90px' }}
 					alt={dbUsers}
+					src={!imagemUser ? logo : imagemUser}
 					src={!imagemUser ? logo : imagemUser}
 					onClick={() => handleImgClick(dbUsers)}
 				/>

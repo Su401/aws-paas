@@ -1,8 +1,8 @@
-import "../../css/GerirRegistos.css"
-import "../../Components/Sass/my-bootstrap.scss"
+import "./GerirRegistos.css"
+import "../../../../Components/Sass/my-bootstrap.scss"
 import React, { useState } from 'react';
 import CriarTabela from './CriarTabela';
-import logo from '../../Images/logo.png'
+import logo from '../../../../Images/logo.png'
 
 export default function GerirRegistos() {
     const [showRegistos, setShowRegistos] = useState([]);

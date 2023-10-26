@@ -1,10 +1,10 @@
-import "../RegLimpBalcao/RegLimpBalcao.css"
+import "../RegLimpCopa/RegLimpCopa.css"
 
-export default function RegLimpBalcao() {
+export default function RegLimpCopa() {
     return (
         <div>
             <div className="row">
-                <span className="headerText ms-5 mt-3">Balcão</span>
+                <span className="headerText ms-5 mt-3">Copa</span>
                 <hr className="custom-hr-top ms-5"></hr>
             </div>
             <div className="mt-5">
@@ -23,28 +23,28 @@ export default function RegLimpBalcao() {
                             </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox2" type="checkbox" value="lixos" ></input>
+                            <input className="form-check-input" id="checkBox2" type="checkbox" value="teto" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Lixos
+                                Teto
                             </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Máquina do Café" ></input>
+                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Máquina um" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Máquina do Café
+                                Máquina Nº 1
                             </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Portas dos Armários" ></input>
+                            <input className="form-check-input" id="checkBox3" type="checkbox" value="utensilios" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Portas dos Armários
+                                Utensílios
                             </label>
                         </div>
 
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Teto" ></input>
+                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Chao" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Teto
+                                Chão
                             </label>
                         </div>
                         <div className="row mt-5">
@@ -56,35 +56,30 @@ export default function RegLimpBalcao() {
                     </div>
                     <div className="col-md-5">
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox1" type="checkbox" value="Chão" ></input>
+                            <input className="form-check-input" id="checkBox1" type="checkbox" value="puxadores portas" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckDefault">
-                                Chão
-                            </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" id="checkBox2" type="checkbox" value="Descongelamento do Frio Negativo" ></input>
-                            <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Descongelamento do Frio Negativo
-                            </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Descongelamento do Frio Positivo" ></input>
-                            <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Descongelamento do Frio Positivo
-                            </label>
-                        </div>
-                        <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Puchadores das Portas" ></input>
-                            <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
                                 Puxadores das Portas
                             </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" id="checkBox3" type="checkbox" value="Utensílios" ></input>
+                            <input className="form-check-input" id="checkBox2" type="checkbox" value="lixos" ></input>
                             <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
-                                Utensílios
+                                Lixos
                             </label>
                         </div>
+                        <div className="form-check">
+                            <input className="form-check-input" id="checkBox3" type="checkbox" value="maquina dois" ></input>
+                            <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
+                                Máquina Nº 2
+                            </label>
+                        </div>
+                        <div className="form-check">
+                            <input className="form-check-input" id="checkBox3" type="checkbox" value="portas armários" ></input>
+                            <label className="form-check-label textEsq" htmlFor="flexCheckChecked">
+                                Portas dos Armários
+                            </label>
+                        </div>
+
                     </div>
                 </div>
             </form >

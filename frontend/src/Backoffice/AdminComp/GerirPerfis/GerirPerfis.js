@@ -71,10 +71,10 @@ export default function GerirPerfis() {
 					policy: selectedUser.insurance.policy,
 				},
 				company: {
-					name: selectedUser.company.name,
-					address: selectedUser.company.address,
-					CAE: selectedUser.company.CAE,
-					NIPC: selectedUser.company.NIPC,
+					name: selectedUser.company?.name,
+					address: selectedUser.company?.address,
+					CAE: selectedUser.company?.CAE,
+					NIPC: selectedUser.company?.NIPC,
 				},
 			});
 		}
@@ -142,6 +142,7 @@ export default function GerirPerfis() {
 					companyAddress: '',
 					companyCAE: '',
 					companyNIPC: '',
+					myFile: ''
 				});
 
 				// Fetch and update the users list to display the new user
@@ -172,10 +173,10 @@ export default function GerirPerfis() {
 			nif: user.nif,
 			insuranceName: user.insurance.name,
 			insurancePolicy: user.insurance.policy,
-			companyName: user.company.name,
-			companyAddress: user.company.address,
-			companyCAE: user.company.CAE,
-			companyNIPC: user.company.NIPC,
+			companyName: user.company?.name,
+			companyAddress: user.company?.address,
+			companyCAE: user.company?.CAE,
+			companyNIPC: user.company?.NIPC,
 		});
 	};
 

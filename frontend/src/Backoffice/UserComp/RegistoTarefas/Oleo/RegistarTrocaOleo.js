@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './RegistarTrocaOleo.css'
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
@@ -7,8 +8,7 @@ import Table from 'react-bootstrap/Table';
 
 function RegistarTrocaOleo() {
 	const [caixaSelecaoEquipamento, setCaixaSelecaoEquipamento] = useState([]);
-	const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] =
-		useState('');
+	const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 	const [isChecked, setIsChecked] = useState(false);
 	const [inputObs, setInputObs] = useState('');
@@ -58,11 +58,42 @@ function RegistarTrocaOleo() {
 		setCaixaSelecaoEquipamentoValor(e.target.value);
 	};
 
+    const handleButtonSubmeter = async () => {
+        const dataAtual = new Date().toISOString().split('T')[0];
+
+        const modificaAddedEquipaments = addedEquipaments;
+        modificaAddedEquipaments.map(equipamentoModificado => {
+            equipamentoModificado.data =  dataAtual;
+            equipamentoModificado.id_equipamento = equipamentoModificado.equipamento;
+        })
+        
+        console.log(modificaAddedEquipaments);
+        try {
+            const response = await fetch('http://localhost:8080/api/registoTarefas/registarTrocaOleo/submeterDados', 
+            {  
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(addedEquipaments)
+            })
+            if (!response.ok){
+                throw new Error ('Failed to fetch submit endpoint')
+            }
+            const data = await response.json();
+            console.log(data);
+            setAddedEquipaments([]);
+        } catch (error){
+            console.error("Um erro aconteceu ao tentar enviar os dados ", error)
+        }
+    }
+
+
 	const handleCheckboxChange = (e) => {
 		setIsChecked(e.target.checked);
 	};
 
-	const handleBottonAdicionar = (e) => {
+	const handleButtonAdicionar = (e) => {
 		let checked = '';
 		if (isChecked) {
 			checked = 'Efetuada';
@@ -91,6 +122,8 @@ function RegistarTrocaOleo() {
 				...prevEquipaments,
 				newEquipamento,
 			]);
+			setInputObs('');
+            setIsChecked(false);
 		} else {
 			alert('Um item com esse id já está na tabela');
 		}
@@ -105,7 +138,7 @@ function RegistarTrocaOleo() {
 	return (
 		<Container className='RegistarTrocaOleo backgroundSec'>
 			<h1>Registo de troca de óleo</h1>
-			<Row>
+			<Row  style={{marginTop:'30px'}}>
 				<Col xs={12} lg={6}>
 					<div>Equipamentos</div>
 					<div>
@@ -127,32 +160,30 @@ function RegistarTrocaOleo() {
 							type='checkbox'
 							checked={isChecked}
 							onChange={handleCheckboxChange}
+							className="form-check-input"
+                            style={{marginRight:'10px'}}
 						/>
 						<span></span>
 						<label>Mudança efetuada</label>
 					</div>
-					<div>
-						<input
-							type='text'
-							placeholder='Inserir observações'
-							value={inputObs}
-							onChange={(e) => setInputObs(e.target.value)}
-						></input>
-					</div>
-					<button onClick={handleBottonAdicionar}>Adicionar</button>
+					<div style={{marginTop:'30px'}}>
+                        <textarea style={{border:'none', width:'250px', height:'150px', borderRadius:'5px', textAlign:'left', padding:'4px'}} type="text" placeholder="Inserir observações..." value={inputObs} onChange={(e) => setInputObs(e.target.value)}>
+                        </textarea>
+                    </div>
+					<button className="btn btn-primary" onClick={(e) => handleButtonAdicionar(e)}>Adicionar</button>
 				</Col>
 				<Col xs={12} lg={6}>
-					<Table>
+					<Table style={{textAlign:'center'}}>
 						<thead>
 							<tr>
-								<th className='header' colSpan='4'>
-									Lista de equipamentos
+								<th style={{fontSize:'20pt', textAlign:'center'}} className="header" colSpan="4">Lista de equipamentos
 								</th>
 							</tr>
 							<tr>
 								<th scope='col'>Equipamento</th>
 								<th scope='col'>Mudança</th>
 								<th scope='col'>Observações</th>
+								<th scope="col">Apagar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -160,21 +191,16 @@ function RegistarTrocaOleo() {
 								<tr key={equipaments.id}>
 									<td>{equipaments.equipamento}</td>
 									<td>{equipaments.mudanca}</td>
-									<td>{equipaments.observacoes}</td>
+									<td style={{ wordWrap: 'break-word', whiteSpace: 'normal', maxWidth: '150px' }}>{equipaments.observacoes}</td>
 									<td>
-										<button
-											onClick={() =>
-												handleButtonDelete(index)
-											}
-										>
-											X
+										<button style={{borderStyle:'none', borderRadius:'3px', padding:'0.1em 0.4em 0.1em 0.4em', backgroundColor:'rgb(218, 92, 92)', color:'white'}} onClick={() => handleButtonDelete(index)}>X
 										</button>
 									</td>
 								</tr>
 							))}
 						</tbody>
 					</Table>
-					<button type='submit'>Submeter</button>
+					<button className="btn btn-primary" type="submit" onClick={handleButtonSubmeter}>Submeter</button>
 				</Col>
 			</Row>
 		</Container>

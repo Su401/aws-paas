@@ -22,6 +22,7 @@ export default function Footer() {
 									<a
 										className='black-link'
 										href='https://www.livroreclamacoes.pt/Inicio/'
+										target="_blank"
 									>
 										Livro de Reclamações
 									</a>

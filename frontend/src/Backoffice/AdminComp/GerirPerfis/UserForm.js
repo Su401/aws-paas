@@ -13,6 +13,15 @@ export default function UserForm({
 	handleEditUser,
 	handleDeleteUser,
 }) {
+
+	async function convertToBase64(file) {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = () => resolve(reader.result);
+			reader.onerror = error => reject(error);
+		});
+	}
 	/**
 	 * Handles the print or send button click event.
 	 * Constructs the HTML content for printing and opens a new window with the content.
@@ -446,7 +455,33 @@ export default function UserForm({
 					/>
 				</Col>
 			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='file-upload' column sm='6'>
+					Choose Profile Picture
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Control
+						className='filled'
+						lable="image"
+						type='file'
+						name='myFile'
+						id='file-upload'
+						accept='.jpeg, .png, .jpg'
+						onChange={async (e) => {
+							const file = e.target.files[0];
+							if (!file) return alert('rip');
 
+							const base64 = await convertToBase64(file);
+
+							setFormInputs({
+								...formInputs,
+								myFile: base64,
+							});
+						}
+						}
+					/>
+				</Col>
+			</Form.Group>
 			<Row className='align-items-center' id='perfisBtn'>
 				<Row>
 					<Col>
@@ -496,4 +531,6 @@ export default function UserForm({
 			</Row>
 		</Form>
 	);
+
+
 }

@@ -112,6 +112,7 @@ const createUserController = async (req, res, next) => {
 		companyAddress,
 		companyCAE,
 		companyNIPC,
+		myFile,
 	} = req.body;
 
 	try {
@@ -163,6 +164,7 @@ const createUserController = async (req, res, next) => {
 					cae: companyCAE,
 					nipc: companyNIPC,
 				},
+				myFile: myFile,
 			});
 			res.status(200).json({
 				message: 'User created',
