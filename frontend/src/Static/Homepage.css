@@ -41,7 +41,7 @@
 /* Inicio do Main */
 
 /* Estilizar o cabeçalho */
-.Public h1 {
+.Public .h1 {
   color: #000;
   font-size: 54px;
   font-style: normal;
@@ -49,6 +49,7 @@
   line-height: normal;
   padding-left: 7rem;
   padding-top: 3rem;
+  max-width: 85%;
 }
 
 .Public main {
@@ -64,6 +65,7 @@
   line-height: normal;
   padding-left: 7rem;
   padding-top: 5rem;
+  max-width: 85%;
 }
 
 .Public .subcapitulo {
@@ -76,8 +78,8 @@
 }
 
 /* Estiliza os parágrafos */
-.Public p {
-  color: #000;
+.Public .paragrafo {
+  color: #292828;
   font-size: 22px;
   font-style: normal;
   font-weight: 300;
@@ -97,9 +99,28 @@
   text-align: left;
 }
 
-.Public .texto {
-  padding-left: 7rem;
+.texto {
   text-align: left;
+  color: #292828;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  line-height: 1.5;
+  padding-left: 7rem;
+  padding-right: 10rem;
+  max-width: 85%;
+}
+
+/* Estiliza os cards */
+.cards {
+  max-width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5rem;
+  flex-wrap: wrap;
 }
 
 /* Estiliza o subtítulo do artigo */
@@ -127,19 +148,6 @@
   max-width: 85%;
 }
 
-.Contactos .col-form {
-  position: relative;
-  padding-left: 7rem;
-  padding-right: 10rem;
-  max-width: 50%;
-  display: block;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 10 8px #999;
-  margin-right: 100rem;
-  ;
-}
 
 /* Fim do Main */
 
@@ -192,22 +200,23 @@
 
 
 
-.Public img {
-  width: 6rem;
-  height: 4rem;
-}
+/* .Public img {
+    width: 6rem;
+    height: 4rem;
+  } */
 
 
-@media (min-width: 576px) {
-  .Public img {
-    width: 10rem;
-    height: 7rem;
-  }
-
-}
+/* @media (min-width: 576px) {
+    .Public img {
+      width: 10rem;
+      height: 7rem;
+    }
+  
+  } */
 
 
 @media (max-width: 767px) {
+
   .Public .use-links ul {
     flex-direction: column;
     /* coloca os itens verticalmente em dispositivos pequenos */
@@ -242,9 +251,9 @@
     /* Adiciona espaço entre os itens do menu */
   }
 
-  .Public img {
-    width: 7rem;
-    height: 5rem;
-  }
-
+  /* .Public img {
+      width: 7rem;
+      height: 5rem;
+    }
+   */
 }
