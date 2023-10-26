@@ -91,7 +91,9 @@ const GerirPerfis = lazy(() =>
 	import('../Backoffice/AdminComp/GerirPerfis/GerirPerfis')
 );
 const GerirRegistos = lazy(() =>
-	import('../Backoffice/AdminComp/GerirRegistos/Registos/GerirRegistos')
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GeirRegistosBtn/GerirRegistosBtn'
+	)
 );
 const RegistarTarefas = lazy(() =>
 	import(
@@ -102,9 +104,23 @@ const ConsultarRegistos = lazy(() =>
 	import('../Backoffice/AdminComp/ConsultarRegistos/ConsultarRegistos')
 );
 
+/**
+ * Defines the routes for the application using the `createBrowserRouter` function from `react-router-dom`.
+ * The routes are defined using the `createRoutesFromElements` function and JSX elements.
+ * The routes are divided into three main sections: public, user, and admin.
+ * Each section has its own template and sub-routes.
+ * The `NotFound` component is used as a fallback for any undefined routes.
+ *
+ * @returns {Object} The routes object.
+ */
 export const routes = createBrowserRouter(
 	createRoutesFromElements(
 		<>
+			{
+				{
+					/* PUBLIC */
+				}
+			}
 			<Route path='/' element={<PublicTemplate />}>
 				<Route index element={<Homepage />} />
 				<Route path='about-us' element={<AboutUs />} />
@@ -115,6 +131,11 @@ export const routes = createBrowserRouter(
 				<Route path='diversos' element={<Diversos />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>
+			{
+				{
+					/* USER */
+				}
+			}
 			<Route path='/user' element={<UserTemplate />}>
 				<Route index element={<UserHomeBtn />} />
 				<Route path='consultar-tarefas' element={<ConsultaTarefas />} />
@@ -142,6 +163,11 @@ export const routes = createBrowserRouter(
 				/>
 				<Route path='*' element={<NotFound />} />
 			</Route>
+			{
+				{
+					/* ADMIN */
+				}
+			}
 			<Route path='/admin' element={<AdminTemplate />}>
 				<Route index element={<AdminHome />} />
 				<Route path='gerir-produtos' element={<GerirProdutos />} />
