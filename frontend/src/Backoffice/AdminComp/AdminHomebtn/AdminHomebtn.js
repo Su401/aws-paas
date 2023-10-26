@@ -141,7 +141,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/'
+										href='/consultar-registos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
