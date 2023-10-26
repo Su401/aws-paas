@@ -14,6 +14,9 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
+
 	const handleClose = () => setShow(false);
 
 	const handleImgClick = (img, username) => {
@@ -27,6 +30,8 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 	 */
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setLoading(true);
+		setError(null);
 		try {
 			const res = await fetch(`http://localhost:8080/user/login`, {
 				method: 'POST',
@@ -39,7 +44,7 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 				}),
 			});
 
-			if (!res.ok) {
+			if (res.ok) {
 				throw new Error('Failed to fetch user data');
 			}
 
@@ -49,19 +54,20 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 
 			// Handle isAdmin status here, for example, redirect to appropriate route
 			if (isAdmin) {
-				console.log('admin');
 				// User is an admin, redirect to admin dashboard
 				navigate('/admin');
 			} else {
-				console.log('user');
 				// User is not an admin, redirect to user dashboard
 				navigate('/user');
 			}
 		} catch (error) {
 			console.error(
 				'An error occurred while fetching user data: ',
-				error
+				error.message
 			);
+			setError('Invalid username or password. Please try again.');
+		} finally {
+			setLoading(false);
 		}
 		handleClose();
 	};

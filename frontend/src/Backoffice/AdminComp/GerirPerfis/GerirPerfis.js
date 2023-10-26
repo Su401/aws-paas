@@ -71,10 +71,10 @@ export default function GerirPerfis() {
 					policy: selectedUser.insurance.policy,
 				},
 				company: {
-					name: selectedUser.company?.name,
-					address: selectedUser.company?.address,
-					CAE: selectedUser.company?.CAE,
-					NIPC: selectedUser.company?.NIPC,
+					name: selectedUser.company.name,
+					address: selectedUser.company.address,
+					CAE: selectedUser.company.cae,
+					NIPC: selectedUser.company.nipc,
 				},
 			});
 		}
@@ -173,10 +173,10 @@ export default function GerirPerfis() {
 			nif: user.nif,
 			insuranceName: user.insurance.name,
 			insurancePolicy: user.insurance.policy,
-			companyName: user.company?.name,
-			companyAddress: user.company?.address,
-			companyCAE: user.company?.CAE,
-			companyNIPC: user.company?.NIPC,
+			companyName: user.company.name,
+			companyAddress: user.company.address,
+			companyCAE: user.company.cae,
+			companyNIPC: user.company.nipc,
 		});
 	};
 
