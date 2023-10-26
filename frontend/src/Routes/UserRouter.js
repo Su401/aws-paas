@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+	createRoutesFromElements,
+	createBrowserRouter,
+	Route,
+} from 'react-router-dom';
+
 import { lazy } from 'react';
 
 // Logged
@@ -63,63 +68,34 @@ const ConsultaTarefas = lazy(() =>
 // Not found
 const NotFound = lazy(() => import('../Components/404/404'));
 
-export default function UserRouter() {
-	return (
-		<Router>
-			<Routes>
-				<Route exact path='/user' element={<UserHomeBtn />} />
+export const UserRouter = createBrowserRouter(
+	createRoutesFromElements(
+		<>
+			<Route exact path='/user' element={<UserHomeBtn />}>
+				<Route path='consultar-tarefas' element={<ConsultaTarefas />} />
+				<Route path='registar-tarefas' element={<UserBtnRegistos />} />
 				<Route
-					exact
-					path='/consultar-tarefas'
-					element={<ConsultaTarefas />}
-				/>
-				<Route
-					exact
-					path='/registar-tarefas'
-					element={<UserBtnRegistos />}
-				/>
-				<Route
-					exact
-					path='/registar-produtos'
+					path='registar-produtos'
 					element={<RegistarProdutos />}
 				/>
+				<Route path='registo-troca-oleo' element={<RegTrocaOleo />} />
 				<Route
-					exact
-					path='/registo-troca-oleo'
-					element={<RegTrocaOleo />}
-				/>
-				<Route
-					exact
-					path='/registo-temperaturas'
+					path='registo-temperaturas'
 					element={<RegTemperaturas />}
 				/>
+				<Route path='registo-limpeza' element={<BtnRegistoLimp />} />
 				<Route
-					exact
-					path='/registo-limpeza'
-					element={<BtnRegistoLimp />}
-				/>
-				<Route
-					exact
-					path='/registo-limpeza-balcao'
+					path='registo-limpeza-balcao'
 					element={<RegLimpBalcao />}
 				/>
+				<Route path='registo-limpeza-copa' element={<RegLimpCopa />} />
 				<Route
-					exact
-					path='/registo-limpeza-copa'
-					element={<RegLimpCopa />}
-				/>
-				<Route
-					exact
-					path='/registo-limpeza-cozinha'
+					path='registo-limpeza-cozinha'
 					element={<RegLimpCozinha />}
 				/>
-				<Route
-					exact
-					path='/registo-limpeza-sala'
-					element={<RegLimpSala />}
-				/>
+				<Route path='registo-limpeza-sala' element={<RegLimpSala />} />
 				<Route path='*' element={<NotFound />} />
-			</Routes>
-		</Router>
-	);
-}
+			</Route>
+		</>
+	)
+);

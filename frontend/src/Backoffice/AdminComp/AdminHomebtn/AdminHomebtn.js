@@ -24,7 +24,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-produtos'
+										href='/admin/gerir-produtos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -46,7 +46,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-perfis'
+										href='/admin/gerir-perfis'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -68,7 +68,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-registos'
+										href='/admin/gerir-registos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -99,7 +99,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/registar-tarefas'
+										href='/admin/registar-tarefas'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -120,7 +120,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/registar-produtos'
+										href='/admin/registar-produtos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -141,7 +141,7 @@ export default function AdminHomebtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/'
+										href='/admin/consultar-registos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginModal.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Modal from '../../../node_modules/react-bootstrap/Modal';
@@ -7,7 +8,8 @@ import Form from 'react-bootstrap/Form';
 import logo from '../../Images/logo.png';
 
 export default function LoginModal({ show, setShow, dbUsers }) {
-	console.log(dbUsers);
+	const navigate = useNavigate();
+
 	const [selectedImg, setSelectedImg] = useState(null);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -28,16 +30,32 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					username: username,
-					password: password,
+					username,
+					password,
 				}),
 			});
+
 			if (!res.ok) {
-				throw new Error('Failed to fetch users data');
+				throw new Error('Failed to fetch user data');
+			}
+
+			const data = await res.json();
+			console.log(data);
+			const isAdmin = data.isAdmin;
+
+			// Handle isAdmin status here, for example, redirect to appropriate route
+			if (isAdmin) {
+				console.log('admin');
+				// User is an admin, redirect to admin dashboard
+				navigate('/admin');
+			} else {
+				console.log('user');
+				// User is not an admin, redirect to user dashboard
+				navigate('/user');
 			}
 		} catch (error) {
 			console.error(
-				'An error occurred while fetching users data: ',
+				'An error occurred while fetching user data: ',
 				error
 			);
 		}
@@ -131,7 +149,7 @@ function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 	return dbUsers.map((elem) => (
 		<UserWithProfile
 			selectedImg={selectedImg}
-			key={elem.nif}
+			key={elem.username}
 			handleImgClick={(img) => handleImgClick(img, elem.username)}
 			dbUsers={elem.username}
 			imagemUser={elem.myFile}
