@@ -24,6 +24,12 @@ const auth = getAuth(firebaseApp);
 export const AuthContext = createContext();
 
 // Create an authentication provider component
+/**
+ * Provides authentication context for the application.
+ * @param {Object} props - Component props.
+ * @param {ReactNode} props.children - Child components to be rendered.
+ * @returns {JSX.Element} - JSX element.
+ */
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState(null);
 
@@ -37,6 +43,11 @@ export function AuthProvider({ children }) {
 		};
 	}, []);
 
+	/**
+	 * Signs in the user with the given username and password.
+	 * @param {string} username - User's username.
+	 * @param {string} password - User's password.
+	 */
 	const signIn = async (username, password) => {
 		try {
 			await signInWithEmailAndPassword(
@@ -50,6 +61,9 @@ export function AuthProvider({ children }) {
 		}
 	};
 
+	/**
+	 * Signs out the current user.
+	 */
 	const signOutUser = async () => {
 		try {
 			await signOut(auth);

@@ -21,6 +21,10 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 		setUsername(username);
 	};
 
+	/**
+	 * Handles form submission for user login.
+	 * @param {Event} e - The form submission event.
+	 */
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
