@@ -28,9 +28,7 @@ const UserHomeBtn = lazy(() =>
 
 // Registo de tarefas
 const UserBtnRegistos = lazy(() =>
-	import(
-		'../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'
-	)
+	import(	'../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'	)
 );
 // Limpezas
 const BtnRegistoLimp = lazy(() =>
