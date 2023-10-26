@@ -103,6 +103,42 @@ const RegistarTarefas = lazy(() =>
 const ConsultarRegistos = lazy(() =>
 	import('../Backoffice/AdminComp/ConsultarRegistos/ConsultarRegistos')
 );
+const RegistarTrocaOleo = lazy(() =>
+	import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegistarTrocaOleo')
+);
+const RegistarTempFrio = lazy(() =>
+	import('../Backoffice/UserComp/RegistoTarefas/Temperaturas/RegTemperaturas')
+);
+const RegistarLimpezas = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas'
+	)
+);
+const RegistarLimpezasSala = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala/RegLimpSala'
+	)
+);
+const RegistarLimpezasCozinha = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha/RegLimpCozinha'
+	)
+);
+const RegistarLimpezasCopa = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa/RegLimpCopa'
+	)
+);
+const RegistarLimpezasBalcao = lazy(() =>
+	import(
+		'../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'
+	)
+);
+const GerirRegistosUtilizador = lazy(() =>
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GerirUsers/GerirRegistosUtilizador'
+	)
+);
 
 /**
  * Defines the routes for the application using the `createBrowserRouter` function from `react-router-dom`.
@@ -161,23 +197,32 @@ export const routes = createBrowserRouter(
 				<Route path='gerir-produtos' element={<GerirProdutos />} />
 				<Route path='gerir-perfis' element={<GerirPerfis />} />
 				<Route path='gerir-registos' element={<GerirRegistos />} />
-				<Route path='registar-tarefas' element={<UserBtnRegistos />} />
-				<Route path='registo-troca-oleo' element={<RegTrocaOleo />} />
+				<Route path='registar-tarefas' element={<RegistarTarefas />} />
+				<Route
+					path='registo-troca-oleo'
+					element={<RegistarTrocaOleo />}
+				/>
 				<Route
 					path='registo-temperaturas'
-					element={<RegTemperaturas />}
+					element={<RegistarTempFrio />}
 				/>
-				<Route path='registo-limpeza' element={<BtnRegistoLimp />} />
+				<Route path='registo-limpeza' element={<RegistarLimpezas />} />
 				<Route
 					path='registo-limpeza-balcao'
-					element={<RegLimpBalcao />}
+					element={<RegistarLimpezasBalcao />}
 				/>
-				<Route path='registo-limpeza-copa' element={<RegLimpCopa />} />
+				<Route
+					path='registo-limpeza-copa'
+					element={<RegistarLimpezasCopa />}
+				/>
 				<Route
 					path='registo-limpeza-cozinha'
-					element={<RegLimpCozinha />}
+					element={<RegistarLimpezasCozinha />}
 				/>
-				<Route path='registo-limpeza-sala' element={<RegLimpSala />} />
+				<Route
+					path='registo-limpeza-sala'
+					element={<RegistarLimpezasSala />}
+				/>
 				<Route
 					path='registar-produtos'
 					element={<RegistarProdutos />}
