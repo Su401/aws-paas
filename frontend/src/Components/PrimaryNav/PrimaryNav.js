@@ -5,11 +5,36 @@ import logo from '../../Images/logo.png';
 
 export default function PrimaryNav() {
 	const [show, setShow] = useState(false);
+	const [dbUsers, setdbUsers] = useState([]);
 
 	// Handle opening the login modal
-	const handleLogin = (e) => {
+	const HandleLogin = async (e) => {
 		e.preventDefault();
 		setShow(true);
+		try {
+			const response = await fetch(
+				'http://localhost:8080/api/modalUsers',
+				{
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+			if (response.ok) {
+				const dados = await response.json();
+				const dbUserIds = new Set(dbUsers.map((user) => user.id));
+				const newUserData = dados.filter(
+					(user) => !dbUserIds.has(user.id)
+				);
+				const result = [...dbUsers, ...newUserData];
+				setdbUsers(result);
+			} else {
+				console.log('Something went wrong with your data');
+			}
+		} catch (error) {
+			console.error('Erro na solicitação', error);
+		}
 	};
 
 	return (
@@ -43,11 +68,16 @@ export default function PrimaryNav() {
 								<a
 									className='nav-link Typograph'
 									href='/login'
-									onClick={handleLogin}
+									onClick={HandleLogin}
 								>
 									Login
 								</a>
-								<LoginModal show={show} setShow={setShow} />
+								<LoginModal
+									show={show}
+									setShow={setShow}
+									dbUsers={dbUsers}
+									setdbUsers={setdbUsers}
+								/>
 							</li>
 							<li className='nav-item'>
 								<a

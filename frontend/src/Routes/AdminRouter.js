@@ -6,7 +6,7 @@ import { lazy } from 'react';
 const AdminHome = lazy(() => import('../Backoffice/AdminComp/AdminHomebtn/AdminHomebtn'));
 const GerirProdutos = lazy(() => import('../Backoffice/AdminComp/GerirProdutos/GerirProdutos'));
 const GerirPerfis = lazy(() => import('../Backoffice/AdminComp/GerirPerfis/GerirPerfis'));
-const GerirRegistos = lazy(() => import('../Backoffice/AdminComp/GerirRegistos/Registos/GerirRegistos'));
+const GerirRegistos = lazy(() => import('../Backoffice/AdminComp/GerirRegistos/GeirRegistosBtn/GerirRegistosBtn'));
 const UserBtnRegistos = lazy(() => import('../Backoffice/UserComp/UserHomeBtn/UserHomeBtn'));
 const RegistarTarefas = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'))
 const RegistarProdutos = lazy(() => import('../Backoffice/UserComp/RegistoProdutos/RegistarProdutos'));
