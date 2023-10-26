@@ -68,7 +68,7 @@ export default function GerirRegistosBtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-registos'
+										href='/gerir-registos-utilizador'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>

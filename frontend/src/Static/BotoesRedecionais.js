@@ -1,4 +1,5 @@
 import '../css/BotoesRedecionais.css'
+import '../Components/Sass/my-bootstrap.scss'
 export default function BotoesRedecionais() {
     return (
         <div className='backgroundSec'>

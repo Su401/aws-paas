@@ -17,7 +17,8 @@ const RegistarLimpezas = lazy(() => import('../Backoffice/UserComp/RegistoTarefa
 const RegistarLimpezasSala = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala/RegLimpSala'));
 const RegistarLimpezasCozinha = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha/RegLimpCozinha'));
 const RegistarLimpezasCopa = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa/RegLimpCopa'));
-const RegistarLimpezasBalcao= lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'))
+const RegistarLimpezasBalcao = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'))
+const GerirRegistosUtilizador = lazy(() => import('../Backoffice/AdminComp/GerirRegistos/GerirUsers/GerirRegistosUtilizador'))
 const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function AdminRouter() {
@@ -36,7 +37,7 @@ export default function AdminRouter() {
 				/>
 				<Route
 					exact
-					path='/gerir-perfis'	
+					path='/gerir-perfis'
 					element={<GerirPerfis />}
 				/>
 				<Route
@@ -98,6 +99,11 @@ export default function AdminRouter() {
 					exact
 					path='/registo-limpeza-cozinha'
 					element={<RegistarLimpezasCozinha />}
+				/>
+				<Route
+					exact
+					path='/gerir-registos-utilizador'
+					element={<GerirRegistosUtilizador />}
 				/>
 				<Route
 					path='*'
