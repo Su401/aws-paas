@@ -2,7 +2,7 @@ import React from 'react';
 // import { Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './TemplatePrimario.css';
-import '../Homepage/Homepage.css';
+import './Homepage.css';
 
 
 import Card from '../Cards/Card.js';

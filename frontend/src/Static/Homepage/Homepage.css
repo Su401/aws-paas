@@ -1,6 +1,6 @@
 /* Inicio do header navbar */
 
-.Public .Typograph_active {
+.Typograph_active {
   color: #000;
   font-family: Poppins;
   font-size: 29px;
@@ -9,7 +9,7 @@
   line-height: normal;
 }
 
-.Public .Typograph {
+.Typograph {
   color: #000;
   font-family: Poppins;
   font-size: 29px;
@@ -18,16 +18,16 @@
   line-height: light;
 }
 
-.Public .active {
+.active {
   border-bottom: 1px solid black;
 }
 
-.Public li {
+li {
   list-style: none;
   margin-right: 2rem;
 }
 
-.Public .shadow {
+.shadow {
   position: relative;
   background-color: #e2e2e2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -41,7 +41,7 @@
 /* Inicio do Main */
 
 /* Estilizar o cabeçalho */
-.Public .h1 {
+.h1 {
   color: #000;
   font-size: 54px;
   font-style: normal;
@@ -52,12 +52,12 @@
   max-width: 85%;
 }
 
-.Public main {
+main {
   height: auto;
 }
 
 /* Estiliza o subtítulo */
-.Public h2 {
+h2 {
   color: #000;
   font-size: 40px;
   font-style: normal;
@@ -68,7 +68,7 @@
   max-width: 85%;
 }
 
-.Public .subcapitulo {
+.subcapitulo {
   color: #212529;
   font-size: 30px;
   font-style: normal;
@@ -78,7 +78,7 @@
 }
 
 /* Estiliza os parágrafos */
-.Public .paragrafo {
+.paragrafo {
   color: #292828;
   font-size: 22px;
   font-style: normal;
@@ -91,11 +91,11 @@
 }
 
 /* Estiliza os artigos */
-.Public article {
+article {
   margin-bottom: 2rem;
 }
 
-.Public .primeiro {
+.primeiro {
   text-align: left;
 }
 
@@ -124,7 +124,7 @@
 }
 
 /* Estiliza o subtítulo do artigo */
-.Public .subcapitulo {
+.subcapitulo {
   color: #212529;
   font-size: 30px;
   font-style: normal;
@@ -136,7 +136,7 @@
 
 
 
-.Public h3 {
+h3 {
   color: #36bae2;
   font-size: 30px;
   font-style: normal;
@@ -155,12 +155,12 @@
 
 /* Estilos gerais do footer */
 
-.Public .black-link {
+.black-link {
   color: #000;
   text-decoration: none;
 }
 
-.Public .use-links ul {
+.use-links ul {
   display: flex;
   justify-content: flex-start;
   /* Alinha os itens à esquerda */
@@ -168,18 +168,18 @@
   margin: 0;
 }
 
-.Public .use-links ul li {
+.use-links ul li {
   list-style-type: none;
   margin-right: 2rem;
 }
 
-.Public .social-icons {
+.social-icons {
   display: flex;
   justify-content: flex-end;
   font-size: 1.5rem;
 }
 
-.Public .shadow {
+.shadow {
   position: relative;
   background-color: #e2e2e2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -187,7 +187,7 @@
 
 
 
-.Public .shadowf {
+.shadowf {
   background: #e2e2e2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
   padding-top: 1rem;
@@ -217,19 +217,19 @@
 
 @media (max-width: 767px) {
 
-  .Public .use-links ul {
+  .use-links ul {
     flex-direction: column;
     /* coloca os itens verticalmente em dispositivos pequenos */
     align-items: center;
     /* Centra os itens na vertical */
   }
 
-  .Public .use-links ul li {
+  .use-links ul li {
     margin: 5px 0;
     /* Adiciona espaço entre os itens */
   }
 
-  .Public .social-icons {
+  .social-icons {
     justify-content: center;
     /* Centra os ícones na horizontal */
   }
@@ -244,7 +244,7 @@
     /* Centrar os itens do menu */
   }
 
-  .Public .nav-item {
+  .nav-item {
     margin-right: 0;
     /* Remove a margem direita para itens do menu */
     margin-bottom: 10px;
