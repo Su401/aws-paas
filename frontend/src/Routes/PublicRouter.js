@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
 //Public
-const Homepage = lazy(() => import('../Static/Homepage'));
+const Homepage = lazy(() => import('../Static/Homepage/Homepage'));
 
 //Static
 const AboutUs = lazy(() => import('../Static/AboutUs'));

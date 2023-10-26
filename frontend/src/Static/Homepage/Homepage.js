@@ -2,12 +2,11 @@ import React from 'react';
 // import { Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './TemplatePrimario.css';
-import './Homepage.css';
+import '../Homepage/Homepage.css';
 
-import imgbenef from '../Images/pexels-fauxels-3183197.jpg';
-import imgsetores from '../Images/pexels-jopwell-2422293.jpg';
-import Card from './Card.js';
-import Card2 from './Card2.js';
+
+import Card from '../Cards/Card.js';
+import Card2 from '../Cards/Card2.js';
 
 
 // export default function Homepage() {
