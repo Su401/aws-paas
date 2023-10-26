@@ -16,7 +16,7 @@ router.post('/login', loginController);
 
 router.post('/gerirRegistos', findRecordsController);
 
-router.post('/modalUsers', findModalUsersController);
+router.get('/modalUsers', findModalUsersController);
 
 module.exports = {
 	userRouter: router,
