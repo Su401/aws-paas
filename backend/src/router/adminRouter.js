@@ -19,6 +19,10 @@ router.delete('/deleteUser', deleteByUsername);
 
 router.put('/updateUser', updateUserByUserame);
 
+router.post('/gerirRegistos', findRecordsController);
+
+router.get('/modalUsers', findModalUsersController);
+
 module.exports = {
 	adminRouter: router,
 };

@@ -14,6 +14,8 @@ export default function LoginModal({ show, setShow }) {
 
 	const handleClose = () => setShow(false);
 
+
+
 	const handleImgClick = (img) => {
 		setSelectedImg(img);
 	};
@@ -70,7 +72,9 @@ export default function LoginModal({ show, setShow }) {
 		handleClose();
 	};
 
+
 	return (
+
 		<>
 			<Modal
 				show={show}
