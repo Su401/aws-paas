@@ -6,16 +6,17 @@ import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import logo from '../../Images/logo.png';
 
-export default function LoginModal({ show, setShow }) {
+export default function LoginModal({ show, setShow, dbUsers }) {
+	console.log(dbUsers);
 	const [selectedImg, setSelectedImg] = useState(null);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const [dbUsers, setDbUsers] = useState([]);
 
 	const handleClose = () => setShow(false);
 
-	const handleImgClick = (img) => {
+	const handleImgClick = (img, username) => {
 		setSelectedImg(img);
+		setUsername(username);
 	};
 
 	const handleSubmit = async (e) => {
@@ -99,6 +100,7 @@ export default function LoginModal({ show, setShow }) {
 										setPassword(e.target.value)
 									}
 								/>
+
 								<div className='d-flex bd-highlight mb-3'>
 									<div className='ms-auto p-2 bd-highlight'>
 										<div>
@@ -126,18 +128,13 @@ export default function LoginModal({ show, setShow }) {
 }
 
 function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
-	// Check if dbUsers is defined and not null before mapping
-	if (!dbUsers) {
-		console.log(dbUsers);
-		return 'loading'; // or return a loading indicator or an error message
-	}
 	return dbUsers.map((elem) => (
 		<UserWithProfile
 			selectedImg={selectedImg}
 			key={elem.nif}
-			handleImgClick={handleImgClick}
+			handleImgClick={(img) => handleImgClick(img, elem.username)}
 			dbUsers={elem.username}
-			numberNif={elem.nif}
+			imagemUser={elem.myFile}
 		/>
 	));
 }
