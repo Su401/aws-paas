@@ -248,11 +248,11 @@ export default function UserForm({
 			</Form.Group>
 			<Form.Group as={Row} className='mb-3'>
 				<Form.Label htmlFor='role' column sm='6'>
-					isAdmin:
+					Cargo:
 				</Form.Label>
 				<Col sm='6'>
-					<Form.Check
-						type='checkbox'
+					<Form.Control
+						type='string'
 						className='filled'
 						id='role'
 						name='role'
@@ -261,6 +261,26 @@ export default function UserForm({
 							setFormInputs({
 								...formInputs,
 								role: e.target.checked,
+							})
+						}
+					/>
+				</Col>
+			</Form.Group>
+			<Form.Group as={Row} className='mb-3'>
+				<Form.Label htmlFor='isAdmin' column sm='6'>
+					isAdmin:
+				</Form.Label>
+				<Col sm='6'>
+					<Form.Check
+						type='checkbox'
+						className='filled'
+						id='isAdmin'
+						name='isAdmin'
+						checked={formInputs.isAdmin}
+						onChange={(e) =>
+							setFormInputs({
+								...formInputs,
+								isAdmin: e.target.checked,
 							})
 						}
 					/>

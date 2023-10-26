@@ -4,9 +4,12 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Modal from '../../../node_modules/react-bootstrap/Modal';
 import Button from '../../../node_modules/react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import logo from '../../Images/logo.png';
 
 export default function LoginModal({ show, setShow, dbUsers }) {
 	const [selectedImg, setSelectedImg] = useState(null);
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleClose = () => setShow(false);
 
@@ -14,8 +17,28 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 		setSelectedImg(img);
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		try {
+			const res = await fetch(`http://localhost:8080/user/login`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					username: username,
+					password: password,
+				}),
+			});
+			if (!res.ok) {
+				throw new Error('Failed to fetch users data');
+			}
+		} catch (error) {
+			console.error(
+				'An error occurred while fetching users data: ',
+				error
+			);
+		}
 		handleClose();
 	};
 
@@ -51,41 +74,31 @@ export default function LoginModal({ show, setShow, dbUsers }) {
 									htmlFor='password'
 									className='password-edit'
 								>
-									PASSWORD:
+									Username:
+								</label>
+								<Form.Control
+									type='text'
+									placeholder='Username'
+									value={username}
+									onChange={(e) =>
+										setUsername(e.target.value)
+									}
+								/>
+								<label
+									htmlFor='password'
+									className='password-edit'
+								>
+									Password:
 								</label>
 								<Form.Control
 									type='password'
-									id='password'
-									name='password'
-									placeholder='Insert Password...'
+									placeholder='Password'
+									value={password}
+									onChange={(e) =>
+										setPassword(e.target.value)
+									}
 								/>
-
 								<div className='d-flex bd-highlight mb-3'>
-									<div className='p-2 bd-highlight '>
-										<div>
-											<Button
-												type='submit'
-												className='submitButton'
-												id='entradaConta'
-												name='entradaConta'
-											>
-												{' '}
-												ENTRADA{' '}
-											</Button>
-										</div>
-									</div>
-									<div className='p-2 bd-highlight'>
-										<div>
-											<Button
-												type='submit'
-												className='submitButton'
-												id='saidaConta'
-												name='saidaConta'
-											>
-												SAIDA{' '}
-											</Button>
-										</div>
-									</div>
 									<div className='ms-auto p-2 bd-highlight'>
 										<div>
 											<Button
@@ -118,12 +131,12 @@ function UsersWithProfile({ selectedImg, handleImgClick, dbUsers }) {
 			key={elem.nif}
 			handleImgClick={handleImgClick}
 			dbUsers={elem.username}
-			numberNif={elem.nif}
+			imagemUser={elem.myFile}
 		/>
 	));
 }
 
-function UserWithProfile({ handleImgClick, dbUsers, numberNif }) {
+function UserWithProfile({ handleImgClick, dbUsers, imagemUser }) {
 	return (
 		<div className='col-lg text-center'>
 			<div>
@@ -131,7 +144,7 @@ function UserWithProfile({ handleImgClick, dbUsers, numberNif }) {
 					className='normal'
 					style={{ width: '100px', height: '90px' }}
 					alt={dbUsers}
-					src={`https://i.pravatar.cc/48${numberNif}`}
+					src={!imagemUser ? logo : imagemUser}
 					onClick={() => handleImgClick(dbUsers)}
 				/>
 				<div className='nomesUsers'>

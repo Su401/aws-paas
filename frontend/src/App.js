@@ -1,7 +1,6 @@
 import './App.css';
-import { useState } from 'react';
 
-import { AuthProvider } from './Components/Auth/AuthContext';
+import { useAuth } from './Components/Auth/AuthContext';
 
 import PrimaryNav from './Components/PrimaryNav/PrimaryNav';
 import Footer from './Components/Footer/Footer';
@@ -11,10 +10,11 @@ import PublicRouter from './Routes/PublicRouter';
 import UserRouter from './Routes/UserRouter';
 import AdminRouter from './Routes/AdminRouter';
 export default function App() {
-	const [isLoged, setIsLoged] = useState(true);
-	const [isAdmin, setIsAdmin] = useState(true);
-	if (isLoged) {
-		if (isAdmin) {
+	const { user } = useAuth();
+
+	if (user) {
+		//User is logged in
+		if (user.isAdmin) {
 			return (
 				<div className='Admin'>
 					<header className='sticky-top'>
@@ -38,6 +38,7 @@ export default function App() {
 			);
 		}
 	} else {
+		// User is not logged in
 		return (
 			<div className='Public'>
 				<header className='sticky-top'>

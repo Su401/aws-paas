@@ -19,6 +19,7 @@ export default function GerirPerfis() {
 		email: '',
 		phone: '',
 		role: '',
+		isAdmin: '',
 		userAddress: '',
 		nif: '',
 		insurance: {
@@ -41,6 +42,7 @@ export default function GerirPerfis() {
 		email: '',
 		phone: '',
 		role: '',
+		isAdmin: '',
 		userAddress: '',
 		nif: '',
 		insuranceName: '',
@@ -61,6 +63,7 @@ export default function GerirPerfis() {
 				email: selectedUser.email,
 				phone: selectedUser.phone,
 				role: selectedUser.role,
+				isAdmin: selectedUser.isAdmin,
 				userAddress: selectedUser.userAddress,
 				nif: selectedUser.nif,
 				insurance: {
@@ -86,19 +89,16 @@ export default function GerirPerfis() {
 	 */
 	const fetchUsers = async () => {
 		try {
-			const response = await fetch(
-				`http://localhost:8080/user/allUsers`,
-				{
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				}
-			);
-			if (!response.ok) {
+			const res = await fetch(`http://localhost:8080/admin/allUsers`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+			if (!res.ok) {
 				throw new Error('Failed to fetch users data');
 			}
-			const usersData = await response.json();
+			const usersData = await res.json();
 			setUsers(usersData.allUsers);
 		} catch (error) {
 			console.error(
@@ -115,18 +115,15 @@ export default function GerirPerfis() {
 	 */
 	const handleCreateUser = async () => {
 		try {
-			const response = await fetch(
-				`http://localhost:8080/user/createUser`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(formInputs),
-				}
-			);
+			const res = await fetch(`http://localhost:8080/admin/createUser`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formInputs),
+			});
 
-			if (response.ok) {
+			if (res.ok) {
 				// Clear the form fields after successful creation
 				setFormInputs({
 					username: '',
@@ -136,6 +133,7 @@ export default function GerirPerfis() {
 					email: '',
 					phone: '',
 					role: '',
+					isAdmin: '',
 					userAddress: '',
 					nif: '',
 					insuranceName: '',
@@ -169,6 +167,7 @@ export default function GerirPerfis() {
 			email: user.email,
 			phone: user.phone,
 			role: user.role,
+			isAdmin: user.isAdmin,
 			userAddress: user.userAddress,
 			nif: user.nif,
 			insuranceName: user.insurance.name,
@@ -185,8 +184,8 @@ export default function GerirPerfis() {
 	 */
 	const handleDeleteUser = async (usernameToDelete) => {
 		try {
-			const response = await fetch(
-				`http://localhost:8080/user/deleteUser?username=${usernameToDelete}`,
+			const res = await fetch(
+				`http://localhost:8080/admin/deleteUser?username=${usernameToDelete}`,
 				{
 					method: 'DELETE',
 					headers: {
@@ -195,7 +194,7 @@ export default function GerirPerfis() {
 				}
 			);
 
-			if (!response.ok) {
+			if (!res.ok) {
 				throw new Error('Failed to delete user');
 			} else {
 				setFormInputs({
@@ -206,6 +205,7 @@ export default function GerirPerfis() {
 					email: '',
 					phone: '',
 					role: '',
+					isAdmin: '',
 					userAddress: '',
 					nif: '',
 					insuranceName: '',
@@ -234,8 +234,8 @@ export default function GerirPerfis() {
 	 */
 	const handleEditUser = async (usernameToEdit) => {
 		try {
-			const response = await fetch(
-				`http://localhost:8080/user/updateUser?username=${usernameToEdit}`,
+			const res = await fetch(
+				`http://localhost:8080/admin/updateUser?username=${usernameToEdit}`,
 				{
 					method: 'PUT',
 					headers: {
@@ -244,7 +244,7 @@ export default function GerirPerfis() {
 					body: JSON.stringify(formInputs),
 				}
 			);
-			if (!response.ok) {
+			if (!res.ok) {
 				throw new Error('Failed to update user');
 			} else {
 				setFormInputs({
@@ -255,6 +255,7 @@ export default function GerirPerfis() {
 					email: '',
 					phone: '',
 					role: '',
+					isAdmin: '',
 					userAddress: '',
 					nif: '',
 					insuranceName: '',
@@ -284,6 +285,7 @@ export default function GerirPerfis() {
 				email: '',
 				phone: '',
 				role: '',
+				isAdmin: '',
 				userAddress: '',
 				nif: '',
 				insurance: {

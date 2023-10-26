@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
 		return () => {
 			unsubscribe();
 		};
-	}, [auth]);
+	}, []);
 
 	const signIn = async (username, password) => {
 		try {

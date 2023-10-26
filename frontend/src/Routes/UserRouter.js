@@ -59,7 +59,7 @@ export default function UserRouter() {
 	return (
 		<Router>
 			<Routes>
-				<Route exact path='/' element={<UserHomeBtn />} />
+				<Route exact path='/user' element={<UserHomeBtn />} />
 				<Route
 					exact
 					path='/consultar-tarefas'

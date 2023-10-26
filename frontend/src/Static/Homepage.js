@@ -11,8 +11,6 @@ export default function Homepage() {
 		{
 			titulo: 'Benefícios da Nossa Abordagem Digital',
 			texto: 'Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.',
-			titulo: 'Benefícios da Nossa Abordagem Digital',
-			texto: 'Eliminação da Papelada: Diga adeus à papelada volumosa e à gestão manual de documentos. As nossas soluções digitais permitem que você armazene e acesse facilmente os dados necessários, economizando tempo e recursos preciosos.',
 			imagem: imgbenef,
 		},
 		{
