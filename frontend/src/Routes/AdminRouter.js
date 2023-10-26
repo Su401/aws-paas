@@ -11,6 +11,13 @@ const UserBtnRegistos = lazy(() => import('../Backoffice/UserComp/UserHomeBtn/Us
 const RegistarTarefas = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/UserBtnRegistos/UserBtnRegistos'))
 const RegistarProdutos = lazy(() => import('../Backoffice/UserComp/RegistoProdutos/RegistarProdutos'));
 const ConsultarRegistos = lazy(() => import('../Backoffice/AdminComp/ConsultarRegistos/ConsultarRegistos'));
+const RegistarTrocaOleo = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Oleo/RegistarTrocaOleo'));
+const RegistarTempFrio = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Temperaturas/RegTemperaturas'));
+const RegistarLimpezas = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas'));
+const RegistarLimpezasSala = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpSala/RegLimpSala'));
+const RegistarLimpezasCozinha = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCozinha/RegLimpCozinha'));
+const RegistarLimpezasCopa = lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpCopa/RegLimpCopa'));
+const RegistarLimpezasBalcao= lazy(() => import('../Backoffice/UserComp/RegistoTarefas/Limpezas/RegLimpBalcao/RegLimpBalcao'))
 const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function AdminRouter() {
@@ -29,7 +36,7 @@ export default function AdminRouter() {
 				/>
 				<Route
 					exact
-					path='/gerir-perfis'
+					path='/gerir-perfis'	
 					element={<GerirPerfis />}
 				/>
 				<Route
@@ -57,7 +64,41 @@ export default function AdminRouter() {
 					path='/consultar-registos'
 					element={<ConsultarRegistos />}
 				/>
-
+				<Route
+					exact
+					path='/registo-troca-oleo'
+					element={<RegistarTrocaOleo />}
+				/>
+				<Route
+					exact
+					path='/registo-temperaturas'
+					element={<RegistarTempFrio />}
+				/>
+				<Route
+					exact
+					path='/registo-limpeza'
+					element={<RegistarLimpezas />}
+				/>
+				<Route
+					exact
+					path='/registo-limpeza-balcao'
+					element={<RegistarLimpezasBalcao />}
+				/>
+				<Route
+					exact
+					path='/registo-limpeza-sala'
+					element={<RegistarLimpezasSala />}
+				/>
+				<Route
+					exact
+					path='/registo-limpeza-copa'
+					element={<RegistarLimpezasCopa />}
+				/>
+				<Route
+					exact
+					path='/registo-limpeza-cozinha'
+					element={<RegistarLimpezasCozinha />}
+				/>
 				<Route
 					path='*'
 					element={<NotFound />} />
