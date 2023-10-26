@@ -5,8 +5,8 @@ const { getAllContacts, enviarMensagem} =require ("../controllers/contactos")
 
 
 
-/* router.post("/enviar-mensagem", enviarMensagem )
- */router.get("/enviar-mensagem", getAllContacts)
+router.post("/enviar-mensagem", enviarMensagem )
+router.get("/enviar-mensagem", getAllContacts)
 
 
 

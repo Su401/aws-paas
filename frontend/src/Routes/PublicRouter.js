@@ -6,7 +6,7 @@ const Homepage = lazy(() => import('../Static/Homepage/Homepage'));
 
 //Static
 const AboutUs = lazy(() => import('../Static/AboutUs'));
-const ContactUs = lazy(() => import('../Static/Contactos'));
+const ContactUs = lazy(() => import('../Static/Contactos/Contactos'));
 const Policies = lazy(() => import('../Static/PoliticaPrivacidade'));
 const Terms = lazy(() => import('../Static/TermosCondicoes'));
 const Beneficios = lazy(() => import('../Static/Beneficios'));

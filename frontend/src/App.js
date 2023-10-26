@@ -11,8 +11,8 @@ import PublicRouter from './Routes/PublicRouter';
 import UserRouter from './Routes/UserRouter';
 import AdminRouter from './Routes/AdminRouter';
 export default function App() {
-	const [isLoged, setIsLoged] = useState(true);
-	const [isAdmin, setIsAdmin] = useState(true);
+	const [isLoged, setIsLoged] = useState(false);
+	const [isAdmin, setIsAdmin] = useState(false);
 	if (isLoged) {
 		if (isAdmin) {
 			return (
