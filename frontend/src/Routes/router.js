@@ -119,10 +119,6 @@ export const routes = createBrowserRouter(
 				<Route index element={<UserHomeBtn />} />
 				<Route path='consultar-tarefas' element={<ConsultaTarefas />} />
 				<Route path='registar-tarefas' element={<UserBtnRegistos />} />
-				<Route
-					path='registar-produtos'
-					element={<RegistarProdutos />}
-				/>
 				<Route path='registo-troca-oleo' element={<RegTrocaOleo />} />
 				<Route
 					path='registo-temperaturas'
@@ -139,6 +135,11 @@ export const routes = createBrowserRouter(
 					element={<RegLimpCozinha />}
 				/>
 				<Route path='registo-limpeza-sala' element={<RegLimpSala />} />
+
+				<Route
+					path='registar-produtos'
+					element={<RegistarProdutos />}
+				/>
 				<Route path='*' element={<NotFound />} />
 			</Route>
 			<Route path='/admin' element={<AdminTemplate />}>
@@ -146,8 +147,23 @@ export const routes = createBrowserRouter(
 				<Route path='gerir-produtos' element={<GerirProdutos />} />
 				<Route path='gerir-perfis' element={<GerirPerfis />} />
 				<Route path='gerir-registos' element={<GerirRegistos />} />
-				<Route path='registar-tarefas' element={<RegistarTarefas />} />
 				<Route path='registar-tarefas' element={<UserBtnRegistos />} />
+				<Route path='registo-troca-oleo' element={<RegTrocaOleo />} />
+				<Route
+					path='registo-temperaturas'
+					element={<RegTemperaturas />}
+				/>
+				<Route path='registo-limpeza' element={<BtnRegistoLimp />} />
+				<Route
+					path='registo-limpeza-balcao'
+					element={<RegLimpBalcao />}
+				/>
+				<Route path='registo-limpeza-copa' element={<RegLimpCopa />} />
+				<Route
+					path='registo-limpeza-cozinha'
+					element={<RegLimpCozinha />}
+				/>
+				<Route path='registo-limpeza-sala' element={<RegLimpSala />} />
 				<Route
 					path='registar-produtos'
 					element={<RegistarProdutos />}

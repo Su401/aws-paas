@@ -37,7 +37,7 @@ function DirectionalButtons() {
 						>
 							<div className='card-body'>
 								<a
-									href='/registo-troca-oleo'
+									href='/user/registo-troca-oleo'
 									className='stretched-link btnedit'
 								>
 									<span className='letterEdit'>REGISTAR</span>
@@ -56,7 +56,10 @@ function DirectionalButtons() {
 							style={{ width: '20rem', height: '15rem' }}
 						>
 							<div className='card-body'>
-								<a href='/registo-limpeza' className=' btnedit'>
+								<a
+									href='user/registo-limpeza'
+									className=' btnedit'
+								>
 									<span className='letterEdit'>REGISTAR</span>
 									<br></br>{' '}
 									<span className='letter2Edit'>LIMPEZA</span>
@@ -71,7 +74,7 @@ function DirectionalButtons() {
 						>
 							<div className='card-body'>
 								<a
-									href='/registo-temperaturas'
+									href='user/registo-temperaturas'
 									className='btnedit'
 								>
 									<span className='letterEdit'>REGISTAR</span>
