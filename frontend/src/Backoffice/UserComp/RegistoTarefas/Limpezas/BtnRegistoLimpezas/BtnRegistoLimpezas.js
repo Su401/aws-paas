@@ -28,22 +28,22 @@ export default function BtnRegistoLimpezas() {
 				<div className="btn-container">
 					<div className="row mt-3">
 						<div className="col-12 col-md-12 col-btn">
-							<a href="/registo-limpeza-balcao">
+							<a href={"/admin/registo-limpeza-balcao" || "/user/registo-limpeza-balcao"}>
 								<button className="btn btn-primary shadow-sm btn-lg" type="button">Balcão</button>
 							</a>
 						</div>
 						<div className="col-12 col-md-12 col-btn">
-							<a href="/registo-limpeza-sala">
+							<a href={"/admin/registo-limpeza-sala" || "/user/registo-limpeza-sala"}>
 								<button className="btn btn-primary shadow-sm btn-lg" type="button">Sala</button>
 							</a>
 						</div>
 						<div className="col-12 col-md-12 col-btn">
-							<a href="registo-limpeza-copa">
+							<a href={"/admin/registo-limpeza-copa" || "/user/registo-limpeza-copa"}>
 								<button className="btn btn-primary shadow-sm btn-lg" type="button">Copa</button>
 							</a>
 						</div>
 						<div className="col-12 col-md-12 col-btn">
-							<a href="registo-limpeza-cozinha">
+							<a href={"/user/registo-limpeza-cozinha" || "/admin/registo-limpeza-cozinha"}>
 								<button className="btn btn-primary shadow-sm btn-lg" type="button">Cozinha</button>
 							</a>
 						</div>

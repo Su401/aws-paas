@@ -108,9 +108,7 @@ const RegistarTempFrio = lazy(() =>
 	import('../Backoffice/UserComp/RegistoTarefas/Temperaturas/RegTemperaturas')
 );
 const RegistarLimpezas = lazy(() =>
-	import(
-		'../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas'
-	)
+	import('../Backoffice/UserComp/RegistoTarefas/Limpezas/BtnRegistoLimpezas/BtnRegistoLimpezas')
 );
 const RegistarLimpezasSala = lazy(() =>
 	import(
@@ -167,26 +165,13 @@ export const routes = createBrowserRouter(
 				<Route path='consultar-tarefas' element={<ConsultaTarefas />} />
 				<Route path='registar-tarefas' element={<UserBtnRegistos />} />
 				<Route path='registo-troca-oleo' element={<RegTrocaOleo />} />
-				<Route
-					path='registo-temperaturas'
-					element={<RegTemperaturas />}
-				/>
+				<Route path='registo-temperaturas' element={<RegTemperaturas />} />
 				<Route path='registo-limpeza' element={<BtnRegistoLimp />} />
-				<Route
-					path='registo-limpeza-balcao'
-					element={<RegLimpBalcao />}
-				/>
+				<Route path='registo-limpeza-balcao'element={<RegLimpBalcao />} />
 				<Route path='registo-limpeza-copa' element={<RegLimpCopa />} />
-				<Route
-					path='registo-limpeza-cozinha'
-					element={<RegLimpCozinha />}
-				/>
+				<Route path='registo-limpeza-cozinha' element={<RegLimpCozinha />} />
 				<Route path='registo-limpeza-sala' element={<RegLimpSala />} />
-
-				<Route
-					path='registar-produtos'
-					element={<RegistarProdutos />}
-				/>
+				<Route path='registar-produtos' element={<RegistarProdutos />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>
 			{/* ADMIN */}
@@ -196,40 +181,15 @@ export const routes = createBrowserRouter(
 				<Route path='gerir-perfis' element={<GerirPerfis />} />
 				<Route path='gerir-registos' element={<GerirRegistos />} />
 				<Route path='registar-tarefas' element={<RegistarTarefas />} />
-				<Route
-					path='registo-troca-oleo'
-					element={<RegistarTrocaOleo />}
-				/>
-				<Route
-					path='registo-temperaturas'
-					element={<RegistarTempFrio />}
-				/>
+				<Route path='registo-troca-oleo'element={<RegistarTrocaOleo />} />
+				<Route path='registo-temperaturas' element={<RegistarTempFrio />}/>
 				<Route path='registo-limpeza' element={<RegistarLimpezas />} />
-				<Route
-					path='registo-limpeza-balcao'
-					element={<RegistarLimpezasBalcao />}
-				/>
-				<Route
-					path='registo-limpeza-copa'
-					element={<RegistarLimpezasCopa />}
-				/>
-				<Route
-					path='registo-limpeza-cozinha'
-					element={<RegistarLimpezasCozinha />}
-				/>
-				<Route
-					path='registo-limpeza-sala'
-					element={<RegistarLimpezasSala />}
-				/>
-				<Route
-					path='registar-produtos'
-					element={<RegistarProdutos />}
-				/>
-				<Route
-					path='consultar-registos'
-					element={<ConsultarRegistos />}
-				/>
-
+				<Route path='registo-limpeza-balcao' element={<RegistarLimpezasBalcao />} />
+				<Route path='registo-limpeza-copa' element={<RegistarLimpezasCopa />} />
+				<Route path='registo-limpeza-cozinha' element={<RegistarLimpezasCozinha />} />
+				<Route path='registo-limpeza-sala' element={<RegistarLimpezasSala />} />
+				<Route path='registar-produtos' element={<RegistarProdutos />} />
+				<Route path='consultar-registos' element={<ConsultarRegistos />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>
 		</>
