@@ -104,7 +104,9 @@ function RegTemperaturas(props) {
 	}
 
 	const handleButtonSubmeter = async () => {
-		console.log(addedEquipaments)
+		if (addedEquipaments.length === 0){
+			alert("Preencha os campos!")
+		}
 	}
 	return (
 		<Container className='RegTemperaturas backgroundSec'>
