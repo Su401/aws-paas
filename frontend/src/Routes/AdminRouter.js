@@ -67,6 +67,10 @@ const GerirRegistosUtilizador = lazy(() =>
 		'../Backoffice/AdminComp/GerirRegistos/GerirUsers/GerirRegistosUtilizador'
 	)
 );
+const GerirLimpeza = lazy(() => 
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GerirLimpeza/GerirLimpeza'
+	))
 const NotFound = lazy(() => import('../Components/404/404'));
 
 export default function AdminRouter() {
@@ -79,7 +83,10 @@ export default function AdminRouter() {
 					path='/gerir-produtos'
 					element={<GerirProdutos />}
 				/>
-				<Route exact path='/gerir-perfis' element={<GerirPerfis />} />
+				<Route 
+					exact 
+					path='/gerir-perfis' 
+					element={<GerirPerfis />} />
 				<Route
 					exact
 					path='/gerir-registos'
@@ -144,6 +151,11 @@ export default function AdminRouter() {
 					exact
 					path='/gerir-registos-utilizador'
 					element={<GerirRegistosUtilizador />}
+				/>
+				<Route 
+					exact
+					path='/gerir-registos-limpeza'
+					element={<GerirLimpeza />}
 				/>
 				<Route path='*' element={<NotFound />} />
 			</Routes>

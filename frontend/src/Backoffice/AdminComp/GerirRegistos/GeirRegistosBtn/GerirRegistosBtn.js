@@ -24,7 +24,7 @@ export default function GerirRegistosBtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-registos'
+										href='/admin/gerir-registos-equipamentos'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -46,7 +46,7 @@ export default function GerirRegistosBtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-registos'
+										href='/admin/gerir-registos-limpeza'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>
@@ -68,7 +68,7 @@ export default function GerirRegistosBtn() {
 							>
 								<div className='card-body'>
 									<a
-										href='/gerir-registos-utilizador'
+										href='/admin/gerir-registos-utilizador'
 										className='stretched-link btnedit'
 									>
 										<span className='letterEdit'>

@@ -136,6 +136,18 @@ const GerirRegistosUtilizador = lazy(() =>
 	)
 );
 
+const GerirRegistosLimpeza = lazy(() => 
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GerirLimpeza/GerirLimpeza'
+	)
+);
+
+const GerirRegistosEquipamentos = lazy(() => 
+	import(
+		'../Backoffice/AdminComp/GerirRegistos/GerirRegistosEquipamentos/GerirRegistosEquipamentos'
+	)
+	)
+
 /**
  * Defines the routes for the application using the `createBrowserRouter` function from `react-router-dom`.
  * The routes are defined using the `createRoutesFromElements` function and JSX elements.
@@ -190,6 +202,9 @@ export const routes = createBrowserRouter(
 				<Route path='registo-limpeza-sala' element={<RegistarLimpezasSala />} />
 				<Route path='registar-produtos' element={<RegistarProdutos />} />
 				<Route path='consultar-registos' element={<ConsultarRegistos />} />
+				<Route path='gerir-registos-utilizador' element={<GerirRegistosUtilizador/>}/>
+				<Route path='gerir-registos-limpeza' element={<GerirRegistosLimpeza/>}></Route>
+				<Route path='gerir-registos-equipamentos' element={<GerirRegistosEquipamentos/>}></Route>
 				<Route path='*' element={<NotFound />} />
 			</Route>
 		</>

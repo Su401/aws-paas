@@ -7,7 +7,7 @@ import CaixaSelecao from './CaixaSelecao';
 import Table from 'react-bootstrap/Table';
 
 function RegTemperaturas(props) {
-	const [caixaSelecaoEquipamento, setCaixaSelecaoEquipamento] = useState([]);
+	const [caixaSelecaoEquipamento, setCaixaSelecaoEquipamento] = useState(["frio 1", "frio 2"]);
 	const [caixaSelecaoEquipamentoValor, setCaixaSelecaoEquipamentoValor] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 	const [caixaInputTempAbertura, setCaixaInputTempAbertura] = useState('');
@@ -31,13 +31,13 @@ function RegTemperaturas(props) {
 			}
 			const equipmentsData = await response.json();
 			console.log(equipmentsData);
-			setCaixaSelecaoEquipamento(
+			/*setCaixaSelecaoEquipamento(
 				equipmentsData.allEquipaments.map((equip) => ({
 					type: { value: equip._id },
 					label: equip.name,
 					id: equip._id,
 				}))
-			);
+			);*/
 			setCaixaSelecaoEquipamentoValor(
 				equipmentsData.allEquipaments[0].name
 			);
