@@ -21,7 +21,6 @@ export default function UserTable({
 					<th scope='col'>NIF</th>
 					<th scope='col'>Contacto</th>
 					<th scope='col'>Apólice</th>
-					<th scope='col'>Photo</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,7 +30,7 @@ export default function UserTable({
 						onClick={() => handleTableRowClick(user)} // Add this line to handle row click
 						className={
 							selectedUser &&
-								selectedUser.username === user.username
+							selectedUser.username === user.username
 								? 'selected-row'
 								: ''
 						}

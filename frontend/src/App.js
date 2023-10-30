@@ -1,6 +1,5 @@
 import './App.css';
 
-import { useAuth } from './Components/Auth/AuthContext';
 import { RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './Components/Auth/AuthContext';
 
