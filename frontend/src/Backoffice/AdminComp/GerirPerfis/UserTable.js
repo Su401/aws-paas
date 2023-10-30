@@ -21,7 +21,6 @@ export default function UserTable({
 					<th scope='col'>NIF</th>
 					<th scope='col'>Contacto</th>
 					<th scope='col'>Apólice</th>
-					<th scope='col'>Photo</th>
 				</tr>
 			</thead>
 			<tbody>
