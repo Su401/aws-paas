@@ -12,9 +12,11 @@ export default function UserTable({
 			className='table table-hover table-light table-sm align-middle'
 		>
 			<thead>
-				<th colSpan='8' className='table-secondary table-title'>
-					Lista de Perfis
-				</th>
+				<tr>
+					<th colSpan='5' className='table-secondary table-title'>
+						Lista de Perfis
+					</th>
+				</tr>
 				<tr className='information'>
 					<th scope='col'>Username</th>
 					<th scope='col'>Nome</th>
