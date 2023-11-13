@@ -30,7 +30,7 @@ export default function UserTable({
 						onClick={() => handleTableRowClick(user)} // Add this line to handle row click
 						className={
 							selectedUser &&
-								selectedUser.username === user.username
+							selectedUser.username === user.username
 								? 'selected-row'
 								: ''
 						}
